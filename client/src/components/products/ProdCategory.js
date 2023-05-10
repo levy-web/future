@@ -15,7 +15,7 @@ function ProdCategory() {
 
     useEffect(()=>{
 
-        fetch(`/categories/${category}`)
+        fetch(`https://protexx.onrender.com/categories/${category}`)
         .then((r)=>r.json())
         .then((data)=>setProducts(data.products))
     }, [category])

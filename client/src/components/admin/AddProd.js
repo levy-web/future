@@ -83,7 +83,7 @@ function AddProd() {
   
     function handleSubmitToApi(data){
   
-       fetch('/products',{
+       fetch('https://protexx.onrender.com/products',{
         method: "POST",
         body:data  
        })

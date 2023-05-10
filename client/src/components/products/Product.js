@@ -20,7 +20,7 @@ function Product() {
 
     useEffect(()=>{
         dispatch(fetchCategories())
-        fetch('/products')
+        fetch('https://protexx.onrender.com/products')
         .then((r)=>r.json())
         .then((data)=>{
           setProducts(data)

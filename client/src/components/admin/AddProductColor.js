@@ -8,7 +8,7 @@ function AddProductColor({popupColor}) {
 
 
     useEffect(()=>{
-        fetch('/colors')
+        fetch('https://protexx.onrender.com/colors')
         .then((r)=>r.json())
         .then((data)=>setColors(data))
     },[])
@@ -39,7 +39,7 @@ function AddProductColor({popupColor}) {
     
       function handleSubmitToApi(data){
     
-         fetch('/prod-colors',{
+         fetch('https://protexx.onrender.com/prod-colors',{
           method: "POST",
           body:data  
          })

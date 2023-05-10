@@ -20,7 +20,7 @@ function AddCategory() {
       protected_area: protectionArea
     }
 
-    fetch('/categories',{
+    fetch('https://protexx.onrender.com/categories',{
       method: "POST",
       headers:{
           "Content-Type":"application/json"

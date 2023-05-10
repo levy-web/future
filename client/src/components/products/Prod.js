@@ -11,7 +11,7 @@ function Prod() {
     const {category, protectedArea, id} = useParams()
 
     useEffect(()=>{
-        fetch(`/products/${id}`)
+        fetch(`https://protexx.onrender.com/products/${id}`)
         .then((r)=>r.json())
         .then((data)=>{
             setProduct(data)

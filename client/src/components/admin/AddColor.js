@@ -13,7 +13,7 @@ function AddColor() {
         name: name
       }
 
-      fetch('/colors',{
+      fetch('https://protexx.onrender.com/colors',{
         method: "POST",
         headers:{
             "Content-Type":"application/json"
