@@ -5,7 +5,6 @@ class ColorsController < ApplicationController
 
     def create
         color = Color.create(color_params)
-        byebug
         if color
             render json: color
         else
