@@ -6,7 +6,7 @@ import SideMenu from './SideMenu';
 
 function SideNav() {
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-white">
+    <nav className="navbar navbar-expand-lg navbar-light bg-white sticky-top" id='secondnav'>
         <div className='container d-block'>
             <div className='d-flex justify-content-center align-items-center'>
 
@@ -46,7 +46,7 @@ function SideNav() {
                 </div>
             <div>
             <div className="collapse navbar-collapse" id="sidebarNav">            
-                <SideMenu/>                
+                <SideMenu/>
             </div>
         </div>
         <hr className="collapse navbar-collapse"/>

@@ -9,7 +9,7 @@ function Navbar({openSideMenu}) {
 
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-primary py-1">
+    <nav className="navbar navbar-expand-lg navbar-light bg-primary py-1 sticky-top">
       
       <div className='container'>
       <button

@@ -1,0 +1,7 @@
+export const FETCH_CATEGORIES = 'fetch/categories'
+export const FETCH_ERROR = 'error/categories'
+export const LOAD_CATEGORIES = 'loading/categories'
+export const ADD_TO_SIMILAR_PRODUCTS= 'similar/categories'
+export const ADD_TO_PROTECTED_AREA_SIMILAR_PRODUCTS = 'protexsimilar/categories'
+export const RESET_PROTECTED_AREA_SIMILAR_PRODUCTS = 'protexreset/categories'
+export const ADD_TO_PROTECTED_AREA = 'protex/categories'

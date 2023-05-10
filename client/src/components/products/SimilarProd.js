@@ -1,0 +1,65 @@
+import React, { useState } from 'react'
+import { useSelector, useDispatch } from 'react-redux';
+import {NavLink} from 'react-router-dom'
+import ProductItem from './ProductItem';
+import Marquee from "react-fast-marquee";
+import { addToSimilar } from '../redux/categories/CategoryAction';
+import Carousel from 'react-multi-carousel';
+import 'react-multi-carousel/lib/styles.css';
+import { responsive } from './Elems';
+
+function SimilarProd({simCategory, protectedArea}) {
+
+    const dispatch = useDispatch()
+    const cat = useSelector((state)=>state.categories.categories)
+    const simProduct = useSelector((state)=>state.categories.simProd)
+    console.log(cat)
+
+    console.log(simProduct)
+    
+
+    cat.map((category)=>{
+        if (category.name === simCategory){
+          dispatch(addToSimilar(category.products))
+        }
+    })
+
+    const similarProducts = simProduct.map((item)=>{
+        return <ProductItem product={item}/>
+    }) 
+
+  return (
+    <div className='my-5'>
+      <div className='d-flex content-align-center'>
+        <h6>Similar Products</h6>
+        <NavLink to={`/category/${protectedArea}/${simCategory}`} className='fs-6 ms-auto me-2'>view all{` (${simProduct.length}) items`}</NavLink>
+      </div>
+      <hr/>   
+      
+      <div className = "row g-4 my-2 mx-auto">    
+        <Carousel 
+        responsive={responsive} 
+        swipeable={true}
+        draggable={true}
+        showDots={true}
+        focusOnSelect={true}
+        ssr={true} // means to render carousel on server-side.
+        infinite={true}
+        autoPlay={true}
+        autoPlaySpeed={5000}
+        keyBoardControl={true}
+        customTransition="all .5"
+        transitionDuration={500}
+        containerClass="carousel-container"
+        removeArrowOnDeviceType={["tablet", "mobile"]}
+        dotListClass="custom-dot-list-style"
+        itemClass="carousel-item-padding-40-px"
+        >
+          {similarProducts}            
+        </Carousel>
+        </div> 
+    </div>
+  )
+}
+
+export default SimilarProd
