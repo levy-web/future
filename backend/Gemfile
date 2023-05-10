@@ -19,9 +19,8 @@ gem "puma", "~> 5.0"
 # gem "redis", "~> 4.0"
 
 gem 'byebug'
-gem 'aws-sdk-rails', '~> 3'
-gem 'aws-sdk-s3', '~> 1'
-gem "azure-storage-blob", "~> 2.0", require: false
+gem "aws-sdk-s3", require: false
+
 # serializer
 gem 'active_model_serializers', '~> 0.10.2'
 
