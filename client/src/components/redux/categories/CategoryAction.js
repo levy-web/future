@@ -35,7 +35,7 @@ export function fetchCategories() {
 
       try {
 
-        const response = await fetch('/categories')
+        const response = await fetch('https://protexx.onrender.com/categories')
         if (!response.ok) {
             dispatch({
                 type: FETCH_ERROR,
