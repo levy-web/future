@@ -21,7 +21,7 @@ function Navbar({openSideMenu}) {
       </button>
 
       <h3 className="navbar-toggler border-0" to='/farm'>
-            levy muguro
+            Moris
       </h3>
 
       <div className="navbar-toggler border-0">

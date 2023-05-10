@@ -14,7 +14,7 @@ function AdminNav() {
 
                 <div className="collapse navbar-collapse" id="navbarNav">
                     <h3 className="collapse navbar-collapse navbar-brand border-0" to='/farm'>
-                        levy muguro
+                        Moris
                     </h3>
 
                     <div className='p-3 m-auto d-flex w-75 justify-content-center align-items-center'>            
