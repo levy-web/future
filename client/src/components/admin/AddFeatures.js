@@ -36,7 +36,7 @@ function AddFeatures({ popFeature, popupFeature}) {
           faeture_name:feature.name,
           product_id:item_id
         }
-        fetch('http://localhost:3000/features',{
+        fetch('https://protexx.onrender.com/features',{
           method: "POST",
           headers:{
               "Content-Type":"application/json"
