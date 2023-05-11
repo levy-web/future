@@ -1,4 +1,22 @@
-import { FETCH_CATEGORIES, ADD_TO_PROTECTED_AREA, LOAD_CATEGORIES, FETCH_ERROR, ADD_TO_SIMILAR_PRODUCTS, ADD_TO_PROTECTED_AREA_SIMILAR_PRODUCTS, RESET_PROTECTED_AREA_SIMILAR_PRODUCTS } from "./CategoryType";
+import { FETCH_CATEGORIES, ADD_CATEGORIES, ADD_TO_PROTECTED_AREA, LOAD_CATEGORIES, 
+  FETCH_ERROR, ADD_TO_SIMILAR_PRODUCTS, ADD_TO_PROTECTED_AREA_SIMILAR_PRODUCTS, 
+  RESET_PROTECTED_AREA_SIMILAR_PRODUCTS, ADD_PRODUCT_COLOR } from "./CategoryType";
+
+
+export const addCategory = ((product)=>{
+  return{
+      type: ADD_CATEGORIES,
+      payload:product
+  }
+})
+
+export const addProductColor = ((id, product)=>{
+  return{
+      type: ADD_PRODUCT_COLOR,
+      payload:{product:product, id:id}
+  }
+})
+
 
 export const addToSimilar = ((product)=>{
   return{
