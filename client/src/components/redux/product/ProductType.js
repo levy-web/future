@@ -1,0 +1,7 @@
+export const FETCH_PRODUCTS = 'fetch/products'
+export const FETCH_ONE_PRODUCTS = 'fetchOne/products'
+export const ADD_PRODUCT_COLORS = 'addColors/products'
+export const FETCH_PRODUCTS_ERROR = 'error/products'
+export const FETCH_ONE_PRODUCTS_ERROR = 'errorOne/products'
+export const LOAD_PRODUCTS = 'loading/products'
+export const LOAD_ONE_PRODUCTS = 'loadingOne/products'
