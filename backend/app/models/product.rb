@@ -1,5 +1,6 @@
 class Product < ApplicationRecord
     belongs_to :category
+    has_many :features
     has_many :product_colors
     has_many :colors, through: :product_colors
 
