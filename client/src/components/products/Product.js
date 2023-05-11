@@ -9,22 +9,21 @@ import 'react-multi-carousel/lib/styles.css';
 import { responsive } from './Elems';
 import Footer from '../Footer';
 import SideNav from '../SideNav';
+import { fetchProducts } from '../redux/product/ProductAction';
 
 function Product() {
-    const [products, setProducts] = useState([])
+    // const [products, setProducts] = useState([])
     const dispatch = useDispatch()
     const cat = useSelector((state)=>state.categories.categories)
+    const products = useSelector((state)=>state.products.products)
     console.log(cat)
+    console.log(products)
 
 
 
     useEffect(()=>{
         dispatch(fetchCategories())
-        fetch('https://protexx.onrender.com/products')
-        .then((r)=>r.json())
-        .then((data)=>{
-          setProducts(data)
-        })
+        dispatch(fetchProducts())
     }, [])
 
     const prodItem = products.map((product)=> <ProductItem protection={product.category.protected_area} category={product.category.name} product={product}/>)
