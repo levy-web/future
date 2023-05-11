@@ -73,6 +73,22 @@
     .add-c-open{
         transform: translateX(0%);
     }
+
+    .add-f{
+        position: absolute;
+        background-color: #fff;
+        /* color:#fff; */
+        top: 0;
+        left:0;
+        max-height: 100vh;
+        width: 100%;
+        transform: translateX(-110%);
+        transition: all 0.4s;
+    }
+    
+    .add-f-open{
+        transform: translateX(0%);
+    }
     
 
 }
@@ -119,6 +135,22 @@
     }
     
     .add-c-open{
+        transform: translateX(0%);
+    }
+
+    .add-f{
+        position: absolute;
+        background-color: #fff;
+        /* color:#fff; */
+        top: 20%;
+        left:10%;
+        max-height: 100vh;
+        width: 100%;
+        transform: translateX(-110%);
+        transition: all 0.4s;
+    }
+    
+    .add-f-open{
         transform: translateX(0%);
     }
 
