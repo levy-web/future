@@ -1,30 +1,26 @@
 import React, {useEffect, useState} from 'react'
 import {useParams, NavLink} from 'react-router-dom'
+import { useSelector, useDispatch } from 'react-redux';
 import Footer from '../Footer'
 import SideNav from '../SideNav'
 import SimilarProd from './SimilarProd'
+import { fetchOneProduct } from '../redux/product/ProductAction';
 
 function Prod() {
-    const [product, setProduct] = useState([])
-    const [productColors, setProductColors] = useState([])
-    // const [category, setCategory] = useState('')
+    
     const {category, protectedArea, id} = useParams()
+    const dispatch = useDispatch()
+    const product = useSelector((state)=>state.products.product)
+    const productColors = useSelector((state)=>state.products.prodColors)
+
 
     useEffect(()=>{
-        fetch(`https://protexx.onrender.com/products/${id}`)
-        .then((r)=>r.json())
-        .then((data)=>{
-            setProduct(data)
-            setProductColors(data.product_colors)
-            // setCategory(data.category.name)
-        })
+        dispatch(fetchOneProduct(id))
     }, [])
 
     const productColor = productColors.map((color)=>{
         return <img src = {color.image_url} alt = "" className = "d-block h-25 w-25 m-1"></img>
     })
-
-    console.log(product)
     
 
   return (
