@@ -1,8 +1,12 @@
 import React, { useState } from 'react'
+import { useDispatch, useSelector } from "react-redux";
+import { addCategory } from '../redux/categories/CategoryAction';
 
 function AddCategory() {
   const [name, setName] = useState('')
   const [protectionArea, setProtectionArea] = useState('')
+  const dispatch = useDispatch()
+  const cat = useSelector((state)=>state.categories.categories)
 
   function nameChange(e){
     setName(e.target.value)
@@ -25,15 +29,14 @@ function AddCategory() {
       headers:{
           "Content-Type":"application/json"
       },
-      body:JSON.stringify(formData)  
+      body:JSON.stringify(formData)
      })
      .then((r)=>r.json())
      .then((data)=>{
       console.log(data)
+      dispatch(addCategory(data))
     })
-
-
-  }
+}
 
   return (
     <div className='container my-3 py-3'>

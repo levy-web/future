@@ -1,10 +1,14 @@
 import React, {useEffect, useState} from 'react'
+import { useDispatch, useSelector } from "react-redux";
+import { addProductColor } from '../redux/product/ProductAction'; 
 
-function AddProductColor({popupColor}) {
+function AddProductColor({popupColor, popColor}) {
     const [name, setName] = useState('')
     const [colors, setColors] = useState([])
     const [image, setImage] = useState(null)
     const item = window.location.pathname.split('/').pop();
+
+    const dispatch = useDispatch()
 
 
     useEffect(()=>{
@@ -33,6 +37,7 @@ function AddProductColor({popupColor}) {
         data.append("product_color[image]", image);
     
         handleSubmitToApi(data)
+        
     
     
       }
@@ -46,6 +51,9 @@ function AddProductColor({popupColor}) {
          .then((r)=>r.json())
          .then((data)=>{
           console.log(data)
+          dispatch(addProductColor(data.id, data.image_url))
+          popColor()
+          
         })
     
       }
