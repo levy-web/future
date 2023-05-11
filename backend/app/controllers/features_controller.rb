@@ -11,7 +11,7 @@ class FeaturesController < ApplicationController
     private
 
     def features_params
-        params.permit(:name)
+        params.permit(:faeture_name, :product_id)
     end
 
 end
