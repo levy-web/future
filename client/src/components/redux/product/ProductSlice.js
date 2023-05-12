@@ -1,34 +1,34 @@
-import { FETCH_PRODUCTS, LOAD_PRODUCTS, FETCH_PRODUCTS_ERROR, ADD_PRODUCT_COLORS, 
+import { FETCH_PRODUCTS, LOAD_PRODUCTS, FETCH_PRODUCTS_ERROR, ADD_PRODUCT_COLORS, REMOVE_PROD_FEATURE,
     FETCH_ONE_PRODUCTS, FETCH_ONE_PRODUCTS_ERROR, LOAD_ONE_PRODUCTS } from "./ProductType"
 
 const initialState = {
-    status: false,
+    loading: true,
     products: [],
     product: [],
     error: '',
-    prodColors: []
+    prodColors: [],
+    features:[]
 }
+console.log(initialState.features)
 
 const productSlice = (state=initialState, action)=>{
     switch(action.type){
-        case LOAD_PRODUCTS: return {
-            ...state,
-            status: true,
-        }
-        break;
+
+
 
         case FETCH_PRODUCTS: return {
             ...state,
-            // status: false,
+            loading: false,
             products: [...action.payload]
         }
         break;
 
         case FETCH_ONE_PRODUCTS: return {
             ...state,
-            // status: false,
+            loading: false,
             product: action.payload,
-            prodColors: [...action.payload.product_colors]
+            prodColors: [...action.payload.product_colors],
+            features:[...action.payload.features]
         }
         break;
 
@@ -37,6 +37,17 @@ const productSlice = (state=initialState, action)=>{
             // status: false,
             prodColors: [...state.prodColors, action.payload]
         }
+        break;
+
+        case REMOVE_PROD_FEATURE: 
+        let newArrFeatures = state.features.filter((feature)=> feature.id !== action.payload)
+        return {
+            ...state,
+            // status: false,
+            features : [...newArrFeatures]           
+        }
+        
+
         break;
 
         case FETCH_PRODUCTS_ERROR: return {

@@ -8,6 +8,16 @@ class FeaturesController < ApplicationController
         render json: feature
     end
 
+    def destroy
+        feature = Feature.find_by(id: params[:id])
+        if feature
+            feature.destroy
+            render json: feature
+        else
+            render json: {error:"not found"}
+        end
+    end
+
     private
 
     def features_params

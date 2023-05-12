@@ -1,4 +1,4 @@
-import { FETCH_PRODUCTS, FETCH_ONE_PRODUCTS, FETCH_ONE_PRODUCTS_ERROR,
+import { FETCH_PRODUCTS, FETCH_ONE_PRODUCTS, FETCH_ONE_PRODUCTS_ERROR, REMOVE_PROD_FEATURE,
   LOAD_ONE_PRODUCTS, LOAD_PRODUCTS, FETCH_PRODUCTS_ERROR, ADD_PRODUCT_COLORS } from "./ProductType"
 
   export const addProductColor = ((id , image_url)=>{
@@ -8,16 +8,24 @@ import { FETCH_PRODUCTS, FETCH_ONE_PRODUCTS, FETCH_ONE_PRODUCTS_ERROR,
     }
   })
 
+  export const removeProdFeatures = ((id)=>{
+    console.log(id)
+    return{
+        type: REMOVE_PROD_FEATURE,
+        payload:id
+    }
+})
+
 
 export function fetchProducts() {
 
 
     return async function (dispatch) {
-      dispatch({ type: LOAD_PRODUCTS });
+      // dispatch({ type: LOAD_PRODUCTS });
 
       try {
 
-        const response = await fetch('https://protexx.onrender.com/products')
+        const response = await fetch('/products')
         if (!response.ok) {
             dispatch({
                 type: FETCH_PRODUCTS_ERROR,
@@ -50,7 +58,7 @@ export function fetchOneProduct(id) {
 
     try {
 
-      const response = await fetch(`https://protexx.onrender.com/products/${id}`)
+      const response = await fetch(`/products/${id}`)
       if (!response.ok) {
           dispatch({
               type: FETCH_ONE_PRODUCTS_ERROR,
@@ -58,6 +66,7 @@ export function fetchOneProduct(id) {
             })
       }
       const data = await response.json();
+      console.log(data)
       dispatch({
           type: FETCH_ONE_PRODUCTS,
           payload: data

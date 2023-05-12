@@ -8,10 +8,15 @@ import { fetchOneProduct } from '../redux/product/ProductAction';
 
 function Prod() {
     
+    
     const {category, protectedArea, id} = useParams()
     const dispatch = useDispatch()
     const product = useSelector((state)=>state.products.product)
     const productColors = useSelector((state)=>state.products.prodColors)
+    const features = useSelector((state)=>state.products.features)
+    const [displayColor, setDisplayColor] = useState(product.image_url)
+
+    console.log(features)
 
 
     useEffect(()=>{
@@ -19,7 +24,11 @@ function Prod() {
     }, [])
 
     const productColor = productColors.map((color)=>{
-        return <img src = {color.image_url} alt = "" className = "d-block h-25 w-25 m-1"></img>
+        return <div className='prod-image col-3 me-auto my-2'><img onClick={()=>setDisplayColor(color.image_url)} src = {color.image_url} alt = "" className = "h-100 w-100"></img></div>
+    })
+
+    const productFeatures = features.map((feature)=>{
+        return <div key={feature.id} className='ms-3'><li className = "product-type">{feature.faeture_name}</li></div>
     })
     
 
@@ -27,7 +36,7 @@ function Prod() {
     <>
     <SideNav/>
     <div className='container'>
-        <div className='d-flex'>          
+        <div className='d-flex'>
         
         <button className='m-1 border-0 bg-white'><NavLink to={`/category/${protectedArea}`}  className='text-decoration-none'>{` ${protectedArea}`}</NavLink></button>
         <button className='m-1 border-0 bg-white'><NavLink to={`/category/${protectedArea}/${category}`} className='text-decoration-none'>{`${category}`}</NavLink></button>
@@ -37,13 +46,15 @@ function Prod() {
 
         <div className = "row g-0 my-2 mx-auto">
             
-                <div className = "product-img col-sm-12 col-lg-6">
-                <img src = {product.image_url} alt = "" className = "img-fluid h-100 d-block mx-auto"></img>
+            <div className = "product-img col-sm-12 col-lg-6">
+                <img src = {displayColor} alt = "" className = "img-fluid d-block mx-auto"></img>
+                <NavLink className = "heart-icon text-decoration-none text-danger border-0">
+                    <i className = "far fa-heart"></i>
+                </NavLink>
 
-                <div className = "row btns w-100 mx-auto text-center">
-                    <button type = "button" className = "py-2">
-                        <i className = "far fa-heart"></i> Add to wish list
-                    </button>
+                <h6 className='d-block text-dark py-2 product-name'>colors</h6>
+                <div className = "product-type px-3 row">
+                    {productColor}
                 </div>
             </div>
 
@@ -55,28 +66,12 @@ function Prod() {
                 <div className = "product-type">{`dimensions: ${product.dimensions}`}</div>
                 <div className = "product-type">{`weight: ${product.weight}`}</div>
                 <div className = "product-type">{`standards: ${product.standards}`}</div>
-                <h6 className='d-block text-dark py-2 product-name'>colors</h6>
-                <div className = "product-type row">
-                    {productColor}
-                </div>
-                <div className = "rating d-flex mt-1">
-                    <span>
-                        <i className = "fa fa-star"></i>
-                    </span>
-                    <span>
-                        <i className = "fa fa-star"></i>
-                    </span>
-                    <span>
-                        <i className = "fa fa-star"></i>
-                    </span>
-                    <span>
-                        <i className = "fa fa-star"></i>
-                    </span>
-                    <span>
-                        <i className = "fa fa-star"></i>
-                    </span>
-                    <span>(25 reviews)</span>
-                </div>
+                
+                <h6 className='d-block text-dark py-2 product-name'>Features</h6>
+                <ul>
+                    {productFeatures}
+                </ul>
+
             </div>
         </div>
 
