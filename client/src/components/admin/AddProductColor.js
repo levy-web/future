@@ -53,7 +53,8 @@ function AddProductColor({popupColor, popColor}) {
           console.log(data)
           dispatch(addProductColor(data.id, data.image_url))
           popColor()
-          
+          setName("")
+          setImage("")          
         })
     
       }
