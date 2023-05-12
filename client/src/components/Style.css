@@ -82,17 +82,27 @@
         left:0;
         max-height: 100vh;
         width: 100%;
-        transform: translateX(-110%);
+        transform: translateX(-100%);
         transition: all 0.4s;
     }
     
     .add-f-open{
         transform: translateX(0%);
     }
+
+    .prod-image{        
+        height: 50px;
+        width:25%        
+    }
     
 
 }
 @media (min-width: 990px){
+
+    .prod-image{
+        height: 50px;
+        height: 50px;       
+    }
 
     .side-b{
         display: none;
