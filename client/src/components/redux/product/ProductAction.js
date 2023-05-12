@@ -25,7 +25,7 @@ export function fetchProducts() {
 
       try {
 
-        const response = await fetch('/products')
+        const response = await fetch('https://protexx.onrender.com/products')
         if (!response.ok) {
             dispatch({
                 type: FETCH_PRODUCTS_ERROR,
@@ -58,7 +58,7 @@ export function fetchOneProduct(id) {
 
     try {
 
-      const response = await fetch(`/products/${id}`)
+      const response = await fetch(`https://protexx.onrender.com/products/${id}`)
       if (!response.ok) {
           dispatch({
               type: FETCH_ONE_PRODUCTS_ERROR,
