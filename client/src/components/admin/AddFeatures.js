@@ -49,6 +49,8 @@ function AddFeatures({ popFeature, popupFeature}) {
         })
       })
       popFeature()
+      dispatch(clearFeatures())
+
     }
   return (
     <div className={popupFeature ? "card container shadow add-f-open add-c p-5" : "add-f"}>
@@ -57,14 +59,14 @@ function AddFeatures({ popFeature, popupFeature}) {
                 <div className="form-group mb-3"> 
                     <input type="text" required name='feature' placeholder="feature name" value={feature} onChange={featureChange} className="form-control"></input>
                 </div>
-                <button className='mt-2 form-control bg-primary border-0 text-white' type='submit'>add Feature</button>
+                <button className='my-2 d-block mt-2 form-control bg-light border-0' type='submit'>add Feature</button>
           </form>
             <div className='p-5'>
             <button className={features.length<1 ? "d-none": "my-2 d-block ms-auto bg-white text-danger border-0"} onClick={()=>dispatch(clearFeatures())}>clear list</button>      
               <ol>
                 {featureItems}
               </ol>
-            <button className={features.length<1 ? "d-none": "my-2 d-block mt-2 form-control text-success border-0"} onClick={postToApi}>submit</button>
+            <button className={features.length<1 ? "d-none": "my-2 d-block mt-2 form-control bg-success border-0"} onClick={postToApi}>submit</button>
             </div>
             
 
