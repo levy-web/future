@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :users
   resources :features
   resources :products
   # resources :categories
@@ -14,4 +15,7 @@ Rails.application.routes.draw do
   post '/colors', to: 'colors#create'
 
   post '/prod-colors', to: 'product_colors#create'
+
+  post '/login', to: 'sessions#login'
+  delete '/logout', to: 'sessions#logout'
 end
