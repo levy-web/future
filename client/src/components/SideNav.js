@@ -52,7 +52,7 @@ function SideNav() {
                 <SideMenu renderOptions={renderMenu}/>
             </div>
         </div>
-        <hr className="collapse navbar-collapse"/>
+        <hr className={`collapse navbar-collapse ${renderMenu}`}/>
       </div>   
     </nav>
     
