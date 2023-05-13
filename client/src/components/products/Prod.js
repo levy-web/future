@@ -36,7 +36,7 @@ function Prod() {
   return (
     <>
     <SideNav/>
-    <div className='container'>
+    <div className='container my-3'>
         <div className='d-flex'>
         
         <button className='m-1 border-0 bg-white'><NavLink to={`/category/${protectedArea}`}  className='text-decoration-none'>{` ${protectedArea}`}</NavLink></button>

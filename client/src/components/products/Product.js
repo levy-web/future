@@ -31,7 +31,7 @@ function Product() {
   return (
   <>
   <SideNav/>
-    <div className='container'>
+    <div className='container my-3'>
         <div className='d-flex'>
         <h6>Top deals</h6>
         <NavLink className='fs-6 ms-auto me-2'>view all{` (${products.length}) items`}</NavLink>
