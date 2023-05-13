@@ -23,7 +23,7 @@ const Register = () => {
       "confirm_password":confPassword
     }
 
-    fetch('/users',{
+    fetch('https://protexx.onrender.com/users',{
       method:"POST",
       headers:{"Content-Type":"application/json"},
       body:JSON.stringify(formData)
