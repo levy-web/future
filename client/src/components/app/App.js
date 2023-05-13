@@ -21,6 +21,8 @@ import AddProductColor from '../admin/AddProductColor';
 import BackDropColor from '../admin/BackDropColor';
 import AddFeatures from '../admin/AddFeatures';
 import BackDropFeature from '../admin/BackDropFeature';
+import Login from '../auth/Login';
+import Register from '../auth/Register';
 
 function App() {
   const  [sideMenu , setSideMenu] = useState(false)
@@ -39,11 +41,10 @@ function App() {
   const toggleSideMenu = () =>{
     setSideMenu((prevState) => !prevState)
   }
-  console.log(sideMenu)
   return (
     <Provider store={store}>
 
-      <Navbar openSideMenu={toggleSideMenu}/>      
+      <Navbar openSideMenu={toggleSideMenu}/> 
 
       <Routes>    
         <Route path='/' element={<Product/>}/>
@@ -52,6 +53,8 @@ function App() {
         <Route path='/category/:protectedArea' element={<ProductByProtectedArea/>}/>
         <Route path='/admin/:add' element={<Admin/>}/>
         <Route path='/admin' element={<Admin/>}/>
+        <Route path='/login' element={<Login/>}/>
+        <Route path='/register' element={<Register/>}/>
         <Route path='/admin/product/:id' element={<Prodact popFeature={togglePopupFeature} popColor={togglePopupColor}/>}/>
       </Routes>
 

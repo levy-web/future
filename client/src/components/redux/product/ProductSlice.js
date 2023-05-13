@@ -9,7 +9,6 @@ const initialState = {
     prodColors: [],
     features:[]
 }
-console.log(initialState.features)
 
 const productSlice = (state=initialState, action)=>{
     switch(action.type){

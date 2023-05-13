@@ -2,7 +2,7 @@ import React from 'react'
 import {NavLink} from "react-router-dom"
 import { useSelector, useDispatch } from 'react-redux';
 
-function SideMenu({closeSideMenu}) {
+function SideMenu({closeSideMenu, renderOptions}) {
     const dispatch = useDispatch()
     const cat = useSelector((state)=>state.categories.categories)
 
@@ -48,7 +48,7 @@ function SideMenu({closeSideMenu}) {
     })
     
   return (
-    <ul className="navbar-nav p-1 me-auto row w-100 h-100">
+    <ul className={`navbar-nav p-1 me-auto row w-100 h-100 ${renderOptions}`}>
         
         <li className="nav-item active col-lg-3 dropdown" >
             <NavLink className="nav-link fs-6 dropdown-toggle text-dark" data-toggle="dropdown">

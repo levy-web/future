@@ -20,9 +20,9 @@ function Navbar({openSideMenu}) {
       <span className="border-0 text-light"><FontAwesomeIcon icon={faBars} /></span>
       </button>
 
-      <h3 className="navbar-toggler border-0" to='/farm'>
+      <NavLink className="navbar-toggler text-decoration-none border-0" to='/'>
             Moris
-      </h3>
+      </NavLink>
 
       <div className="navbar-toggler border-0">
 
@@ -36,7 +36,7 @@ function Navbar({openSideMenu}) {
         icon={faSearch} color="white"
         />
         
-        <NavLink>
+        <NavLink to='/login'>
           <FontAwesomeIcon className='p-2' color='black' icon={faUserCircle} />
         </NavLink>
 

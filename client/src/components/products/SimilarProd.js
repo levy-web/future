@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import {NavLink} from 'react-router-dom'
 import ProductItem from './ProductItem';
@@ -8,24 +8,24 @@ import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import { responsive } from './Elems';
 
-function SimilarProd({simCategory, protectedArea}) {
+function SimilarProd({simCategory, id, protectedArea}) {
 
     const dispatch = useDispatch()
     const cat = useSelector((state)=>state.categories.categories)
     const simProduct = useSelector((state)=>state.categories.simProd)
-    console.log(cat)
 
-    console.log(simProduct)
-    
+    useEffect(()=>{
 
     cat.map((category)=>{
-        if (category.name === simCategory){
-          dispatch(addToSimilar(category.products))
-        }
+      if (category.name === simCategory){
+        dispatch(addToSimilar(category.products))
+      }
     })
 
+    }, [id])
+
     const similarProducts = simProduct.map((item)=>{
-        return <ProductItem product={item}/>
+        return <ProductItem category={simCategory} protection={protectedArea} product={item}/>
     }) 
 
   return (

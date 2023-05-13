@@ -16,12 +16,10 @@ function Prod() {
     const features = useSelector((state)=>state.products.features)
     const [displayColor, setDisplayColor] = useState(product.image_url)
 
-    console.log(features)
-
 
     useEffect(()=>{
         dispatch(fetchOneProduct(id))
-    }, [])
+    }, [id])
 
     const productColor = productColors.map((color)=>{
         return <div className='prod-image col-3 me-auto my-2'><img onClick={()=>setDisplayColor(color.image_url)} src = {color.image_url} alt = "" className = "h-100 w-100"></img></div>
@@ -47,7 +45,7 @@ function Prod() {
         <div className = "row g-0 my-2 mx-auto">
             
             <div className = "product-img col-sm-12 col-lg-6">
-                <img src = {displayColor} alt = "" className = "img-fluid d-block mx-auto"></img>
+                <img src = {product.image_url} alt = "" className = "img-fluid d-block mx-auto"></img>
                 <NavLink className = "heart-icon text-decoration-none text-danger border-0">
                     <i className = "far fa-heart"></i>
                 </NavLink>
@@ -75,7 +73,7 @@ function Prod() {
             </div>
         </div>
 
-        <SimilarProd simCategory={category} protectedArea={protectedArea}/>
+        <SimilarProd id={id} simCategory={category} protectedArea={protectedArea}/>
         
     </div>
     <Footer/>

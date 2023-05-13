@@ -13,7 +13,7 @@ function AdminNav() {
 
 
                 <div className="collapse navbar-collapse" id="navbarNav">
-                    <h3 className="collapse navbar-collapse navbar-brand border-0" to='/farm'>
+                    <h3 className="collapse navbar-collapse navbar-brand border-0" to='/'>
                         Moris
                     </h3>
 

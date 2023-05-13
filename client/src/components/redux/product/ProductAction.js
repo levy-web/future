@@ -14,10 +14,10 @@ import { FETCH_PRODUCTS, FETCH_ONE_PRODUCTS, FETCH_ONE_PRODUCTS_ERROR, REMOVE_PR
         type: REMOVE_PROD_FEATURE,
         payload:id
     }
-})
+  })
 
 
-export function fetchProducts() {
+  export function fetchProducts() {
 
 
     return async function (dispatch) {
@@ -48,9 +48,9 @@ export function fetchProducts() {
       }      
 
     };
-}
+  }
 
-export function fetchOneProduct(id) {
+  export function fetchOneProduct(id) {
 
 
   return async function (dispatch) {
@@ -66,7 +66,6 @@ export function fetchOneProduct(id) {
             })
       }
       const data = await response.json();
-      console.log(data)
       dispatch({
           type: FETCH_ONE_PRODUCTS,
           payload: data
@@ -82,4 +81,4 @@ export function fetchOneProduct(id) {
     }      
 
   };
-}
+  }
