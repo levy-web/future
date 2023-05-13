@@ -1,10 +1,18 @@
 import React from 'react'
 import {NavLink} from "react-router-dom"
+import { logoutUser } from './redux/user/UserAction';
 import { faShoppingCart, faSearch, faUserCircle, faHeart } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import SideMenu from './SideMenu';
+import { useSelector, useDispatch } from "react-redux";
 
 function SideNav() {
+    const dispatch = useDispatch()
+    const isLoggedIn = useSelector((state)=>state.user.isLoggedIn)
+    const checkState = isLoggedIn ? 
+    <NavLink onClick={()=>dispatch(logoutUser())} className='ms-3 me-2' to='/login'><i class="fas fa-sign-out-alt"></i></NavLink> : 
+        <NavLink to='/login'><FontAwesomeIcon className='ms-3 me-2' color='black' icon={faUserCircle} size='2x'/></NavLink>
+
     const firstPath = window.location.pathname.split('/')[1];
 
     const renderMenu = (firstPath === 'register') || (firstPath === 'login') ? "d-none" : ""
@@ -28,21 +36,23 @@ function SideNav() {
                     
                         <ul className="collapse navbar-collapse navbar-nav ms-auto my-2 text-center">
                             <li className={`${renderMenu} nav-item active `}>
-                                <NavLink>
-                                <FontAwesomeIcon className='me-2' color='red' icon={faHeart} size='2x'/>
-                                </NavLink>
-                            </li>
-
-                            <li className={`${renderMenu} nav-item`}>
-                                <NavLink to='/login'>
-                                <FontAwesomeIcon className='ms-3 me-2' color='black' icon={faUserCircle} size='2x'/>
+                                <NavLink className='ms-3 me-2 text-danger'>
+                                <i className = "far fa-heart"></i>
                                 </NavLink>
                             </li>
 
                             <li className={`${renderMenu} nav-item `}>
-                                <NavLink>
-                                <FontAwesomeIcon className='ms-3' icon={faShoppingCart} color='black' size='2x'/>          
+                                <NavLink className='ms-3 me-2 text-danger  cart-icon'>
+                                    <i className="fas fa-shopping-cart"></i>
+                                    <span className="item-count">(3)</span>
                                 </NavLink>
+                                {/* <NavLink className='ms-3 me-2 text-danger'>
+                                <i class="fas fa-shopping-cart"></i>
+                                </NavLink> */}
+                            </li>
+
+                            <li className={`${renderMenu} nav-item`}>
+                                {checkState}
                             </li>
                         </ul>
                     </div>

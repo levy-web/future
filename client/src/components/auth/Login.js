@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { loginUser } from "../redux/user/UserAction";
@@ -11,6 +11,13 @@ const Login = () => {
   // const [isLoading, setIsLoading] = useState(false);
   const dispatch = useDispatch()
   const navigate = useNavigate()
+
+  const token = useSelector((state)=>state.user.token)
+  const isLoggedIn = useSelector((state)=>state.user.isLoggedIn)
+  console.log(token)
+  useEffect(()=>{
+    isLoggedIn ? navigate('/') : navigate('/login')
+  },[isLoggedIn])
 
 
   const isLoading = useSelector((state) => state.user.isLoading);  

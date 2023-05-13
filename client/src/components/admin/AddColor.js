@@ -1,7 +1,12 @@
 import React, { useState } from 'react'
+import {useSelector} from 'react-redux'
 
 function AddColor() {
     const [name, setName] = useState('')
+    const token = useSelector((state)=>state.user.token)
+    console.log(token)
+
+
   
     function nameChange(e){
       setName(e.target.value)
@@ -13,20 +18,35 @@ function AddColor() {
         name: name
       }
 
-      fetch('https://protexx.onrender.com/colors',{
+      fetch('/colors',{
         method: "POST",
         headers:{
-            "Content-Type":"application/json"
+            "Content-Type":"application/json",
+            Authorization: `Bearer ${token}`
         },
         body:JSON.stringify(formData)  
        })
-       .then((r)=>r.json())
-       .then((data)=>{
+       .then((response)=>{
+        if(response.ok){
+          return response.json()
+          
+        }else if (response.status === 422) {
+          console.log(response)
+            return response.json().then(error => {
+              throw new Error(error.message);
+            });
+        }else {
+          throw new Error('Network response was not ok.');
+        }    
+      })
+      .then((data)=>{
         console.log(data)
       })
-  
-    }
-  
+      .catch(error => {
+        // Handle network error or response error.
+        console.error('There was an error:', error);
+      });
+  }  
   return (
     <div className='container my-3 py-3'>
       <div className="row my-4 h-100">

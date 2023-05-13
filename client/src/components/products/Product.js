@@ -3,7 +3,6 @@ import ProductItem from './ProductItem'
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchCategories } from '../redux/categories/CategoryAction';
 import {NavLink} from 'react-router-dom'
-// import Marquee from "react-fast-marquee";
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import { responsive } from './Elems';
@@ -12,14 +11,8 @@ import SideNav from '../SideNav';
 import { fetchProducts } from '../redux/product/ProductAction';
 
 function Product() {
-    // const [products, setProducts] = useState([])
     const dispatch = useDispatch()
-    const cat = useSelector((state)=>state.categories.categories)
     const products = useSelector((state)=>state.products.products)
-    console.log(cat)
-    console.log(products)
-
-
 
     useEffect(()=>{
         dispatch(fetchCategories())

@@ -23,6 +23,7 @@ import AddFeatures from '../admin/AddFeatures';
 import BackDropFeature from '../admin/BackDropFeature';
 import Login from '../auth/Login';
 import Register from '../auth/Register';
+import ProtectedRoute from '../auth/ProtectedRoute';
 
 function App() {
   const  [sideMenu , setSideMenu] = useState(false)

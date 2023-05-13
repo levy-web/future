@@ -1,11 +1,23 @@
 import React from 'react'
 import {NavLink} from "react-router-dom"
+import { logoutUser } from './redux/user/UserAction';
 import { faShoppingCart, faSearch, faUserCircle, faPhone, faEnvelope, faBars } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useSelector, useDispatch } from "react-redux";
 
 
 
 function Navbar({openSideMenu}) {
+  const dispatch = useDispatch()
+
+  const isLoggedIn = useSelector((state)=>state.user.isLoggedIn)
+
+  const profile = isLoggedIn ? <span className='ms-3'>{'user.name'}</span>:<span className='ms-3'>My Account</span>
+
+  const checkState = isLoggedIn ? 
+  <NavLink onClick={()=>dispatch(logoutUser())} className='p-2 text-dark' to='/login'><i class="fas fa-sign-out-alt"></i></NavLink> : 
+      <NavLink className='p-2 text-dark' to='/login'><i class="fas fa-user"></i></NavLink>
+
 
 
   return (
@@ -24,32 +36,39 @@ function Navbar({openSideMenu}) {
             Moris
       </NavLink>
 
-      <div className="navbar-toggler border-0">
+      <div className="navbar-toggler border-0 p-3">
 
-        <FontAwesomeIcon
-        className="navbar-toggler p-2 border-0"
-        data-toggle="collapse"
-        data-target="#navbarNav"
-        aria-controls="navbarNav"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-        icon={faSearch} color="white"
-        />
+        <NavLink
+            className="navbar-toggler p-2 border-0"
+            data-toggle="collapse"
+            data-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+            icon={faSearch} color="white"
+        >
+        <i class="fas fa-search"></i>
+
+        </NavLink>
+
+
+        <NavLink className='cart-icon p-2'>
+          <i className="fas fa-shopping-cart text-dark"></i>
+          <span className="item-count text-dark">(3)</span>
+        </NavLink>
         
-        <NavLink to='/login'>
-          <FontAwesomeIcon className='p-2' color='black' icon={faUserCircle} />
-        </NavLink>
+        {checkState}
 
-        <NavLink>
-          <FontAwesomeIcon className='p-2' icon={faShoppingCart} color='black' />          
-        </NavLink>
+
       </div>
 
       <div className='collapse navbar-collapse p-2 text-white'>
         <FontAwesomeIcon  icon={faPhone} color='white' /> <span className='ms-1'>Call To Order +254 110001331 / +254 786432328</span>
         <span className='ms-3'><FontAwesomeIcon icon={faEnvelope} color='white' /></span> <span className='ms-1'>sales@electromart.co.ke</span>
 
-      <FontAwesomeIcon className='ms-auto' icon={faUserCircle} color='white' /> <span className='ms-3'>My Account</span>
+      <FontAwesomeIcon className='ms-auto' icon={faUserCircle} color='white' /> 
+      {profile}
+      
       </div>
 
       </div>

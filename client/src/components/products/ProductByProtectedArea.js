@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux';
-import { addToProtectedArea, resetProtectedArea } from '../redux/categories/CategoryAction'
+import { addToProtectedArea, resetProtectedArea, fetchCategories } from '../redux/categories/CategoryAction'
+import { fetchProducts } from '../redux/product/ProductAction';
 import ProductItem from './ProductItem'
 import Marquee from "react-fast-marquee";
 import { NavLink, useParams } from 'react-router-dom';
@@ -18,6 +19,8 @@ function ProductByProtectedArea() {
 
     useEffect(()=>{
       dispatch(resetProtectedArea())
+      dispatch(fetchProducts())
+      dispatch(fetchCategories())
       cat.map((category)=>{
         if (category.protected_area === protectedArea){
             let items = category.products
