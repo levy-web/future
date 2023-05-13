@@ -1,10 +1,11 @@
 import React, {useEffect, useState} from 'react'
 import {useParams, NavLink} from 'react-router-dom'
+import { fetchCategories } from '../redux/categories/CategoryAction';
 import { useSelector, useDispatch } from 'react-redux';
 import Footer from '../Footer'
 import SideNav from '../SideNav'
 import SimilarProd from './SimilarProd'
-import { fetchOneProduct } from '../redux/product/ProductAction';
+import { fetchOneProduct, fetchProducts } from '../redux/product/ProductAction';
 
 function Prod() {
     
@@ -19,6 +20,8 @@ function Prod() {
 
     useEffect(()=>{
         dispatch(fetchOneProduct(id))
+        dispatch(fetchProducts())
+        dispatch(fetchCategories())
     }, [id])
 
     const productColor = productColors.map((color)=>{
@@ -59,17 +62,20 @@ function Prod() {
             <div className = "col-sm-12 col-lg-6 p-3">
                 <p className = "product-type">{category}</p>
                 <p className = "d-block text-dark py-2 product-name">{product.name}</p>
-                <span className = "product-price">$ 100.50</span>
-                <div className = "product-type">{`origin: ${product.origin}`}</div>
-                <div className = "product-type">{`dimensions: ${product.dimensions}`}</div>
-                <div className = "product-type">{`weight: ${product.weight}`}</div>
-                <div className = "product-type">{`standards: ${product.standards}`}</div>
+                <h6 className = "text-dark py-2 product-name">Specifications</h6>
+                <div className = "ms-4">
+                    <ul className='list-unstyled product-type'>
+                        <li> {`origin: ${product.origin}`} </li>
+                        <li>{`dimensions: ${product.dimensions}`}</li>
+                        <li>{`weight: ${product.weight}`}</li>
+                        <li> {`standards: ${product.standards}`}</li>
+                    </ul>
+                </div>
                 
-                <h6 className='d-block text-dark py-2 product-name'>Features</h6>
+                <h6 className='text-dark py-2 product-name'>Features</h6>
                 <ul>
                     {productFeatures}
                 </ul>
-
             </div>
         </div>
 

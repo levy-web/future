@@ -94,14 +94,19 @@
         height: 50px;
         width:25%        
     }
+    .carosel .img-fluid{
+        height: 100px;
+    }
     
 
 }
 @media (min-width: 990px){
 
     .prod-image{
-        height: 50px;
-        height: 50px;       
+        height: 50px;      
+    }
+    .carosel .img-fluid{
+        height: 150px;
     }
 
     .side-b{

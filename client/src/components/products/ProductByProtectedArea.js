@@ -41,7 +41,7 @@ function ProductByProtectedArea() {
     <div className='container'>
     <h3>{protectedArea}</h3>
     <hr/>
-    <div className='row'>      
+    <div className='row carosel'>      
         {similarProducts}
     </div>
     </div>

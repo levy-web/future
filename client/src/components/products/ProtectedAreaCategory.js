@@ -63,6 +63,7 @@ function ProtectedAreaCategory({simCategory, protectedArea}) {
         removeArrowOnDeviceType={["tablet", "mobile"]}
         dotListClass="custom-dot-list-style"
         itemClass="carousel-item-padding-40-px"
+        className='carosel'
         >
           {similarProducts}            
         </Carousel>

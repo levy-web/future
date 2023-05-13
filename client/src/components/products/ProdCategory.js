@@ -34,7 +34,7 @@ function ProdCategory() {
         <p className='ms-auto'>{` (${products.length}) items`}</p>
         </div>
         <hr/>
-        <div className='row g-4 my-2 mx-auto'>
+        <div className='row g-4 my-2 mx-auto carosel'>
             {categoryItems}
         </div>
 
