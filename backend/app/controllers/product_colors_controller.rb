@@ -1,4 +1,7 @@
 class ProductColorsController < ApplicationController
+
+    before_action :verify_auth, only: %i[ create destroy update]
+
     def create
         prodColor = ProductColor.create(prod_color_params)
         if prodColor

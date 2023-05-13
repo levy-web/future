@@ -1,4 +1,7 @@
 class FeaturesController < ApplicationController
+
+    before_action :verify_auth, only: %i[ create destroy update]
+
     def index
         Render json: Feature.all
     end

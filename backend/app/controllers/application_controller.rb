@@ -30,7 +30,7 @@ class ApplicationController < ActionController::API
     def verify_auth
         auth_headers = request.headers['Authorization']
         if !auth_headers
-            app_response(message: 'failed', status: 401, data: { info: 'Your request is not authorized.' })
+            app_response(message: 'Your request is not authorized', status: 401)
         else
             token = auth_headers.split(' ')[1]            
             save_user_id(token)
@@ -45,7 +45,7 @@ class ApplicationController < ActionController::API
     private
 
     def standard_error(exception)
-        app_response(message: 'failed', data: { info: exception.message }, status: :unprocessable_entity)
+        app_response(message: exception.message, status: :unprocessable_entity)
     end
 
 end

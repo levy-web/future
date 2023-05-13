@@ -1,4 +1,7 @@
 class CategoriesController < ApplicationController
+
+    before_action :verify_auth, only: %i[ create destroy update]
+
     def index
         render json: Category.all
     end
