@@ -44,6 +44,7 @@ function App() {
   }
   return (
     <Provider store={store}>
+      <PersistGate persistor={persistor}>
 
       <Navbar openSideMenu={toggleSideMenu}/> 
 
@@ -65,7 +66,8 @@ function App() {
       <Menu closeSideMenu={toggleSideMenu} sideMenu={sideMenu}/>
       <AddProductColor popColor={togglePopupColor} popupColor={popupColor}/>
       <AddFeatures popFeature={togglePopupFeature} popupFeature={popupFeature}/>
-    
+
+      </PersistGate>    
     </Provider>
 
 
