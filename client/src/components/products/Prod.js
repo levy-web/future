@@ -6,6 +6,7 @@ import Footer from '../Footer'
 import SideNav from '../SideNav'
 import SimilarProd from './SimilarProd'
 import { fetchOneProduct, fetchProducts } from '../redux/product/ProductAction';
+import ProductLoading from './ProductLoading';
 
 function Prod() {
     
@@ -15,7 +16,10 @@ function Prod() {
     const product = useSelector((state)=>state.products.product)
     const productColors = useSelector((state)=>state.products.prodColors)
     const features = useSelector((state)=>state.products.features)
+    const loadingOne = useSelector((state)=>state.products.loadingOne)
     const [displayColor, setDisplayColor] = useState(product.image_url)
+
+    console.log(loadingOne)
 
 
     useEffect(()=>{
@@ -31,23 +35,9 @@ function Prod() {
     const productFeatures = features.map((feature)=>{
         return <div key={feature.id} className='ms-3'><li className = "product-type">{feature.faeture_name}</li></div>
     })
-    
-
-  return (
-    <>
-    <SideNav/>
-    <div className='container my-3'>
-        <div className='d-flex'>
-        
-        <button className='m-1 border-0 bg-white'><NavLink to={`/category/${protectedArea}`}  className='text-decoration-none'>{` ${protectedArea}`}</NavLink></button>
-        <button className='m-1 border-0 bg-white'><NavLink to={`/category/${protectedArea}/${category}`} className='text-decoration-none'>{`${category}`}</NavLink></button>
-        <button className='m-1 border-0 bg-white'><NavLink className='text-decoration-none text-dark'>{`${product.name}`}</NavLink></button>
-        </div>
-        <hr/>
-
-        <div className = "row g-0 my-2 mx-auto">
-            
-            <div className = "product-img col-sm-12 col-lg-6">
+    const showOneProduct = loadingOne ? <ProductLoading/> : 
+        <>
+                    <div className = "product-img col-sm-12 col-lg-6">
                 <img src = {product.image_url} alt = "" className = "img-fluid d-block mx-auto"></img>
                 <NavLink className = "heart-icon text-decoration-none text-danger border-0">
                     <i className = "far fa-heart"></i>
@@ -77,6 +67,23 @@ function Prod() {
                     {productFeatures}
                 </ul>
             </div>
+        </>
+    
+
+  return (
+    <>
+    <SideNav/>
+    <div className='container my-3'>
+        <div className='d-flex'>
+        
+        <button className='m-1 border-0 bg-white'><NavLink to={`/category/${protectedArea}`}  className='text-decoration-none'>{` ${protectedArea}`}</NavLink></button>
+        <button className='m-1 border-0 bg-white'><NavLink to={`/category/${protectedArea}/${category}`} className='text-decoration-none'>{`${category}`}</NavLink></button>
+        <button className='m-1 border-0 bg-white'><NavLink className='text-decoration-none text-dark'>{`${product.name}`}</NavLink></button>
+        </div>
+        <hr/>
+
+        <div className = "row g-0 my-2 mx-auto">
+            {showOneProduct}
         </div>
 
         <SimilarProd id={id} simCategory={category} protectedArea={protectedArea}/>

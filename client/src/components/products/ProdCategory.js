@@ -1,26 +1,58 @@
 import React, { useEffect, useState } from 'react'
 import {NavLink, useParams} from 'react-router-dom'
+import { fetchCategories } from '../redux/categories/CategoryAction'
+import { useDispatch, useSelector } from 'react-redux'
 import Footer from '../Footer'
 import SideNav from '../SideNav'
+import ProdLoad from './ProdLoad'
 import ProductItem from './ProductItem'
 import ProtectedAreaCategory from './ProtectedAreaCategory'
+import CarouselLoading from './CarouselLoading'
 
 function ProdCategory() {
     const [products, setProducts] = useState([])
     const {category, protectedArea} = useParams()
+    const [loading, setLoading] = useState(false)
+    const simProdLoading = useSelector((state)=>state.categories.loading)
+    console.log(simProdLoading)
 
-    console.log(category)
-    console.log(protectedArea)
-    console.log(products)
+    const dispatch = useDispatch()
+
 
     useEffect(()=>{
-
+      setLoading(true)
+      dispatch(fetchCategories())          
         fetch(`https://protexx.onrender.com/categories/${category}`)
-        .then((r)=>r.json())
-        .then((data)=>setProducts(data.products))
+        .then((response)=>{
+          if(response.ok){
+            return response.json()            
+          }else if (response.status === 422) {
+            console.log(response)
+              return response.json().then(error => {
+                throw new Error(error.message);
+              });
+          }else {
+            throw new Error('Network response was not ok.');
+          }
+        })
+        .then((data)=>{
+          setProducts(data.products)
+          setLoading(false)
+        })
+        .catch(error => {
+          // Handle network error or response error.
+          console.error('There was an error:', error);
+        }); 
+
     }, [category])
 
     const categoryItems = products.map((product)=><ProductItem protection={protectedArea} category={category} product={product}/>)
+
+    const showCategoriesProd = loading ? <ProdLoad/> : categoryItems
+
+    const showSimProtectedArea = loading ? <CarouselLoading/> : <ProtectedAreaCategory simCategory={category} protectedArea={protectedArea}/>
+
+
 
 
   return (
@@ -35,11 +67,11 @@ function ProdCategory() {
         </div>
         <hr/>
         <div className='row g-4 my-2 mx-auto carosel'>
-            {categoryItems}
+          {showCategoriesProd}
         </div>
 
-        <ProtectedAreaCategory simCategory={category} protectedArea={protectedArea}/>
-    </div>
+      {showSimProtectedArea}    
+      </div>
     <Footer/>
     </>
   )

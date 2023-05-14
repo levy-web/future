@@ -42,9 +42,9 @@ function SideNav() {
                             </li>
 
                             <li className={`${renderMenu} ms-auto nav-item `}>
-                                <NavLink className='ms-3 my-2 me-2 text-danger cart-icon'>
+                                <NavLink className='ms-3 my-2 me-2 cart-icon'>
                                     <i className="fs-4 fas fa-shopping-cart"></i>
-                                    <span className="item-count">3</span>
+                                    <span className="item-count text-dark">(3)</span>
                                 </NavLink>
                                 {/* <NavLink className='ms-3 me-2 text-danger'>
                                 <i class="fas fa-shopping-cart"></i>

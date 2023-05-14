@@ -3,6 +3,7 @@ import { FETCH_PRODUCTS, LOAD_PRODUCTS, FETCH_PRODUCTS_ERROR, ADD_PRODUCT_COLORS
 
 const initialState = {
     loading: false,
+    loadingOne:false,
     products: [],
     product: [],
     error: '',
@@ -19,6 +20,12 @@ const productSlice = (state=initialState, action)=>{
         }
         break;
 
+        case LOAD_ONE_PRODUCTS: return {
+            ...state,
+            loadingOne: true,
+        }
+        break;
+
         case FETCH_PRODUCTS: return {
             ...state,
             loading: false,
@@ -28,7 +35,7 @@ const productSlice = (state=initialState, action)=>{
 
         case FETCH_ONE_PRODUCTS: return {
             ...state,
-            loading: false,
+            loadingOne: false,
             product: action.payload,
             prodColors: [...action.payload.product_colors],
             features:[...action.payload.features]

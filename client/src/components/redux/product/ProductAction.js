@@ -53,7 +53,7 @@ import { FETCH_PRODUCTS, FETCH_ONE_PRODUCTS, FETCH_ONE_PRODUCTS_ERROR, REMOVE_PR
 
 
   return async function (dispatch) {
-    dispatch({ type: LOAD_PRODUCTS });
+    dispatch({ type: LOAD_ONE_PRODUCTS });
 
     try {
 
