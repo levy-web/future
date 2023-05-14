@@ -102,6 +102,10 @@
 }
 @media (min-width: 990px){
 
+    .addmin{
+        display: none;
+    }
+
     .prod-image{
         height: 50px;      
     }
@@ -123,6 +127,7 @@
     
     .product-item{
         width: 250px;
+        /* border: 1px solid rgb(219, 219, 219); */
     }
     .backdrop{
         position: fixed;

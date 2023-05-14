@@ -3,6 +3,7 @@ import { FETCH_CATEGORIES, ADD_TO_PROTECTED_AREA, LOAD_CATEGORIES, FETCH_ERROR, 
     ADD_PRODUCT_COLOR } from "./CategoryType";
 
 const initialState = {
+    loading:false,
     status: false,
     categories: [],
     error: '',

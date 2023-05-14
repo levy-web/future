@@ -18,9 +18,7 @@ export function loginUser(email, password) {
           })
         });
         if(response.ok){
-            console.log(response)
             const data = await response.json();
-            console.log(data)
             dispatch({
               type: LOGIN_USER,
               payload: data

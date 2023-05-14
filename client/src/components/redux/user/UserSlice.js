@@ -6,7 +6,8 @@ const initialState = {
     buyer: null,
     error: '',
     navigate: false,
-    token:null
+    token:null,
+    isAdmin:false
 }
 
 
@@ -24,6 +25,7 @@ const userSlice = (state=initialState, action)=>{
             buyer: action.payload,
             token: action.payload.data.token,
             navigate: true,
+            isAdmin:action.payload.data.user.isAdmin,
             error: ""
         }
         case REMOVE_USER: return {

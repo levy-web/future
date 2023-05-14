@@ -9,7 +9,6 @@ import Category from './Category'
 
 function Admin() {
   const params = useParams()
-  console.log(params)
 
   useEffect(()=>{
     renderItem()
@@ -25,21 +24,14 @@ function Admin() {
       
   }
 
-  console.log(renderItem())
-
-
-
-
   return (
     <>
     <AdminNav/>
     <div className='container add-to my-3 py-3'>
         <div className='d-flex justify-content-center'>
-            <button  className='mx-2 border-0'><NavLink className='text-decoration-none text-dark' to={'/admin'}>Product</NavLink></button>
-            <button  className='mx-2 border-0'><NavLink className='text-decoration-none text-dark' to={'/admin/category'}>category</NavLink></button>
-            <button  className='mx-2 border-0'><NavLink className='text-decoration-none text-dark' to={'/admin/product colors'}> product colors </NavLink></button>
-        </div>
-    <hr/>
+            <button  className='mx-2 addmin border-0'><NavLink className='text-decoration-none text-dark' to={'/admin'}>Product</NavLink></button>
+            <button  className='mx-2 addmin border-0'><NavLink className='text-decoration-none text-dark' to={'/admin/category'}>category</NavLink></button>
+            <button  className='mx-2 addmin border-0'><NavLink className='text-decoration-none text-dark' to={'/admin/product colors'}> product colors </NavLink></button>        </div>
     {renderItem()}
     </div>
     </>

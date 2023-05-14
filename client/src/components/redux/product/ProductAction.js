@@ -21,30 +21,29 @@ import { FETCH_PRODUCTS, FETCH_ONE_PRODUCTS, FETCH_ONE_PRODUCTS_ERROR, REMOVE_PR
 
 
     return async function (dispatch) {
-      // dispatch({ type: LOAD_PRODUCTS });
+      dispatch({ type: LOAD_PRODUCTS });
 
       try {
 
         const response = await fetch('https://protexx.onrender.com/products')
-        if (!response.ok) {
-            dispatch({
-                type: FETCH_PRODUCTS_ERROR,
-                payload: 'Network response was not ok'
-              })
-        }
-        const data = await response.json();
-        dispatch({
+        if(response.ok){
+          const data = await response.json();
+          dispatch({
             type: FETCH_PRODUCTS,
             payload: data
-          })        
-      }
-      catch (error){
-        console.error(error)
-        dispatch({
-            type: FETCH_PRODUCTS_ERROR,
-            payload: (error)
-        })
-
+          })
+        }else if (response.status === 422) {
+          const error = await response.json();
+              throw new Error(error.message);
+          }else {
+          throw new Error('Network response was not ok.');
+          }                  
+      }catch (error){
+          console.error(error)
+          dispatch({
+              type: FETCH_PRODUCTS_ERROR,
+              payload: (error)
+          })
       }      
 
     };
@@ -59,26 +58,26 @@ import { FETCH_PRODUCTS, FETCH_ONE_PRODUCTS, FETCH_ONE_PRODUCTS_ERROR, REMOVE_PR
     try {
 
       const response = await fetch(`https://protexx.onrender.com/products/${id}`)
-      if (!response.ok) {
-          dispatch({
-              type: FETCH_ONE_PRODUCTS_ERROR,
-              payload: 'Network response was not ok'
-            })
-      }
-      const data = await response.json();
-      dispatch({
+      if(response.ok){
+        const data = await response.json();
+        dispatch({
           type: FETCH_ONE_PRODUCTS,
           payload: data
-        })        
-    }
-    catch (error){
+        })          
+      
+      }else if (response.status === 422) {
+      const error = await response.json();
+          throw new Error(error.message);
+      }else {
+      throw new Error('Network response was not ok.');
+      }      
+     }catch (error){
       console.error(error)
       dispatch({
           type: FETCH_ONE_PRODUCTS_ERROR,
           payload: (error)
       })
-
-    }      
+    }     
 
   };
-  }
+}

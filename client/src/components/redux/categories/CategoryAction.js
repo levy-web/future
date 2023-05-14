@@ -47,24 +47,25 @@ export const resetProtectedArea = (()=>{
 
 export function fetchCategories() {
 
-
     return async function (dispatch) {
       dispatch({ type: LOAD_CATEGORIES });
 
       try {
 
         const response = await fetch('https://protexx.onrender.com/categories')
-        if (!response.ok) {
-            dispatch({
-                type: FETCH_ERROR,
-                payload: 'Network response was not ok'
-              })
-        }
-        const data = await response.json();
-        dispatch({
+        if(response.ok){
+          const data = await response.json();
+          dispatch({
             type: FETCH_CATEGORIES,
             payload: data
-          })        
+          })
+        }else if (response.status === 422) {
+          const error = await response.json();
+              throw new Error(error.message);
+          }else {
+          throw new Error('Network response was not ok.');
+          } 
+      
       }
       catch (error){
         console.error(error)

@@ -11,6 +11,10 @@ function Navbar({openSideMenu}) {
   const dispatch = useDispatch()
 
   const isLoggedIn = useSelector((state)=>state.user.isLoggedIn)
+  const admin = useSelector((state)=>state.user.isAdmin)
+  console.log(admin)
+
+  const isAdmin = admin ? "" : "d-none"
 
   const profile = isLoggedIn ? <span className='ms-3'>{'user.name'}</span>:<span className='ms-3'>My Account</span>
 
@@ -52,14 +56,12 @@ function Navbar({openSideMenu}) {
         </NavLink>
 
 
+
         <NavLink className='cart-icon p-2'>
           <i className="fas fa-shopping-cart text-dark"></i>
           <span className="item-count text-dark">(3)</span>
-        </NavLink>
-        
+        </NavLink>        
         {checkState}
-
-
       </div>
 
       <div className='collapse navbar-collapse p-2 text-white'>
@@ -68,7 +70,7 @@ function Navbar({openSideMenu}) {
 
       <FontAwesomeIcon className='ms-auto' icon={faUserCircle} color='white' /> 
       {profile}
-      
+      <NavLink to='/admin' className={`text-white text-decoration-none ms-auto ${isAdmin}`}><i class="fas fa-user-cog"></i> <span>dashboard</span></NavLink>      
       </div>
 
       </div>

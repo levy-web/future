@@ -2,7 +2,7 @@ import { FETCH_PRODUCTS, LOAD_PRODUCTS, FETCH_PRODUCTS_ERROR, ADD_PRODUCT_COLORS
     FETCH_ONE_PRODUCTS, FETCH_ONE_PRODUCTS_ERROR, LOAD_ONE_PRODUCTS } from "./ProductType"
 
 const initialState = {
-    loading: true,
+    loading: false,
     products: [],
     product: [],
     error: '',
@@ -13,7 +13,11 @@ const initialState = {
 const productSlice = (state=initialState, action)=>{
     switch(action.type){
 
-
+        case LOAD_PRODUCTS: return {
+            ...state,
+            loading: true,
+        }
+        break;
 
         case FETCH_PRODUCTS: return {
             ...state,
