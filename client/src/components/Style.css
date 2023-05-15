@@ -245,6 +245,33 @@
     height: 20px; /* set the height of the line as needed */
 }
 
+.paginationBttns{
+    width: 80%;
+    height: 40px;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+
+.paginationBttns a{
+    padding: 10px;
+    margin: 8px;
+    border-radius: 5px;
+    border: 1px solid #2b2eff;
+    color: #2b2eff;
+    cursor: pointer;
+}
+
+.paginationBttns a:hover{
+    color: white;
+    background-color: #2b2eff;
+}
+
+.paginatonActive a{
+    color: white;
+    background-color: #2b2eff;
+}
+
 
 
 

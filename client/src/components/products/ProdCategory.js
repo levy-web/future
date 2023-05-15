@@ -8,6 +8,7 @@ import ProdLoad from './ProdLoad'
 import ProductItem from './ProductItem'
 import ProtectedAreaCategory from './ProtectedAreaCategory'
 import CarouselLoading from './CarouselLoading'
+import ReactPaginate from 'react-paginate'
 
 function ProdCategory() {
     const [products, setProducts] = useState([])
@@ -15,6 +16,10 @@ function ProdCategory() {
     const [loading, setLoading] = useState(false)
     const simProdLoading = useSelector((state)=>state.categories.loading)
     console.log(simProdLoading)
+    const [pageNumber, setPageNumber] = useState(0)
+    const productsPerPage = 10
+    const pagesVisited = pageNumber * productsPerPage
+    const pageCount = Math.ceil(products.length / productsPerPage)
 
     const dispatch = useDispatch()
 
@@ -46,12 +51,16 @@ function ProdCategory() {
 
     }, [category])
 
-    const categoryItems = products.map((product)=><ProductItem protection={protectedArea} category={category} product={product}/>)
+    const categoryItems = products.slice(pagesVisited, pagesVisited + productsPerPage)
+    .map((product)=><ProductItem protection={protectedArea} category={category} product={product}/>)
 
     const showCategoriesProd = loading ? <ProdLoad/> : categoryItems
 
     const showSimProtectedArea = loading ? <CarouselLoading/> : <ProtectedAreaCategory simCategory={category} protectedArea={protectedArea}/>
 
+    const changePage = ({selected}) => {
+      setPageNumber(selected)
+    }
 
 
 
@@ -68,6 +77,20 @@ function ProdCategory() {
         <hr/>
         <div className='row g-4 my-2 mx-auto carosel'>
           {showCategoriesProd}
+          <ReactPaginate
+                breakLabel="..."
+                nextLabel="next >"
+                onPageChange={changePage}
+                pageRangeDisplayed={5}
+                pageCount={pageCount}
+                previousLabel="< previous"
+                renderOnZeroPageCount={null}
+                containerClassName={"paginationBttns"}
+                previousLinkClassName={"previousBttn"}
+                nextLinkClassName={"nextBttn"}
+                disabledClassName={"paginationDisabled"}
+                activeClassName={"paginatonActive"}
+        />
         </div>
 
       {showSimProtectedArea}    
