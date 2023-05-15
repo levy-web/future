@@ -48,6 +48,7 @@
 
     .product-item{
         width: 150px;
+        border: 1px solid rgb(219, 219, 219);
     }
 
     #secondnav{
@@ -107,7 +108,7 @@
     }
 
     .prod-image{
-        height: 50px;      
+        height: 50px;    
     }
     .carosel .img-fluid{
         height: 150px;
@@ -126,8 +127,9 @@
     }
     
     .product-item{
-        width: 250px;
-        /* border: 1px solid rgb(219, 219, 219); */
+        width: 200px;
+        height:300px;
+        border: 1px solid rgb(219, 219, 219);
     }
     .backdrop{
         position: fixed;
@@ -187,6 +189,7 @@
 
 .product-item:hover{
     border: 1px solid rgb(219, 219, 219);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* larger, darker shadow */
 }
 .product-img{
     position: relative;
@@ -209,7 +212,7 @@
 .btns button:hover{
     color: #fcb941;
 }
-.product-img:hover .btns{
+.product-item:hover .btns{
     bottom: 0;
 }
 
@@ -235,6 +238,11 @@
 }
 .rating{
     font-size: 13px;
+}
+
+.vertical-line {
+    border-left: 1px solid black;
+    height: 100px; /* set the height of the line as needed */
 }
 
 

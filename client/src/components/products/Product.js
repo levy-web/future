@@ -30,8 +30,8 @@ function Product() {
       responsive={responsive} 
       swipeable={true}
       draggable={true}
-      showDots={true}
-      focusOnSelect={true}
+      showDots={false}
+      focusOnSelect={false}
       ssr={true} // means to render carousel on server-side.
       infinite={true}
       autoPlay={true}
@@ -42,8 +42,8 @@ function Product() {
       containerClass="carousel-container"
       removeArrowOnDeviceType={["tablet", "mobile"]}
       dotListClass="custom-dot-list-style"
-      itemClass="carosel carousel-item-padding-40-px"
-      className='carosel'
+      itemClass="carousel-item-padding-40-px"
+      className=""
       >
         {prodItem}            
       </Carousel>
@@ -58,8 +58,8 @@ function Product() {
       </div>
       <hr/>
               
-      <div className = "row g-4 my-2 mx-auto">
-        {showProducts}                 
+      <div className = "row g-4 my-5 mx-auto">
+        {showProducts}               
       </div> 
     </div>
     <Footer/>
