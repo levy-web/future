@@ -6,6 +6,8 @@ function AddFeatures({ popFeature, popupFeature}) {
     const [feature, setFeature] = useState('')
     const dispatch = useDispatch()
     const features = useSelector((state)=>state.features.features)
+    const token = useSelector((state)=>state.user.token)
+
     console.log(features)
 
     const item_id = window.location.pathname.split('/').pop();
@@ -39,8 +41,9 @@ function AddFeatures({ popFeature, popupFeature}) {
         fetch('https://protexx.onrender.com/features',{
           method: "POST",
           headers:{
-              "Content-Type":"application/json"
-          },
+            "Content-Type":"application/json",
+            Authorization: `Bearer ${token}`
+        },
           body:JSON.stringify(formData)  
          })
          .then((r)=>r.json())

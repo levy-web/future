@@ -18,6 +18,7 @@ function AddProd() {
 
     const dispatch = useDispatch()
     const cat = useSelector((state)=>state.categories.categories)
+    const token = useSelector((state)=>state.user.token)
 
     const categories = cat.map((category)=> <option value={category.id}>{category.name}</option>)
   
@@ -85,6 +86,9 @@ function AddProd() {
   
        fetch('https://protexx.onrender.com/products',{
         method: "POST",
+        headers:{
+          Authorization: `Bearer ${token}`
+      },
         body:data  
        })
        .then((r)=>r.json())

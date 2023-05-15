@@ -7,6 +7,8 @@ function AddCategory() {
   const [protectionArea, setProtectionArea] = useState('')
   const dispatch = useDispatch()
   const cat = useSelector((state)=>state.categories.categories)
+  const token = useSelector((state)=>state.user.token)
+
 
   function nameChange(e){
     setName(e.target.value)
@@ -27,8 +29,9 @@ function AddCategory() {
     fetch('https://protexx.onrender.com/categories',{
       method: "POST",
       headers:{
-          "Content-Type":"application/json"
-      },
+        "Content-Type":"application/json",
+        Authorization: `Bearer ${token}`
+    },
       body:JSON.stringify(formData)
      })
      .then((r)=>r.json())
