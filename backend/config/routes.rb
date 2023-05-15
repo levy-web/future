@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :admins
   resources :users
   resources :features
   resources :products
@@ -18,4 +19,9 @@ Rails.application.routes.draw do
 
   post '/login', to: 'sessions#login'
   delete '/logout', to: 'sessions#logout'
+
+  patch '/admin/:id', to: 'users#updateAdmin'
+  post '/users', to: 'users#create'
+  get '/users', to: 'users#index'
+  post '/usersAdmin', to: 'users#show'
 end
