@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom'
 function ProductItem({product, category, protection}) {
   return (
         
-        <div className = "product-item  h-100 carosel mx-auto">
+        <div className = "product-item mb-3 mx-auto">
             <div className = "product-img ">
                 <img src = {product.image_url} alt = "" className = "img-fluid d-block mx-auto"></img>
                 <div className = "row btns w-100 mx-auto text-center">

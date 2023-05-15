@@ -50,7 +50,7 @@ function ProtectedAreaCategory({simCategory, protectedArea}) {
         responsive={responsive} 
         swipeable={true}
         draggable={true}
-        showDots={true}
+        showDots={false}
         focusOnSelect={true}
         ssr={true} // means to render carousel on server-side.
         infinite={true}

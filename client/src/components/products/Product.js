@@ -43,7 +43,7 @@ function Product() {
       removeArrowOnDeviceType={["tablet", "mobile"]}
       dotListClass="custom-dot-list-style"
       itemClass="carousel-item-padding-40-px"
-      className=""
+      className="carosel"
       >
         {prodItem}            
       </Carousel>
@@ -51,16 +51,18 @@ function Product() {
   return (
   <>
   <SideNav/>
-    <div className='container my-3'>
+    <div className='container my-5'>
         <div className='d-flex'>
         <h6>Top deals</h6>
         <NavLink className='fs-6 ms-auto me-2'>view all{` (${products.length}) items`}</NavLink>
       </div>
       <hr/>
-              
-      <div className = "row g-4 my-5 mx-auto">
+
+      <div className='my-5'>              
+      <div className = "row g-4 my-2 mx-auto">
         {showProducts}               
       </div> 
+      </div>
     </div>
     <Footer/>
     </>

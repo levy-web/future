@@ -41,7 +41,7 @@ function ProductByProtectedArea() {
   return (
     <>
     <SideNav/>
-    <div className='container my-3'>
+    <div className='container my-5'>
     <h3>{protectedArea}</h3>
     <hr/>
     <div className='row carosel h-100'>      

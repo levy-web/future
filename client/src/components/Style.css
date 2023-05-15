@@ -130,6 +130,7 @@
         width: 200px;
         height:300px;
         border: 1px solid rgb(219, 219, 219);
+        
     }
     .backdrop{
         position: fixed;
@@ -179,13 +180,12 @@
 }
 
 .footer {
-    height: 50px;
     position: relative;
     text-align: center;
     bottom: 0;
     width: 100%;
-    background-color: aqua;
-  }
+    background-color: rgb(62, 61, 65);
+}
 
 .product-item:hover{
     border: 1px solid rgb(219, 219, 219);
@@ -241,8 +241,8 @@
 }
 
 .vertical-line {
-    border-left: 1px solid black;
-    height: 100px; /* set the height of the line as needed */
+    border-left: 2px solid red;
+    height: 20px; /* set the height of the line as needed */
 }
 
 
