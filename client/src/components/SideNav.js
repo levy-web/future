@@ -22,19 +22,19 @@ function SideNav() {
             <div className='d-flex p-2 align-items-center'>
 
 
-                <div className="collapse navbar-collapse" id="navbarNav">
+                <div className="collapse navbar-collapse p-1" id="navbarNav">
                     <NavLink className="collapse navbar-collapse navbar-brand border-0" to='/'>
                         <h3>Moris</h3>
                     </NavLink>
 
-                    <div className={`border border-primary rounded-pill rounded p-1 w-50 d-flex ${renderMenu}`}>
-                        <input className='form-control justify-content-center me-1 w-100 border-0' placeholder='search . .'></input>
+                    <div className={`border border-primary bg-primary rounded-pill rounded p-1 w-50 d-flex ${renderMenu}`}>
+                        <input className='form-control justify-content-center ms-1 me-1 w-100 border-0' placeholder='search . .'></input>
                         <i class=" fs-5 m-auto fas fa-search"></i> 
                     </div>
                     
                     
                     
-                        <ul className="collapse navbar-collapse navbar-nav my-2 text-center">
+                        <ul className="collapse navbar-collapse navbar-nav p-1 my-2 text-center">
                             <li className={`${renderMenu} ms-auto nav-item active `}>
                                 <NavLink className='ms-3 my-2 me-3 text-danger'>
                                 <i className = "fs-4 far fa-heart"></i>
