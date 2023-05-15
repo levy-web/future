@@ -34,6 +34,7 @@ function AdminNav() {
                         <button  className='mx-2 border-0 bg-white'><NavLink className='text-decoration-none text-dark' to={'/admin'}>Product</NavLink></button>
                         <button  className='mx-2 border-0 bg-white'><NavLink className='text-decoration-none text-dark' to={'/admin/category'}>category</NavLink></button>
                         <button  className='mx-2 border-0 bg-white'><NavLink className='text-decoration-none text-dark' to={'/admin/product colors'}> product colors </NavLink></button>
+                        <button  className='mx-2 border-0 bg-white'><NavLink className='text-decoration-none text-dark' to={'/admin/collaborators'}> admins </NavLink></button> 
                     </div>
                     
                     

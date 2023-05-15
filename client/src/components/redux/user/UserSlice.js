@@ -18,20 +18,24 @@ const userSlice = (state=initialState, action)=>{
             isLoading: true,
         };
 
-        case LOGIN_USER: return {
+        case LOGIN_USER: 
+        let isAdmin = action.payload.data.admin.length > 0 ? true : false
+        return {
+            
             ...state,
             isLoading: false,
             isLoggedIn: true,
             buyer: action.payload,
             token: action.payload.data.token,
             navigate: true,
-            isAdmin:action.payload.data.user.isAdmin,
+            isAdmin:isAdmin,
             error: ""
         }
         case REMOVE_USER: return {
             ...state,
             buyer: null,
             isLoggedIn:false,
+            isAdmin:false,
             token:null
         }
         case LOGIN_USER_ERROR: return {

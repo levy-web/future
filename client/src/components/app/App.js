@@ -24,6 +24,7 @@ import BackDropFeature from '../admin/BackDropFeature';
 import Login from '../auth/Login';
 import Register from '../auth/Register';
 import ProtectedRoute from '../auth/ProtectedRoute';
+import AdminRoutes from '../auth/AdminRoutes';
 
 function App() {
   const  [sideMenu , setSideMenu] = useState(false)
@@ -53,11 +54,11 @@ function App() {
         <Route path='/category/:protectedArea/:category/product/:id' element={<Prod/>}/>
         <Route path='/category/:protectedArea/:category' element={<ProdCategory/>}/>
         <Route path='/category/:protectedArea' element={<ProductByProtectedArea/>}/>
-        <Route path='/admin/:add' element={<Admin/>}/>
-        <Route path='/admin' element={<Admin/>}/>
+        <Route path='/admin/:add' element={<ProtectedRoute><AdminRoutes><Admin/></AdminRoutes></ProtectedRoute>}/>
+        <Route path='/admin' element={<ProtectedRoute><AdminRoutes><Admin/></AdminRoutes></ProtectedRoute>}/>
         <Route path='/login' element={<Login/>}/>
         <Route path='/register' element={<Register/>}/>
-        <Route path='/admin/product/:id' element={<Prodact popFeature={togglePopupFeature} popColor={togglePopupColor}/>}/>
+        <Route path='/admin/product/:id' element={<ProtectedRoute><AdminRoutes><Prodact popFeature={togglePopupFeature} popColor={togglePopupColor}/></AdminRoutes></ProtectedRoute>}/>
       </Routes>
 
       <BackDropColor popupColor={popupColor} popColor={togglePopupColor}/>
