@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {NavLink} from "react-router-dom"
 import { logoutUser } from './redux/user/UserAction';
 import { faShoppingCart, faSearch, faUserCircle, faHeart } from '@fortawesome/free-solid-svg-icons';
@@ -9,14 +9,30 @@ import { useSelector, useDispatch } from "react-redux";
 function SideNav() {
     const dispatch = useDispatch()
     const isLoggedIn = useSelector((state)=>state.user.isLoggedIn)
+    const [searchValue, setSearchValue] = useState(null)
+    const products = useSelector((state)=>state.products.products)
+
+    
     const checkState = isLoggedIn ? 
     <NavLink onClick={()=>dispatch(logoutUser())} className='ms-3 me-3' to='/login'><i class="fs-4 fas fa-sign-out-alt"></i></NavLink> : 
         <NavLink className='ms-3 me-3 text-dark' to='/login'><i class="fs-4 fas fa-user"></i></NavLink>
 
     const firstPath = window.location.pathname.split('/')[1];
 
+    function handleInputChange(e){
+        setSearchValue(e.target.value.toLowerCase())
+    }
+
+    const searchList = products.map((item)=>{
+        if((item.name.toLowerCase()).includes(searchValue)) {
+            return <li><NavLink to={`/category/${item.category.protected_area}/${item.category.name}/product/${item.id}`} className='text-decoration-none list-style-none'>{item.name}</NavLink></li>
+        }
+    })
+
+
     const renderMenu = (firstPath === 'register') || (firstPath === 'login') ? "d-none" : ""
   return (
+    <>
     <nav className="navbar navbar-expand-lg shadow p-0 navbar-light bg-white sticky-top ">
         <div className='container d-block'>
             <div className='d-flex align-items-center'>
@@ -28,7 +44,7 @@ function SideNav() {
                     </NavLink>
 
                     <div className={`border border-primary bg-primary rounded-pill rounded p-1 d-flex ${renderMenu}`} >
-                        <input className='form-control justify-content-center ms-1 me-1 w-100 border-0' placeholder='search . .'></input>
+                        <input onChange={handleInputChange} className='form-control justify-content-center ms-1 me-1 w-100 border-0' placeholder='search . .'></input>
                         <i class=" fs-5 m-auto fas fa-search"></i> 
                     </div>
                     
@@ -53,15 +69,20 @@ function SideNav() {
                             </li>
                         </ul>
                     </div>
+
                 </div>
+                {searchValue ? <div className='w-100 search-list container border my-4'><ol className='text-center'>{searchList}</ol></div> : ""}
             <div>
-            <div className="collapse justify-content-center navbar-collapse" id="sidebarNav">            
-                <SideMenu renderOptions={renderMenu}/>
+            <div className="collapse justify-content-center navbar-collapse" id="sidebarNav">          
+             <SideMenu renderOptions={renderMenu}/>
             </div>
+
         </div>
 
       </div>   
     </nav>
+
+    </>
     
   )
 }

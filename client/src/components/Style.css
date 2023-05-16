@@ -271,6 +271,12 @@
     background-color: #2b2eff;
 }
 
+.search-list{
+    max-height: 20vh;
+    overflow-y: auto;
+    scroll-behavior: true;
+}
+
 
 
 
