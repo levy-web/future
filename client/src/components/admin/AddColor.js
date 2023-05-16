@@ -1,8 +1,11 @@
 import React, { useState } from 'react'
-import {useSelector} from 'react-redux'
+import {toast} from 'react-hot-toast'
+import { logoutUser } from '../redux/user/UserAction'
+import {useSelector, useDispatch} from 'react-redux'
 
 function AddColor() {
     const [name, setName] = useState('')
+    const dispatch = useDispatch()
     const token = useSelector((state)=>state.user.token)
     console.log(token)
 
@@ -18,7 +21,7 @@ function AddColor() {
         name: name
       }
 
-      fetch('/colors',{
+      fetch('https://protexx.onrender.com/colors',{
         method: "POST",
         headers:{
             "Content-Type":"application/json",
@@ -31,20 +34,26 @@ function AddColor() {
           return response.json()
           
         }else if (response.status === 422) {
-          console.log(response)
-            return response.json().then(error => {
+        return response.json().then(error => {
               throw new Error(error.message);
             });
+        }else if (response.status === 401) {
+          dispatch(logoutUser())
+          return response.json().then(error => {
+                throw new Error(error.message);
+           })
         }else {
           throw new Error('Network response was not ok.');
         }    
       })
       .then((data)=>{
         console.log(data)
+        toast.success(`${data.name} added succesfully`)
       })
       .catch(error => {
         // Handle network error or response error.
         console.error('There was an error:', error);
+        toast.error(error.message)
       });
   }  
   return (
