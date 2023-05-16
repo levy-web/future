@@ -40,14 +40,14 @@ function AddColor() {
         }else if (response.status === 401) {
           dispatch(logoutUser())
           return response.json().then(error => {
-                throw new Error(error.message);
+                throw new Error(error.error);
            })
         }else {
           throw new Error('Network response was not ok.');
         }    
       })
       .then((data)=>{
-        console.log(data)
+        setName('')
         toast.success(`${data.name} added succesfully`)
       })
       .catch(error => {
