@@ -1,4 +1,5 @@
 import { combineReducers } from "redux";
+import cartSlice from "./cart/CartSlice";
 import categoriesSlice from "./categories/CategorySlice";
 import featureSlice from "./features/FeatureSlice";
 import paginationSlice from "./pagination/Slice";
@@ -10,7 +11,8 @@ const rootReducer = combineReducers({
     products: productSlice,
     features: featureSlice,
     user:userSlice,
-    pagination:paginationSlice
+    pagination:paginationSlice,
+    cart: cartSlice
 
 });
 

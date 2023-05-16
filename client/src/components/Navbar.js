@@ -12,6 +12,8 @@ function Navbar({openSideMenu}) {
 
   const isLoggedIn = useSelector((state)=>state.user.isLoggedIn)
   const admin = useSelector((state)=>state.user.isAdmin)
+  const state = useSelector((state) => state.cart);
+
   console.log(admin)
 
   const isAdmin = admin ? "" : "d-none"
@@ -57,9 +59,9 @@ function Navbar({openSideMenu}) {
 
 
 
-        <NavLink className='cart-icon p-2'>
+        <NavLink to={'/cart'} className='cart-icon p-2'>
           <i className="fas fa-shopping-cart text-dark"></i>
-          <span className="item-count text-dark">(3)</span>
+          <span className="item-count text-dark">{state.length}</span>
         </NavLink>        
         {checkState}
       </div>

@@ -9,6 +9,7 @@ import { useSelector, useDispatch } from "react-redux";
 function SideNav() {
     const dispatch = useDispatch()
     const isLoggedIn = useSelector((state)=>state.user.isLoggedIn)
+    const state = useSelector((state) => state.cart);
     const [searchValue, setSearchValue] = useState(null)
     const products = useSelector((state)=>state.products.products)
 
@@ -58,9 +59,9 @@ function SideNav() {
                             </li>
 
                             <li className={`${renderMenu} m-auto nav-item `}>
-                                <NavLink className='ms-3 my-2 me-3 cart-icon'>
+                                <NavLink to={'/cart'} className='ms-3 my-2 me-3 cart-icon'>
                                     <i className="fs-4 fas fa-shopping-cart"></i>
-                                    <span className="item-count text-dark">3</span>
+                                    <span className="item-count text-dark">{state.length}</span>
                                 </NavLink>
                             </li>
 
