@@ -1,3 +1,4 @@
+import {toast} from 'react-hot-toast'
 import { REMOVE_USER, LOGIN_USER, LOAD_USERS, LOGIN_USER_ERROR } from "./UserType";
 
 
@@ -22,7 +23,8 @@ export function loginUser(email, password) {
             dispatch({
               type: LOGIN_USER,
               payload: data
-            })          
+            })   
+            toast.success(`${data.message}`);       
           
         }else if (response.status === 422) {
           const error = await response.json();
@@ -32,11 +34,12 @@ export function loginUser(email, password) {
         }
         
       }catch (error){
-        console.error(error)
+        console.error(error.message)
         dispatch({
           type: LOGIN_USER_ERROR,
           payload: error
         })
+        toast.error(error.message)
       }
       
     };
