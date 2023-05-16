@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import {NavLink, useParams} from 'react-router-dom'
 import { fetchCategories } from '../redux/categories/CategoryAction'
 import { useDispatch, useSelector } from 'react-redux'
+import { setPageNumber } from '../redux/pagination/Action'
 import Footer from '../Footer'
 import SideNav from '../SideNav'
 import ProdLoad from './ProdLoad'
@@ -16,8 +17,8 @@ function ProdCategory() {
     const [loading, setLoading] = useState(false)
     const simProdLoading = useSelector((state)=>state.categories.loading)
     console.log(simProdLoading)
-    const [pageNumber, setPageNumber] = useState(0)
-    const productsPerPage = 10
+    const pageNumber = useSelector((state)=>state.pagination.pageNumber)
+    const productsPerPage = useSelector((state)=>state.pagination.productsPerPage)
     const pagesVisited = pageNumber * productsPerPage
     const pageCount = Math.ceil(products.length / productsPerPage)
 
@@ -59,7 +60,7 @@ function ProdCategory() {
     const showSimProtectedArea = loading ? <CarouselLoading/> : <ProtectedAreaCategory simCategory={category} protectedArea={protectedArea}/>
 
     const changePage = ({selected}) => {
-      setPageNumber(selected)
+      dispatch(setPageNumber(selected))
     }
 
 

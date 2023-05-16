@@ -4,6 +4,7 @@ import { addToProtectedArea, resetProtectedArea, fetchCategories } from '../redu
 import { fetchProducts } from '../redux/product/ProductAction';
 import ProductItem from './ProductItem'
 import ReactPaginate from 'react-paginate';
+import { setPageNumber } from '../redux/pagination/Action';
 import Marquee from "react-fast-marquee";
 import { NavLink, useParams } from 'react-router-dom';
 import Footer from '../Footer';
@@ -15,8 +16,8 @@ function ProductByProtectedArea() {
     const cat = useSelector((state)=>state.categories.categories)
     const protectedAreaProd = useSelector((state)=>state.categories.protectedArea)
     // const [paginated, setPaginated] = useState(protectedAreaProd.slice(0, protectedAreaProd.length))
-    const [pageNumber, setPageNumber] = useState(0)
-    const productsPerPage = 10
+    const pageNumber = useSelector((state)=>state.pagination.pageNumber)
+    const productsPerPage = useSelector((state)=>state.pagination.productsPerPage)
     const pagesVisited = pageNumber * productsPerPage
     const pageCount = Math.ceil(protectedAreaProd.length / productsPerPage)
     console.log(category)
@@ -51,7 +52,7 @@ function ProductByProtectedArea() {
   })
 
   const changePage = ({selected}) => {
-    setPageNumber(selected)
+    dispatch(setPageNumber(selected))
   }
 
   return (

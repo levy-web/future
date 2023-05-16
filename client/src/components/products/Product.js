@@ -11,6 +11,7 @@ import SideNav from '../SideNav';
 import { fetchProducts } from '../redux/product/ProductAction';
 import CarouselLoading from './CarouselLoading';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
+import AllProducts from './AllProducts';
 
 function Product() {
     const dispatch = useDispatch()
@@ -52,17 +53,19 @@ function Product() {
   <>
   <SideNav/>
     <div className='container my-5'>
-        <div className='d-flex'>
+      <div className='d-flex'>
         <h6>Top deals</h6>
         <NavLink className='fs-6 ms-auto me-2'>view all{` (${products.length}) items`}</NavLink>
       </div>
       <hr/>
 
       <div className='my-5'>              
-      <div className = "row g-4 my-2 mx-auto">
-        {showProducts}               
-      </div> 
+        <div className = "row g-4 my-2 mx-auto">
+          {showProducts}
+        </div>        
+        <AllProducts/>               
       </div>
+
     </div>
     <Footer/>
     </>
