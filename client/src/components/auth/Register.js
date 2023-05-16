@@ -9,12 +9,14 @@ const Register = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [confPassword, setconfPassword] = useState('')
+  const [isLoading, setIsLoading] = useState(false)
 
   const navigate = useNavigate()
 
   const passConfirmed = ((password === confPassword) && (email !=="") && (password !== "")) ? "" : "disabled"
 
   function handleSubmit(e){
+    setIsLoading(true)
     e.preventDefault()
     const formData = {
       "name":username,
@@ -44,13 +46,15 @@ const Register = () => {
     })
     .then((data)=>{
       console.log(data)
+      setIsLoading(false)
       toast.success(`${data.name} registered succesfully, login`)
       navigate('/login')
     })
     .catch(error => {
       // Handle network error or response error.
-      console.error('There was an error:', error);
+      console.error('There was an error:', error.message);
       toast.error(error.message)
+      setIsLoading(false)
     });
   }
 
@@ -122,10 +126,11 @@ const Register = () => {
 
                 <div className="text-center mb-4">
                   <button
+                    disabled={isLoading}
                     type="submit"
                     className={`btn btn-primary btn-block w-100 ${passConfirmed}`}               
                   >
-                    Register
+                   {isLoading ? "Loading..." : "Register"}                    
                   </button>
                 </div>
               </form>

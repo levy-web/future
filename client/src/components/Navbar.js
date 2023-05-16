@@ -12,13 +12,14 @@ function Navbar({openSideMenu}) {
 
   const isLoggedIn = useSelector((state)=>state.user.isLoggedIn)
   const admin = useSelector((state)=>state.user.isAdmin)
+  const user = useSelector((state)=>state.user.buyer)
   const state = useSelector((state) => state.cart);
 
   console.log(admin)
 
   const isAdmin = admin ? "" : "d-none"
 
-  const profile = isLoggedIn ? <span className='ms-3'>{'user.name'}</span>:<span className='ms-3'>My Account</span>
+  const profile = user ? <span className='ms-3'>{user.data.user.name}</span>:<span className='ms-3'>My Account</span>
 
   const checkState = isLoggedIn ? 
   <NavLink onClick={()=>dispatch(logoutUser())} className='p-2 text-dark' to='/login'><i className="fas fa-sign-out-alt"></i></NavLink> : 
