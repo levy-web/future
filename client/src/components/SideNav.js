@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import {toast} from 'react-hot-toast'
 import {NavLink} from "react-router-dom"
 import { logoutUser } from './redux/user/UserAction';
 import { faShoppingCart, faSearch, faUserCircle, faHeart } from '@fortawesome/free-solid-svg-icons';
@@ -15,7 +16,10 @@ function SideNav() {
 
     
     const checkState = isLoggedIn ? 
-    <NavLink onClick={()=>dispatch(logoutUser())} className='ms-3 me-3' to='/login'><i class="fs-4 fas fa-sign-out-alt"></i></NavLink> : 
+    <NavLink onClick={()=>{
+        dispatch(logoutUser())
+        toast.success('succesfully logged out')
+    }} className='ms-3 me-3' to='/login'><i class="fs-4 fas fa-sign-out-alt"></i></NavLink> : 
         <NavLink className='ms-3 me-3 text-dark' to='/login'><i class="fs-4 fas fa-user"></i></NavLink>
 
     const firstPath = window.location.pathname.split('/')[1];
@@ -52,20 +56,20 @@ function SideNav() {
                     
                     
                         <ul className="collapse navbar-collapse navbar-nav p-1 my-2 text-center">
-                            <li className={`${renderMenu} ms-auto nav-item active `}>
+                            <li className={`ms-auto nav-item active `}>
                                 <NavLink className='ms-3 my-2 me-3 text-danger'>
                                 <i className = "fs-4 far fa-heart"></i>
                                 </NavLink>
                             </li>
 
-                            <li className={`${renderMenu} m-auto nav-item `}>
+                            <li className={`m-auto nav-item `}>
                                 <NavLink to={'/cart'} className='ms-3 my-2 me-3 cart-icon'>
                                     <i className="fs-4 fas fa-shopping-cart"></i>
                                     <span className="item-count text-dark">{state.length}</span>
                                 </NavLink>
                             </li>
 
-                            <li className={`${renderMenu} me-auto nav-item`}>
+                            <li className={`me-auto nav-item`}>
                                 {checkState}
                             </li>
                         </ul>

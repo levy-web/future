@@ -26,6 +26,7 @@ import Register from '../auth/Register';
 import ProtectedRoute from '../auth/ProtectedRoute';
 import AdminRoutes from '../auth/AdminRoutes';
 import Cart from '../Cart';
+import {Toaster} from 'react-hot-toast';
 
 function App() {
   const  [sideMenu , setSideMenu] = useState(false)
@@ -47,6 +48,7 @@ function App() {
   return (
     <Provider store={store}>
       <PersistGate persistor={persistor}>
+      <Toaster position="top-center" reverseOrder={false}/>
 
       <Navbar openSideMenu={toggleSideMenu}/> 
 
