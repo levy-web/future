@@ -12,8 +12,8 @@ function AdminNav() {
     const dispatch = useDispatch()
     const isLoggedIn = useSelector((state)=>state.user.isLoggedIn)
     const checkState = isLoggedIn ? 
-    <NavLink onClick={()=>dispatch(logoutUser())} className='ms-3 me-2' to='/login'><i class="fs-4 fas fa-sign-out-alt"></i></NavLink> : 
-    <NavLink className='ms-3 me-2' to='/login'><i class="fs-4 fas fa-user"></i></NavLink>
+    <NavLink onClick={()=>dispatch(logoutUser())} className='ms-3 me-2' to='/login'><i className="fs-4 fas fa-sign-out-alt"></i></NavLink> : 
+    <NavLink className='ms-3 me-2' to='/login'><i className="fs-4 fas fa-user"></i></NavLink>
   return (
     <nav className="navbar navbar-expand-lg shadow navbar-light bg-white sticky-top" id='secondnav'>
         <div className='container d-block'>
@@ -26,7 +26,7 @@ function AdminNav() {
                     </h3>
 
                     <div className='p-3 m-auto d-flex justify-content-center align-items-center'>
-                        <i class="fs-5 fas fa-search"></i>            
+                        <i className="fs-5 fas fa-search"></i>            
                         <input className='form-control w-100 border-0' placeholder='search . .'></input>
                         
                     </div>

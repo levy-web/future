@@ -21,8 +21,8 @@ function Navbar({openSideMenu}) {
   const profile = isLoggedIn ? <span className='ms-3'>{'user.name'}</span>:<span className='ms-3'>My Account</span>
 
   const checkState = isLoggedIn ? 
-  <NavLink onClick={()=>dispatch(logoutUser())} className='p-2 text-dark' to='/login'><i class="fas fa-sign-out-alt"></i></NavLink> : 
-      <NavLink className='p-2 text-dark' to='/login'><i class="fas fa-user"></i></NavLink>
+  <NavLink onClick={()=>dispatch(logoutUser())} className='p-2 text-dark' to='/login'><i className="fas fa-sign-out-alt"></i></NavLink> : 
+      <NavLink className='p-2 text-dark' to='/login'><i className="fas fa-user"></i></NavLink>
 
 
 
@@ -53,7 +53,7 @@ function Navbar({openSideMenu}) {
             aria-label="Toggle navigation"
             icon={faSearch} color="white"
         >
-        <i class="navbar-toggler border-0 fas fa-search"></i>
+        <i className="navbar-toggler border-0 fas fa-search"></i>
 
         </NavLink>
 
@@ -72,7 +72,7 @@ function Navbar({openSideMenu}) {
 
       <FontAwesomeIcon className='ms-auto' icon={faUserCircle} color='white' /> 
       {profile}
-      <NavLink to='/admin' className={`text-white text-decoration-none ms-auto ${isAdmin}`}><i class="fas fa-user-cog"></i> <span>dashboard</span></NavLink>      
+      <NavLink to='/admin' className={`text-white text-decoration-none ms-auto ${isAdmin}`}><i className="fas fa-user-cog"></i> <span>dashboard</span></NavLink>      
       </div>
 
       </div>

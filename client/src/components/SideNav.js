@@ -19,8 +19,8 @@ function SideNav() {
     <NavLink onClick={()=>{
         dispatch(logoutUser())
         toast.success('succesfully logged out')
-    }} className='ms-3 me-3' to='/login'><i class="fs-4 fas fa-sign-out-alt"></i></NavLink> : 
-        <NavLink className='ms-3 me-3 text-dark' to='/login'><i class="fs-4 fas fa-user"></i></NavLink>
+    }} className='ms-3 me-3' to='/login'><i className="fs-4 fas fa-sign-out-alt"></i></NavLink> : 
+        <NavLink className='ms-3 me-3 text-dark' to='/login'><i className="fs-4 fas fa-user"></i></NavLink>
 
     const firstPath = window.location.pathname.split('/')[1];
 
@@ -50,7 +50,7 @@ function SideNav() {
 
                     <div className={`border border-primary bg-primary rounded-pill rounded p-1 d-flex ${renderMenu}`} >
                         <input onChange={handleInputChange} className='form-control justify-content-center ms-1 me-1 w-100 border-0' placeholder='search . .'></input>
-                        <i class=" fs-5 m-auto fas fa-search"></i> 
+                        <i className=" fs-5 m-auto fas fa-search"></i> 
                     </div>
                     
                     

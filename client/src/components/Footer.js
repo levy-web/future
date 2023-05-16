@@ -15,12 +15,12 @@ function Footer() {
             </div>
 
             <div className='d-flex container m-auto w-100 my-2'>
-              <i class="text-success fab fa-whatsapp"></i>
+              <i className="text-success fab fa-whatsapp"></i>
               <small className='w-100 '>+971 55 881 3452</small>
             </div>
 
             <div className='d-flex container m-auto w-100 my-2'>
-              <i class="text-white fas fa-envelope"></i>
+              <i className="text-white fas fa-envelope"></i>
               <small className='w-100 '>info@sams-solutions.com</small>
             </div>
             <div className='d-flex container w-100 mb-2'>

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import {toast} from 'react-hot-toast'
 import {  Link, useNavigate } from 'react-router-dom';
 import SideNav from '../SideNav';
 
@@ -43,11 +44,13 @@ const Register = () => {
     })
     .then((data)=>{
       console.log(data)
+      toast.success(`${data.name} registered succesfully, login`)
       navigate('/login')
     })
     .catch(error => {
       // Handle network error or response error.
       console.error('There was an error:', error);
+      toast.error(error.message)
     });
   }
 
