@@ -7,17 +7,25 @@ class FeaturesController < ApplicationController
     end
 
     def create
-        feature = Feature.create(features_params)
-        render json: feature
+        if @user[:isAdmin]
+            feature = Feature.create(features_params)
+            render json: feature, status: :created
+        else
+            render json: {error: "admin access only"}, status: :unauthorized
+        end
     end
 
     def destroy
+        if @user[:isAdmin]
         feature = Feature.find_by(id: params[:id])
         if feature
             feature.destroy
             render json: feature
         else
             render json: {error:"not found"}
+        end
+        else
+            render json: {error: "admin access only"}, status: :unauthorized
         end
     end
 

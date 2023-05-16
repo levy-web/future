@@ -7,12 +7,16 @@ class ColorsController < ApplicationController
     end
 
     def create
+        if @user[:isAdmin]
         color = Color.create(color_params)
         if color.valid?
             render json: color, status: :created
         else
             render json: {message: color.errors.full_messages}, status: :unprocessable_entity
-        end   
+        end
+        else
+            render json: {error: "admin access only"}, status: :unauthorized
+        end
     end
 
     private

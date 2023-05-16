@@ -7,16 +7,24 @@ class ProductsController < ApplicationController
     end
 
     def create
-        product = Product.create(products_params)
-        if product
-            render json: product
+        if @user[:isAdmin]
+            product = Product.create(products_params)
+            if product
+                render json: product, status: :created
+            else
+                render json: {error: product.errors.full_messages}, status: :unprocessable_entity
+            end
         else
-            render json: {error: product.error.fullmessage}
+            render json: {error: "admin access only"}, status: :unauthorized
         end
 
     end
 
     def update
+        if @user[:isAdmin]
+        else
+            render json: {error: "admin access only"}, status: :unauthorized
+        end
     end
 
     def show
@@ -29,6 +37,10 @@ class ProductsController < ApplicationController
     end
 
     def delete
+        if @user[:isAdmin]
+        else
+            render json: {error: "admin access only"}, status: :unauthorized
+        end
     end
 
     private

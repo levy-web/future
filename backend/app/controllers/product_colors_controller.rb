@@ -3,11 +3,15 @@ class ProductColorsController < ApplicationController
     before_action :verify_auth, only: %i[ create destroy update]
 
     def create
+        if @user[:isAdmin]
         prodColor = ProductColor.create(prod_color_params)
-        if prodColor
-            render json: prodColor
+            if prodColor.valid?
+                render json: prodColor, status: :created
+            else
+                render json: {error: prodColor.errors.full_messages}, status: unprocessable_entity
+            end
         else
-            render json: {error: prodColor.error.fullmessage}
+            render json: {error: "admin access only"}, status: :unauthorized
         end
     end
 

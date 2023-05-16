@@ -16,11 +16,15 @@ class CategoriesController < ApplicationController
     end
 
     def create
-        category = Category.create(categories_params)
-        if category
-            render json: category
+        if @user[:isAdmin]
+            category = Category.create(categories_params)
+            if category.valid?
+                render json: category
+            else
+                render json: {error: category.errors.full_messages}, status: :unprocessable_entity
+            end
         else
-            render json: {error: category.error.fullmessage}
+            render json: {error: "admin access only"}, status: :unauthorized
         end
     end
 
