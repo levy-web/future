@@ -17,9 +17,9 @@ function SideNav() {
 
     const renderMenu = (firstPath === 'register') || (firstPath === 'login') ? "d-none" : ""
   return (
-    <nav className="navbar navbar-expand-lg shadow navbar-light bg-white sticky-top " id='secondnav'>
+    <nav className="navbar navbar-expand-lg shadow p-0 navbar-light bg-white sticky-top ">
         <div className='container d-block'>
-            <div className='d-flex p-2 align-items-center'>
+            <div className='d-flex align-items-center'>
 
 
                 <div className="collapse navbar-collapse p-1" id="navbarNav">
@@ -27,7 +27,7 @@ function SideNav() {
                         <h3>Moris</h3>
                     </NavLink>
 
-                    <div className={`border border-primary bg-primary rounded-pill rounded p-1 w-50 d-flex ${renderMenu}`}>
+                    <div className={`border border-primary bg-primary rounded-pill rounded p-1 d-flex ${renderMenu}`} >
                         <input className='form-control justify-content-center ms-1 me-1 w-100 border-0' placeholder='search . .'></input>
                         <i class=" fs-5 m-auto fas fa-search"></i> 
                     </div>

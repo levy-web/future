@@ -51,7 +51,7 @@ function Navbar({openSideMenu}) {
             aria-label="Toggle navigation"
             icon={faSearch} color="white"
         >
-        <i class="fas fa-search"></i>
+        <i class="navbar-toggler border-0 fas fa-search"></i>
 
         </NavLink>
 

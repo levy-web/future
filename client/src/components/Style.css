@@ -51,9 +51,7 @@
         border: 1px solid rgb(219, 219, 219);
     }
 
-    #secondnav{
-        display: none;
-    }
+   
     .dropdown:hover .dropdown-menu {
         width: 230px;
         left: 0;
@@ -98,6 +96,7 @@
     .carosel .img-fluid{
         height: 100px;
     }
+
     
 
 }
