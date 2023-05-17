@@ -1,4 +1,5 @@
 import { NavLink} from 'react-router-dom'
+import {  Link, useNavigate } from 'react-router-dom';
 import {toast} from 'react-hot-toast'
 import { useSelector, useDispatch } from 'react-redux';
 import { logoutUser } from '../redux/user/UserAction';
@@ -7,6 +8,7 @@ import { removeProdFeatures } from '../redux/product/ProductAction';
 function ProdactItem({popColor, popFeature}) {
 
     const dispatch = useDispatch()
+    const navigate = useNavigate()
     const product = useSelector((state)=>state.products.product)
     const category = useSelector((state)=>state.products.product.category)
     const features = useSelector((state)=>state.products.features)
@@ -92,8 +94,8 @@ function ProdactItem({popColor, popFeature}) {
             }    
         })
         .then((data)=>{
-            dispatch(removeProdFeatures(data.id))
-            toast.success(`product deleted succesfully`)
+            toast.success(data.message)
+            navigate('/admin')
         })
         .catch(error => {
             // Handle network error or response error.
