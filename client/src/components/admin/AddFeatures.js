@@ -1,4 +1,6 @@
 import React, {useState} from 'react'
+import {toast} from 'react-hot-toast'
+import { logoutUser } from '../redux/user/UserAction'
 import {useSelector, useDispatch} from 'react-redux'
 import { addFeatures, removeFeatures, clearFeatures } from '../redux/features/FeatureAction'
 
@@ -46,10 +48,32 @@ function AddFeatures({ popFeature, popupFeature}) {
         },
           body:JSON.stringify(formData)  
          })
-         .then((r)=>r.json())
-         .then((data)=>{
-          console.log(data)
+         .then((response)=>{
+          if(response.ok){
+            return response.json()
+            
+          }else if (response.status === 422) {
+          return response.json().then(error => {
+                throw new Error(error.message);
+              });
+          }else if (response.status === 401) {
+            dispatch(logoutUser())
+            return response.json().then(error => {
+                  throw new Error(error.error);
+             })
+          }else {
+            throw new Error('Network response was not ok.');
+          }    
         })
+         .then((data)=>{
+          setFeature('')
+          toast.success(`${data.faeture_name} added succesfully`)
+        })
+        .catch(error => {
+          // Handle network error or response error.
+          console.error('There was an error:', error);
+          toast.error(error.message)
+        });
       })
       popFeature()
       dispatch(clearFeatures())

@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import {toast} from 'react-hot-toast'
+import {logoutUser} from '../redux/user/UserAction'
 import { useDispatch, useSelector } from "react-redux";
 import { addCategory } from '../redux/categories/CategoryAction';
 
@@ -34,11 +36,33 @@ function AddCategory() {
     },
       body:JSON.stringify(formData)
      })
-     .then((r)=>r.json())
+     .then((response)=>{
+      if(response.ok){
+        return response.json()
+        
+      }else if (response.status === 422) {
+      return response.json().then(error => {
+            throw new Error(error.message);
+          });
+      }else if (response.status === 401) {
+        dispatch(logoutUser())
+        return response.json().then(error => {
+              throw new Error(error.error);
+         })
+      }else {
+        throw new Error('Network response was not ok.');
+      }    
+    })
      .then((data)=>{
       console.log(data)
+      toast.success(`${data.name} added succesfully`)
       dispatch(addCategory(data))
     })
+    .catch(error => {
+      // Handle network error or response error.
+      console.error('There was an error:', error);
+      toast.error(error.message)
+    });
 }
 
   return (

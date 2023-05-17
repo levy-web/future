@@ -1,16 +1,23 @@
 import React, {useEffect, useState} from 'react'
-import { useSelector } from 'react-redux'
+import {toast} from 'react-hot-toast'
+import { logoutUser } from '../redux/user/UserAction'
+import { useSelector, useDispatch } from 'react-redux'
 
 function Collaborators() {
     const [email, setEmail] = useState('')
     const [users, setUsers] = useState([])
     const [fetchedName, setFetchedName] = useState(null)
+    const dispatch = useDispatch()
     const token = useSelector((state)=>state.user.token)
     console.log(token)
 
     function removeAdmin(id){
       fetch(`https://protexx.onrender.com/admins/${id}`,{
-        method: "DELETE"
+        method: "DELETE",
+        headers:{
+          "Content-Type":"application/json",
+          Authorization: `Bearer ${token}`
+      }
        })
        .then((response)=>{
         if(response.ok){
@@ -27,10 +34,13 @@ function Collaborators() {
       })
       .then((data)=>{
         console.log(data)
+        toast.success("deleted successfully")
+
       })
       .catch(error => {
         // Handle network error or response error.
         console.error('There was an error:', error);
+        toast.error(error.message)
       });
 
     }
@@ -44,8 +54,9 @@ function Collaborators() {
       fetch("https://protexx.onrender.com/admins",{
       method: "POST",
       headers:{
-          "Content-Type":"application/json"
-      },
+        "Content-Type":"application/json",
+        Authorization: `Bearer ${token}`
+    },
       body:JSON.stringify(formData)
      })
      .then((response)=>{
@@ -67,24 +78,35 @@ function Collaborators() {
     .catch(error => {
       // Handle network error or response error.
       console.error('There was an error:', error);
+      toast.error(error.message)
     });
     }
 
     useEffect(()=>{
-        fetch('https://protexx.onrender.com/admins')
-           .then((response)=>{
-            if(response.ok){
-              return response.json()
-              
-            }else if (response.status === 422) {
-              console.log(response)
+        fetch('https://protexx.onrender.com/admins',{
+          method:"GET",
+          headers:{
+            "Content-Type":"application/json",
+            Authorization: `Bearer ${token}`
+        }
+        })
+            .then((response)=>{
+              if(response.ok){
+                return response.json()
+                
+              }else if (response.status === 422) {
+              return response.json().then(error => {
+                    throw new Error(error.message);
+                  });
+              }else if (response.status === 401) {
+                dispatch(logoutUser())
                 return response.json().then(error => {
-                  throw new Error(error.message);
-                });
-            }else {
-              throw new Error('Network response was not ok.');
-            }    
-          })
+                      throw new Error(error.error);
+                 })
+              }else {
+                throw new Error('Network response was not ok.');
+              }    
+            })
           .then((data)=>{
             setUsers(data)
             console.log(data)
@@ -92,6 +114,7 @@ function Collaborators() {
           .catch(error => {
             // Handle network error or response error.
             console.error('There was an error:', error);
+            toast.error(error.message)
           });
         
     },[])
@@ -113,7 +136,8 @@ function Collaborators() {
       fetch(`https://protexx.onrender.com/usersAdmin`,{
         method: "POST",
         headers:{
-            "Content-Type":"application/json"
+            "Content-Type":"application/json",
+            Authorization: `Bearer ${token}`
         },
         body:JSON.stringify(formData)
        })
@@ -122,10 +146,14 @@ function Collaborators() {
           return response.json()
           
         }else if (response.status === 422) {
-          console.log(response)
-            return response.json().then(error => {
+        return response.json().then(error => {
               throw new Error(error.message);
             });
+        }else if (response.status === 401) {
+          dispatch(logoutUser())
+          return response.json().then(error => {
+                throw new Error(error.error);
+           })
         }else {
           throw new Error('Network response was not ok.');
         }    
@@ -136,6 +164,7 @@ function Collaborators() {
       .catch(error => {
         // Handle network error or response error.
         console.error('There was an error:', error);
+        toast.error(error.message)
       });
     }
   return (

@@ -1,4 +1,6 @@
 import React, {useEffect, useState} from 'react'
+import {toast} from 'react-hot-toast'
+import { logoutUser } from '../redux/user/UserAction';
 import { useDispatch, useSelector } from "react-redux";
 import { addProductColor } from '../redux/product/ProductAction'; 
 
@@ -6,6 +8,7 @@ function AddProductColor({popupColor, popColor}) {
     const [name, setName] = useState('')
     const [colors, setColors] = useState([])
     const [image, setImage] = useState(null)
+    const token = useSelector((state)=>state.user.token)
     const item = window.location.pathname.split('/').pop();
 
     const dispatch = useDispatch()
@@ -46,16 +49,41 @@ function AddProductColor({popupColor, popColor}) {
     
          fetch('https://protexx.onrender.com/prod-colors',{
           method: "POST",
+          headers:{
+            Authorization: `Bearer ${token}`
+        },
           body:data  
          })
-         .then((r)=>r.json())
+         .then((response)=>{
+          if(response.ok){
+            return response.json()
+            
+          }else if (response.status === 422) {
+          return response.json().then(error => {
+                throw new Error(error.message);
+              });
+          }else if (response.status === 401) {
+            dispatch(logoutUser())
+            return response.json().then(error => {
+                  throw new Error(error.error);
+             })
+          }else {
+            throw new Error('Network response was not ok.');
+          }    
+        })
          .then((data)=>{
           console.log(data)
           dispatch(addProductColor(data.id, data.image_url))
           popColor()
           setName("")
-          setImage("")          
+          setImage("")
+          toast.success(`${data.name} added succesfully`)
         })
+        .catch(error => {
+          // Handle network error or response error.
+          console.error('There was an error:', error);
+          toast.error(error.message)
+        });
     
       }
   return (

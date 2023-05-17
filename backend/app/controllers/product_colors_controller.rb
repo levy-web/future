@@ -8,7 +8,7 @@ class ProductColorsController < ApplicationController
             if prodColor.valid?
                 render json: prodColor, status: :created
             else
-                render json: {error: prodColor.errors.full_messages}, status: unprocessable_entity
+                render json: {error: prodColor.errors.full_messages}, status: :unprocessable_entity
             end
         else
             render json: {error: "admin access only"}, status: :unauthorized
