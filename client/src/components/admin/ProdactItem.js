@@ -1,5 +1,7 @@
 import { NavLink} from 'react-router-dom'
+import {toast} from 'react-hot-toast'
 import { useSelector, useDispatch } from 'react-redux';
+import { logoutUser } from '../redux/user/UserAction';
 import { removeProdFeatures } from '../redux/product/ProductAction';
 
 function ProdactItem({popColor, popFeature}) {
@@ -9,6 +11,7 @@ function ProdactItem({popColor, popFeature}) {
     const category = useSelector((state)=>state.products.product.category)
     const features = useSelector((state)=>state.products.features)
     const productColors = useSelector((state)=>state.products.prodColors)
+    const token = useSelector((state)=>state.user.token)
     console.log(features)
 
     const productColor = productColors.map((color)=>{
@@ -16,12 +19,39 @@ function ProdactItem({popColor, popFeature}) {
     })
 
     function deleteFeature(id){
-        fetch(`/features/${id}`,{
-            method:"DELETE"
+        fetch(`https://protexx.onrender.com/features/${id}`,{
+            method:"DELETE",
+            headers:{
+                "Content-Type":"application/json",
+                Authorization: `Bearer ${token}`
+            }
         })
-        .then((r)=>r.json())
-        .then((data)=>dispatch(removeProdFeatures(data.id)))
-
+        .then((response)=>{
+            if(response.ok){
+              return response.json()
+              
+            }else if (response.status === 422) {
+            return response.json().then(error => {
+                  throw new Error(error.message);
+                });
+            }else if (response.status === 401) {
+              dispatch(logoutUser())
+              return response.json().then(error => {
+                    throw new Error(error.error);
+               })
+            }else {
+              throw new Error('Network response was not ok.');
+            }    
+          })
+          .then((data)=>{
+            dispatch(removeProdFeatures(data.id))
+            toast.success(`${data.faeture_name} removed succesfully`)
+          })
+          .catch(error => {
+            // Handle network error or response error.
+            console.error('There was an error:', error);
+            toast.error(error.message)
+          });
     }
 
     const productFeatures = features.map((feature)=>{
@@ -35,6 +65,43 @@ function ProdactItem({popColor, popFeature}) {
         </button>
         </div>
     })
+
+    function deleteProduct(){
+        fetch(`https://protexx.onrender.com/products/${product.id}`,{
+            method:"DELETE",
+            headers:{
+                "Content-Type":"application/json",
+                Authorization: `Bearer ${token}`
+            }
+        })
+        .then((response)=>{
+            if(response.ok){
+              return response.json()
+              
+            }else if (response.status === 422) {
+            return response.json().then(error => {
+                  throw new Error(error.message);
+                });
+            }else if (response.status === 401) {
+              dispatch(logoutUser())
+              return response.json().then(error => {
+                    throw new Error(error.error);
+               })
+            }else {
+              throw new Error('Network response was not ok.');
+            }    
+        })
+        .then((data)=>{
+            dispatch(removeProdFeatures(data.id))
+            toast.success(`product deleted succesfully`)
+        })
+        .catch(error => {
+            // Handle network error or response error.
+            console.error('There was an error:', error);
+            toast.error(error.message)
+        });
+        
+    }
 
 
 
@@ -90,7 +157,11 @@ function ProdactItem({popColor, popFeature}) {
                 <ul className='row'>
                 {productFeatures}
                 </ul>
-            </div>          
+            </div>  
+            <div className='row mt-2 product-type'>
+            <button onClick={deleteProduct} className='bg-danger border-0 my-2 p-1'>delete</button>      
+            </div>  
+
         </div>
     </div>       
     </div>

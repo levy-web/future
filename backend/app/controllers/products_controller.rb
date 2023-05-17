@@ -38,6 +38,14 @@ class ProductsController < ApplicationController
 
     def delete
         if @user[:isAdmin]
+            product = Product.find_by(id: params[:id])
+            if product
+                product.destroy
+                render json: {message: "#{product.name} deleted successfully"}
+            else
+                render json: {error:"not found"}
+            end
+
         else
             render json: {error: "admin access only"}, status: :unauthorized
         end
