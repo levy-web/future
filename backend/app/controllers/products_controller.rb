@@ -36,7 +36,7 @@ class ProductsController < ApplicationController
         end
     end
 
-    def delete
+    def destroy
         if @user[:isAdmin]
             product = Product.find_by(id: params[:id])
             if product
