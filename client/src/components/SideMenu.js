@@ -48,7 +48,7 @@ function SideMenu({closeSideMenu, renderOptions}) {
     })
     
   return (
-    <ul className={`navbar-nav p-1 me-auto justify-content-center row w-100 h-100 ${renderOptions}`}>
+    <ul className={`navbar-nav p-1 me-auto row w-100 h-100 ${renderOptions}`}>
         
         <li className="nav-item active col-lg-3 dropdown" >
             <NavLink className="nav-link product-name fs-6 dropdown-toggle text-dark" data-toggle="dropdown">
