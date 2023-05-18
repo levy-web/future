@@ -6,6 +6,7 @@ import { addFeatures, removeFeatures, clearFeatures } from '../redux/features/Fe
 
 function AddFeatures({ popFeature, popupFeature}) {
     const [feature, setFeature] = useState('')
+    const [isLoading, setIsLoading] = useState(false)
     const dispatch = useDispatch()
     const features = useSelector((state)=>state.features.features)
     const token = useSelector((state)=>state.user.token)
@@ -35,6 +36,7 @@ function AddFeatures({ popFeature, popupFeature}) {
     }
 
     function postToApi(){
+      setIsLoading(true)
       features.map((feature)=>{
         let formData = {
           faeture_name:feature.name,
@@ -67,11 +69,13 @@ function AddFeatures({ popFeature, popupFeature}) {
         })
          .then((data)=>{
           setFeature('')
+          setIsLoading(false)
           toast.success(`${data.faeture_name} added succesfully`)
         })
         .catch(error => {
           // Handle network error or response error.
           console.error('There was an error:', error);
+          setIsLoading(false)
           toast.error(error.message)
         });
       })
@@ -93,11 +97,14 @@ function AddFeatures({ popFeature, popupFeature}) {
               <ol>
                 {featureItems}
               </ol>
-            <button className={features.length<1 ? "d-none": "my-2 d-block mt-2 form-control bg-success border-0"} onClick={postToApi}>submit</button>
+            <button
+            disabled={isLoading}
+              className={features.length<1 ? "d-none": "my-2 d-block mt-2 form-control bg-success border-0"} 
+              onClick={postToApi}>
+                 {isLoading ? "Loading..." : "add Product"}
+              </button>
             </div>
-            
-
-            
+          
     </div>
   )
 }

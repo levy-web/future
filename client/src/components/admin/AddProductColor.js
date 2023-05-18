@@ -6,6 +6,7 @@ import { addProductColor } from '../redux/product/ProductAction';
 
 function AddProductColor({popupColor, popColor}) {
     const [name, setName] = useState('')
+    const [isLoading, setIsLoading] = useState(false)
     const [colors, setColors] = useState([])
     const [image, setImage] = useState(null)
     const token = useSelector((state)=>state.user.token)
@@ -46,6 +47,7 @@ function AddProductColor({popupColor, popColor}) {
       }
     
       function handleSubmitToApi(data){
+        setIsLoading(true)
     
          fetch('https://protexx.onrender.com/prod-colors',{
           method: "POST",
@@ -72,8 +74,9 @@ function AddProductColor({popupColor, popColor}) {
           }    
         })
          .then((data)=>{
-          console.log(data)
+          
           dispatch(addProductColor(data.id, data.image_url))
+          setIsLoading(false)
           popColor()
           setName("")
           setImage("")
@@ -82,6 +85,7 @@ function AddProductColor({popupColor, popColor}) {
         .catch(error => {
           // Handle network error or response error.
           console.error('There was an error:', error);
+          setIsLoading(false)
           toast.error(error.message)
         });
     
@@ -99,7 +103,12 @@ function AddProductColor({popupColor, popColor}) {
                 <div className="form-group mb-3">                       
                     <input required onChange={imageChange} className="form-control" type="file" id="formFile"></input>
                   </div>
-                <button className='mt-2 form-control bg-primary text-white' type='submit'>add Color</button>
+                <button 
+                disabled={isLoading}
+                  className='mt-2 form-control bg-primary text-white' 
+                  type='submit'>
+                   {isLoading ? "Loading..." : "add Color"}
+                </button>
             </form>
     </div>
   )

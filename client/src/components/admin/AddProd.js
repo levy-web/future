@@ -9,6 +9,7 @@ import AdminNav from './AdminNav';
 function AddProd() {
     const [name, setName] = useState('')
     const [material, setMaterial] = useState('')
+    const [isLoading, setIsLoading] = useState(false)
     const [weight, setWeight] = useState('')
     const [price, setPrice] = useState('')
     const [dimensions, setDimensions] = useState('')
@@ -85,6 +86,7 @@ function AddProd() {
     }
   
     function handleSubmitToApi(data){
+      setIsLoading(true)
   
        fetch('https://protexx.onrender.com/products',{
         method: "POST",
@@ -111,12 +113,13 @@ function AddProd() {
         }    
       })
       .then((data)=>{
-        console.log(data)
+        setIsLoading(false)
         navigate(`/admin/product/${data.id}`)
         toast.success(`${data.name} added succesfully`)
       })
       .catch(error => {
         // Handle network error or response error.
+        setIsLoading(false)
         console.error('There was an error:', error);
         toast.error(error.message)
       });
@@ -168,7 +171,12 @@ function AddProd() {
                     <input required onChange={imageChange} className="form-control" type="file" id="formFile"></input>
                   </div>
 
-                  <button className='mt-2 form-control bg-primary text-white' type='submit'>add Product</button>
+                  <button
+                  disabled={isLoading} 
+                    className='mt-2 form-control bg-primary text-white' 
+                    type='submit'>
+                     {isLoading ? "Loading..." : "add Product"}                      
+                  </button>
               </form>
           </div>
         </div>

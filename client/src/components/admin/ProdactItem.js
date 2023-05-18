@@ -4,6 +4,7 @@ import {toast} from 'react-hot-toast'
 import { useSelector, useDispatch } from 'react-redux';
 import { logoutUser } from '../redux/user/UserAction';
 import { removeProdFeatures } from '../redux/product/ProductAction';
+import { useState } from 'react';
 
 function ProdactItem({popColor, popFeature}) {
 
@@ -13,6 +14,7 @@ function ProdactItem({popColor, popFeature}) {
     const category = useSelector((state)=>state.products.product.category)
     const features = useSelector((state)=>state.products.features)
     const productColors = useSelector((state)=>state.products.prodColors)
+    const [isLoading, setIsLoading] = useState(false)
     const token = useSelector((state)=>state.user.token)
     console.log(features)
 
@@ -69,6 +71,7 @@ function ProdactItem({popColor, popFeature}) {
     })
 
     function deleteProduct(){
+        setIsLoading(true)
         fetch(`https://protexx.onrender.com/products/${product.id}`,{
             method:"DELETE",
             headers:{
@@ -95,11 +98,13 @@ function ProdactItem({popColor, popFeature}) {
         })
         .then((data)=>{
             toast.success(data.message)
+            setIsLoading(false)
             navigate('/admin')
         })
         .catch(error => {
             // Handle network error or response error.
             console.error('There was an error:', error);
+            setIsLoading(false)
             toast.error(error.message)
         });
         
@@ -161,9 +166,14 @@ function ProdactItem({popColor, popFeature}) {
                 </ul>
             </div>  
             <div className='row mt-2 product-type'>
-            <button onClick={deleteProduct} className='bg-danger border-0 my-2 p-1'>delete</button>      
-            </div>  
-
+            <button 
+            disabled={isLoading}
+            onClick={deleteProduct} 
+            className='bg-danger border-0 my-2 p-1'>
+                
+                {isLoading ? "Loading..." : "Delete"}
+            </button>      
+            </div> 
         </div>
     </div>       
     </div>

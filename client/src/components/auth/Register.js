@@ -130,7 +130,7 @@ const Register = () => {
                     type="submit"
                     className={`btn btn-primary btn-block w-100 ${passConfirmed}`}               
                   >
-                   {isLoading ? "Loading..." : "Register"}                    
+                   {isLoading ? "Loading..." : "Register"}
                   </button>
                 </div>
               </form>

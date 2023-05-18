@@ -5,6 +5,7 @@ import {useSelector, useDispatch} from 'react-redux'
 
 function AddColor() {
     const [name, setName] = useState('')
+    const [isLoading, setIsLoading] = useState(false)
     const dispatch = useDispatch()
     const token = useSelector((state)=>state.user.token)
     console.log(token)
@@ -17,6 +18,7 @@ function AddColor() {
   
     function handleSubmit(e){
       e.preventDefault()
+      setIsLoading(true)
       const formData = {
         name: name
       }
@@ -48,9 +50,11 @@ function AddColor() {
       })
       .then((data)=>{
         setName('')
+        setIsLoading(false)
         toast.success(`${data.name} added succesfully`)
       })
       .catch(error => {
+        setIsLoading(false)
         // Handle network error or response error.
         console.error('There was an error:', error);
         toast.error(error.message)
@@ -66,7 +70,12 @@ function AddColor() {
                   <div className="form-group mb-3"> 
                     <input type="text" required name='name' placeholder="color name" value={name} onChange={nameChange} className="form-control"></input>
                   </div>
-                  <button className='mt-2 form-control bg-primary text-white' type='submit'>add Color</button>
+                  <button
+                    disabled={isLoading}
+                    className='mt-2 form-control bg-primary text-white' 
+                    type='submit'>
+                      {isLoading ? "Loading..." : "add color"}  
+                  </button>
               </form>
           </div>
         </div>

@@ -6,6 +6,7 @@ import { addCategory } from '../redux/categories/CategoryAction';
 
 function AddCategory() {
   const [name, setName] = useState('')
+  const [isLoading, setIsLoading] = useState(false)
   const [protectionArea, setProtectionArea] = useState('')
   const dispatch = useDispatch()
   const cat = useSelector((state)=>state.categories.categories)
@@ -21,6 +22,7 @@ function AddCategory() {
   }
 
   function handleSubmit(e){
+    setIsLoading(true)
     e.preventDefault()
     e.preventDefault()
     const formData = {
@@ -54,13 +56,16 @@ function AddCategory() {
       }    
     })
      .then((data)=>{
-      console.log(data)
+      setIsLoading(false)
+      setProtectionArea('')
+      setName('')
       toast.success(`${data.name} added succesfully`)
       dispatch(addCategory(data))
     })
     .catch(error => {
       // Handle network error or response error.
       console.error('There was an error:', error);
+      setIsLoading(false)
       toast.error(error.message)
     });
 }
@@ -80,7 +85,7 @@ function AddCategory() {
                     <select required value={protectionArea} onChange={protectionAreaChange} className="form-control" aria-label="Default select example" >
                       <option>select protection Area</option>
                       <option defaultValue={'Head Protection'}>Head Protection</option>
-                      <option value='Head Protection'>Body Protection</option>
+                      <option value='Body Protection'>Body Protection</option>
                       <option value='Respiratory Protection'>Respiratory Protection</option>
                       <option value='Foot Protection'>Foot Protection</option>
                       <option value='Hand Protection'>Hand Protection</option>
@@ -89,7 +94,13 @@ function AddCategory() {
                       
                     </select>
                   </div>
-                  <button className='mt-2 form-control bg-primary text-white' type='submit'>add Product</button>
+                  <button 
+                    disabled={isLoading}
+                    className='mt-2 form-control bg-primary text-white' 
+                    type='submit'>
+                      {isLoading ? "Loading..." : "add category"}  
+                      
+                  </button>
               </form>
           </div>
         </div>
