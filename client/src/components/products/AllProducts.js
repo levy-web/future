@@ -32,7 +32,7 @@ function AllProducts() {
     <div className='row carosel my-5 h-100'>
         <div className='d-flex'>
         <h6>All products</h6>
-        <NavLink className='fs-6 ms-auto me-2'>view all{` (${products.length}) items`}</NavLink>
+        {loading ? "" :<NavLink className='fs-6 ms-auto me-2'>view all{` (${products.length}) items`}</NavLink>}
         </div>
         <hr/>
         {showProducts}

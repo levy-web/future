@@ -69,8 +69,8 @@ function Navbar({openSideMenu}) {
       </div>
 
       <div className='collapse navbar-collapse p-2 text-white'>
-        <FontAwesomeIcon  icon={faPhone} color='white' /> <span className='ms-1'>Call To Order +254 110001331 / +254 786432328</span>
-        <span className='ms-3'><FontAwesomeIcon icon={faEnvelope} color='white' /></span> <span className='ms-1'>sales@electromart.co.ke</span>
+        <FontAwesomeIcon  icon={faPhone} color='white' /> <span className='ms-1'>Call To Order +971 56 409 8879 / +971 55 881 3452 </span>
+        <span className='ms-3'><FontAwesomeIcon icon={faEnvelope} color='white' /></span> <span className='ms-1'>info@sams-solutions.com</span>
 
       <FontAwesomeIcon className='ms-auto' icon={faUserCircle} color='white' /> 
       {profile}

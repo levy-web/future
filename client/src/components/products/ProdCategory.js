@@ -73,7 +73,7 @@ function ProdCategory() {
         
         <button className='m-1 bg-white border-0'><NavLink to={`/category/${protectedArea}`} className='text-decoration-none'>{` ${protectedArea}`}</NavLink></button>
         <button className='m-1 bg-white border-0'><NavLink className='text-decoration-none text-dark'>{`${category}`}</NavLink></button>
-        <p className='ms-auto'>{` (${products.length}) items`}</p>
+        {loading ? "" : <p className='ms-auto'>{` (${products.length}) items`}</p>}
         </div>
         <hr/>
         <div className='row g-4 my-2 mx-auto carosel'>
@@ -94,7 +94,7 @@ function ProdCategory() {
         />
         </div>
 
-      {showSimProtectedArea}    
+      {showSimProtectedArea}
       </div>
     <Footer/>
     </>

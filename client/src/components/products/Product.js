@@ -55,7 +55,7 @@ function Product() {
     <div className='container my-5'>
       <div className='d-flex'>
         <h6>Top deals</h6>
-        <NavLink className='fs-6 ms-auto me-2'>view all{` (${products.length}) items`}</NavLink>
+        {loading ? "" :<NavLink className='fs-6 ms-auto me-2'>view all{` (${products.length}) items`}</NavLink>}
       </div>
       <hr/>
 
