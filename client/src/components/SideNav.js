@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import {toast} from 'react-hot-toast'
+import image from '../solutions.png'
 import {NavLink} from "react-router-dom"
 import { logoutUser } from './redux/user/UserAction';
 import { faShoppingCart, faSearch, faUserCircle, faHeart } from '@fortawesome/free-solid-svg-icons';
@@ -45,7 +46,7 @@ function SideNav() {
 
                 <div className="collapse navbar-collapse p-1" id="navbarNav">
                     <NavLink className="collapse navbar-collapse navbar-brand border-0" to='/'>
-                        <h3>Moris</h3>
+                        <img className='img-fluid me-auto' src={image}></img>
                     </NavLink>
 
                     <div className={`border border-primary bg-primary rounded-pill rounded p-1 d-flex ${renderMenu}`} >

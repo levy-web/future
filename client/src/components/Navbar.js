@@ -1,5 +1,6 @@
 import React from 'react'
 import {NavLink} from "react-router-dom"
+import img from '../ss.png'
 import { logoutUser } from './redux/user/UserAction';
 import { faShoppingCart, faSearch, faUserCircle, faPhone, faEnvelope, faBars } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -22,8 +23,8 @@ function Navbar({openSideMenu}) {
   const profile = user ? <span className='ms-3'>{user.data.user.name}</span>:<span className='ms-3'>My Account</span>
 
   const checkState = isLoggedIn ? 
-  <NavLink onClick={()=>dispatch(logoutUser())} className='p-2 text-dark' to='/login'><i className="fas fa-sign-out-alt"></i></NavLink> : 
-      <NavLink className='p-2 text-dark' to='/login'><i className="fas fa-user"></i></NavLink>
+  <NavLink onClick={()=>dispatch(logoutUser())} className='p-2 text-white' to='/login'><i className="fas fa-sign-out-alt"></i></NavLink> : 
+      <NavLink className='p-2 text-white' to='/login'><i className="fas fa-user"></i></NavLink>
 
 
 
@@ -39,8 +40,8 @@ function Navbar({openSideMenu}) {
       <span className="border-0 text-light"><FontAwesomeIcon icon={faBars} /></span>
       </button>
 
-      <NavLink className="navbar-toggler text-decoration-none border-0" to='/'>
-            Moris
+      <NavLink className="navbar-toggler me-auto text-decoration-none border-0" to='/'>
+      <img className='img-fluid me-auto' src={img}></img>
       </NavLink>
 
       <div className="navbar-toggler border-0 p-3">
@@ -54,15 +55,15 @@ function Navbar({openSideMenu}) {
             aria-label="Toggle navigation"
             icon={faSearch} color="white"
         >
-        <i className="navbar-toggler border-0 fas fa-search"></i>
+        <i className="navbar-toggler text-light border-0 fas fa-search"></i>
 
         </NavLink>
 
 
 
         <NavLink to={'/cart'} className='cart-icon p-2'>
-          <i className="fas fa-shopping-cart text-dark"></i>
-          <span className="item-count text-dark">{state.length}</span>
+          <i className="fas fa-shopping-cart text-light"></i>
+          <span className="item-count text-light">{state.length}</span>
         </NavLink>        
         {checkState}
       </div>
