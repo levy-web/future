@@ -1,6 +1,6 @@
 import React from 'react'
 import {NavLink} from "react-router-dom"
-import img from '../ss.png'
+import img from '../y.png'
 import { logoutUser } from './redux/user/UserAction';
 import { faShoppingCart, faSearch, faUserCircle, faPhone, faEnvelope, faBars } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
