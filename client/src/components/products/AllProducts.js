@@ -18,7 +18,7 @@ function AllProducts() {
     const pageCount = Math.ceil(products.length / productsPerPage)
 
     const prodItem = products.slice(pagesVisited, pagesVisited + productsPerPage)
-    .map((product)=> <ProductItem protection={product.category.protected_area} category={product.category.name} product={product}/>)
+    .map((product)=> <ProductItem key={product.id} protection={product.category.protected_area} category={product.category.name} product={product}/>)
 
     const showProducts = loading ? 
       <ProdLoad/> : prodItem

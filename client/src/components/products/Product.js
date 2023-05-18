@@ -23,7 +23,7 @@ function Product() {
         dispatch(fetchProducts())
     }, [])
 
-    const prodItem = products.map((product)=> <ProductItem protection={product.category.protected_area} category={product.category.name} product={product}/>)
+    const prodItem = products.map((product)=> <ProductItem key={product.id} protection={product.category.protected_area} category={product.category.name} product={product}/>)
 
     const showProducts = loading ? 
       <CarouselLoading/> :

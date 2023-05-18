@@ -36,7 +36,6 @@ const Register = () => {
         return response.json()
         
       }else if (response.status === 422) {
-        console.log(response)
           return response.json().then(error => {
             throw new Error(error.message);
           });
@@ -45,7 +44,6 @@ const Register = () => {
       }    
     })
     .then((data)=>{
-      console.log(data)
       setIsLoading(false)
       toast.success(`${data.name} registered succesfully, login`)
       navigate('/login')

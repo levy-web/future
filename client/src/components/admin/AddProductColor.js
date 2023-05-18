@@ -21,7 +21,7 @@ function AddProductColor({popupColor, popColor}) {
         .then((data)=>setColors(data))
     },[])
 
-    const prodColors = colors.map((color)=><option value={color.id}>{color.name}</option>)
+    const prodColors = colors.map((color)=><option key={color.id} value={color.id}>{color.name}</option>)
   
     function nameChange(e){
       setName(e.target.value)
@@ -29,7 +29,6 @@ function AddProductColor({popupColor, popColor}) {
 
     function imageChange(e){
         setImage(e.target.files[0])
-        console.log(e.target.value)
       }
   
     function handleSubmit(e){

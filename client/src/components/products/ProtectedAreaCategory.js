@@ -12,9 +12,7 @@ function ProtectedAreaCategory({simCategory, protectedArea}) {
     const dispatch = useDispatch()
     const cat = useSelector((state)=>state.categories.categories)
     const simProtectedProd = useSelector((state)=>state.categories.similarProtectedProducts)
-    console.log(cat)
 
-    console.log(simProtectedProd)
 
     useEffect(()=>{
       dispatch(resetProtectedArea())
@@ -22,7 +20,6 @@ function ProtectedAreaCategory({simCategory, protectedArea}) {
         if (category.protected_area === protectedArea){
             let items = category.products
             items.map(element => {
-                console.log(element)
                 dispatch(addToSimilarProtectedArea(element))             
             });
               
@@ -35,7 +32,7 @@ function ProtectedAreaCategory({simCategory, protectedArea}) {
 
 
     const similarProducts = simProtectedProd.map((item)=>{
-        return <ProductItem category={simCategory} protection={protectedArea} product={item}/>
+        return <ProductItem key={item.id} category={simCategory} protection={protectedArea} product={item}/>
     }) 
   return (
     <div className='my-3'>

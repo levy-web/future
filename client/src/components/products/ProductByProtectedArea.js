@@ -20,10 +20,7 @@ function ProductByProtectedArea() {
     const productsPerPage = useSelector((state)=>state.pagination.productsPerPage)
     const pagesVisited = pageNumber * productsPerPage
     const pageCount = Math.ceil(protectedAreaProd.length / productsPerPage)
-    console.log(category)
-    
 
-    console.log(protectedAreaProd)
 
     useEffect(()=>{
       dispatch(resetProtectedArea())
@@ -34,7 +31,6 @@ function ProductByProtectedArea() {
             let items = category.products
             let categori = category.name
             items.map(element => {
-                console.log(element)
                 dispatch(addToProtectedArea(element, categori))             
             });              
         }
@@ -48,7 +44,7 @@ function ProductByProtectedArea() {
      
     const displayProducts = protectedAreaProd.slice(pagesVisited, pagesVisited + productsPerPage)
     .map((item)=>{
-      return <ProductItem category={item.category} protection={protectedArea} product={item.product}/>
+      return <ProductItem key={item.product.id} category={item.category} protection={protectedArea} product={item.product}/>
   })
 
   const changePage = ({selected}) => {

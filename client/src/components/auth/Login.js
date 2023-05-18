@@ -14,7 +14,6 @@ const Login = () => {
 
   const token = useSelector((state)=>state.user.token)
   const isLoggedIn = useSelector((state)=>state.user.isLoggedIn)
-  console.log(token)
   useEffect(()=>{
     isLoggedIn ? navigate('/') : navigate('/login')
   },[isLoggedIn])

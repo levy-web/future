@@ -50,7 +50,6 @@ function AddProd() {
   
     function categoryChange(e){
       setCategory(e.target.value)
-      console.log(e.target.value)
     }
   
     function originChange(e){
@@ -63,7 +62,6 @@ function AddProd() {
   
     function imageChange(e){
       setImage(e.target.files[0])
-      console.log(e.target.value)
     }
   
     function handleSubmit(e){

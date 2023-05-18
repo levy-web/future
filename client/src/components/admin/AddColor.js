@@ -8,7 +8,6 @@ function AddColor() {
     const [isLoading, setIsLoading] = useState(false)
     const dispatch = useDispatch()
     const token = useSelector((state)=>state.user.token)
-    console.log(token)
 
 
   

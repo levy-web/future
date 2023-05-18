@@ -11,12 +11,9 @@ function AddFeatures({ popFeature, popupFeature}) {
     const features = useSelector((state)=>state.features.features)
     const token = useSelector((state)=>state.user.token)
 
-    console.log(features)
-
     const item_id = window.location.pathname.split('/').pop();
 
     const removeFeature = (e)=>{
-      console.log(e.target.value)
       dispatch(removeFeatures(e.target.value))
     }
 

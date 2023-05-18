@@ -9,7 +9,6 @@ function Collaborators() {
     const [fetchedName, setFetchedName] = useState(null)
     const dispatch = useDispatch()
     const token = useSelector((state)=>state.user.token)
-    console.log(token)
 
     function removeAdmin(id){
       fetch(`https://protexx.onrender.com/admins/${id}`,{
@@ -24,7 +23,6 @@ function Collaborators() {
           return response.json()
           
         }else if (response.status === 422) {
-          console.log(response)
             return response.json().then(error => {
               throw new Error(error.message);
             });
@@ -33,13 +31,11 @@ function Collaborators() {
         }    
       })
       .then((data)=>{
-        console.log(data)
         toast.success("deleted successfully")
 
       })
       .catch(error => {
         // Handle network error or response error.
-        console.error('There was an error:', error);
         toast.error(error.message)
       });
 
@@ -64,7 +60,6 @@ function Collaborators() {
         return response.json()
         
       }else if (response.status === 422) {
-        console.log(response)
           return response.json().then(error => {
             throw new Error(error.message);
           });
@@ -109,7 +104,6 @@ function Collaborators() {
             })
           .then((data)=>{
             setUsers(data)
-            console.log(data)
           })
           .catch(error => {
             // Handle network error or response error.

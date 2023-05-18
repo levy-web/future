@@ -16,7 +16,6 @@ function Prodact({popColor, popFeature}) {
     }, [popColor])
 
     const isLoading = useSelector((state)=>state.products.loading)
-    console.log(isLoading)
 
   return (
     <>

@@ -27,7 +27,7 @@ function SimilarProd({simCategory, id, protectedArea}) {
     }, [id])
 
     const similarProducts = simProduct.map((item)=>{
-        return <ProductItem category={simCategory} protection={protectedArea} product={item}/>
+        return <ProductItem key={item.id} category={simCategory} protection={protectedArea} product={item}/>
     })
 
     const showProducts = loading ? 

@@ -16,7 +16,6 @@ function ProdCategory() {
     const {category, protectedArea} = useParams()
     const [loading, setLoading] = useState(false)
     const simProdLoading = useSelector((state)=>state.categories.loading)
-    console.log(simProdLoading)
     const pageNumber = useSelector((state)=>state.pagination.pageNumber)
     const productsPerPage = useSelector((state)=>state.pagination.productsPerPage)
     const pagesVisited = pageNumber * productsPerPage
@@ -33,7 +32,6 @@ function ProdCategory() {
           if(response.ok){
             return response.json()            
           }else if (response.status === 422) {
-            console.log(response)
               return response.json().then(error => {
                 throw new Error(error.message);
               });
@@ -53,7 +51,7 @@ function ProdCategory() {
     }, [category])
 
     const categoryItems = products.slice(pagesVisited, pagesVisited + productsPerPage)
-    .map((product)=><ProductItem protection={protectedArea} category={category} product={product}/>)
+    .map((product)=><ProductItem key={product.id} protection={protectedArea} category={category} product={product}/>)
 
     const showCategoriesProd = loading ? <ProdLoad/> : categoryItems
 

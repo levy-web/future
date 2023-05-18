@@ -8,42 +8,42 @@ function SideMenu({closeSideMenu, renderOptions}) {
 
     const headProtex = cat.map((category)=>{
         if (category.protected_area === 'Head Protection'){
-            return <li><NavLink onClick={closeSideMenu} className="nav-link product-name fs-6" to={`/category/${category.protected_area}/${category.name}`}>{category.name}</NavLink></li>
+            return <li key={category.id}><NavLink onClick={closeSideMenu} className="nav-link product-name fs-6" to={`/category/${category.protected_area}/${category.name}`}>{category.name}</NavLink></li>
         }
     })
 
     const bodyProtex = cat.map((category)=>{
         if (category.protected_area === 'Body Protection'){
-            return <li><NavLink onClick={closeSideMenu} className="nav-link product-name fs-6" to={`/category/${category.protected_area}/${category.name}`}>{category.name}</NavLink></li>
+            return <li key={category.id}><NavLink onClick={closeSideMenu} className="nav-link product-name fs-6" to={`/category/${category.protected_area}/${category.name}`}>{category.name}</NavLink></li>
         }
     })
 
     const respiratoryProtex = cat.map((category)=>{
         if (category.protected_area === 'Respiratory Protection'){
-            return <li><NavLink onClick={closeSideMenu} className="nav-link product-name fs-6" to={`/category/${category.protected_area}/${category.name}`}>{category.name}</NavLink></li>
+            return <li key={category.id}><NavLink onClick={closeSideMenu} className="nav-link product-name fs-6" to={`/category/${category.protected_area}/${category.name}`}>{category.name}</NavLink></li>
         }
     })
 
     const footProtex = cat.map((category)=>{
         if (category.protected_area === 'Foot Protection'){
-            return <li><NavLink onClick={closeSideMenu} className="nav-link product-name fs-6" to={`/category/${category.protected_area}/${category.name}`}>{category.name}</NavLink></li>
+            return <li key={category.id}><NavLink onClick={closeSideMenu} className="nav-link product-name fs-6" to={`/category/${category.protected_area}/${category.name}`}>{category.name}</NavLink></li>
         }
     })
 
     const handProtex = cat.map((category)=>{
         if (category.protected_area === 'Hand Protection'){
-            return <li><NavLink onClick={closeSideMenu} className="nav-link product-name fs-6" to={`/category/${category.protected_area}/${category.name}`}>{category.name}</NavLink></li>
+            return <li key={category.id}><NavLink onClick={closeSideMenu} className="nav-link product-name fs-6" to={`/category/${category.protected_area}/${category.name}`}>{category.name}</NavLink></li>
         }
     })
 
     const HearingProtex = cat.map((category)=>{
         if (category.protected_area === 'Hearing Protection'){
-            return <li><NavLink onClick={closeSideMenu} className="nav-link product-name fs-6" to={`/category/${category.protected_area}/${category.name}`}>{category.name}</NavLink></li>
+            return <li key={category.id}><NavLink onClick={closeSideMenu} className="nav-link product-name fs-6" to={`/category/${category.protected_area}/${category.name}`}>{category.name}</NavLink></li>
         }
     })
     const eyefaceProtex = cat.map((category)=>{
         if (category.protected_area === 'Eye and face Protection'){
-            return <li><NavLink onClick={closeSideMenu} className="nav-link fs-6 product-name" to={`/category/${category.protected_area}/${category.name}`}>{category.name}</NavLink></li>
+            return <li key={category.id}><NavLink onClick={closeSideMenu} className="nav-link fs-6 product-name" to={`/category/${category.protected_area}/${category.name}`}>{category.name}</NavLink></li>
         }
     })
     

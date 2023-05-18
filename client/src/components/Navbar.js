@@ -16,7 +16,7 @@ function Navbar({openSideMenu}) {
   const user = useSelector((state)=>state.user.buyer)
   const state = useSelector((state) => state.cart);
 
-  console.log(admin)
+
 
   const isAdmin = admin ? "" : "d-none"
 

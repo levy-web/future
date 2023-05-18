@@ -16,7 +16,6 @@ function ProdactItem({popColor, popFeature}) {
     const productColors = useSelector((state)=>state.products.prodColors)
     const [isLoading, setIsLoading] = useState(false)
     const token = useSelector((state)=>state.user.token)
-    console.log(features)
 
     const productColor = productColors.map((color)=>{
         return <div className='prod-image col-3 me-auto my-2'><img src = {color.image_url} alt = "" className = "h-100 w-100"></img></div>

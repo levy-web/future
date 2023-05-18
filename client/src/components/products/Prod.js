@@ -19,8 +19,6 @@ function Prod() {
     const loadingOne = useSelector((state)=>state.products.loadingOne)
     const [displayColor, setDisplayColor] = useState(product.image_url)
 
-    console.log(loadingOne)
-
 
     useEffect(()=>{
         dispatch(fetchOneProduct(id))
