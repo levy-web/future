@@ -9,7 +9,6 @@ import { FETCH_PRODUCTS, FETCH_ONE_PRODUCTS, FETCH_ONE_PRODUCTS_ERROR, REMOVE_PR
   })
 
   export const removeProdFeatures = ((id)=>{
-    console.log(id)
     return{
         type: REMOVE_PROD_FEATURE,
         payload:id
