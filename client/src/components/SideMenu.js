@@ -18,11 +18,11 @@ function SideMenu({closeSideMenu}) {
         }
     })
 
-    const respiratoryProtex = cat.map((category)=>{
-        if (category.protected_area === 'Respiratory Protection'){
-            return <li key={category.id}><NavLink onClick={closeSideMenu} className="nav-link product-name fs-6" to={`/category/${category.protected_area}/${category.name}`}>{category.name}</NavLink></li>
-        }
-    })
+    // const respiratoryProtex = cat.map((category)=>{
+    //     if (category.protected_area === 'Respiratory Protection'){
+    //         return <li key={category.id}><NavLink onClick={closeSideMenu} className="nav-link product-name fs-6" to={`/category/${category.protected_area}/${category.name}`}>{category.name}</NavLink></li>
+    //     }
+    // })
 
     const footProtex = cat.map((category)=>{
         if (category.protected_area === 'Foot Protection'){
@@ -36,13 +36,13 @@ function SideMenu({closeSideMenu}) {
         }
     })
 
-    const HearingProtex = cat.map((category)=>{
-        if (category.protected_area === 'Hearing Protection'){
-            return <li key={category.id}><NavLink onClick={closeSideMenu} className="nav-link product-name fs-6" to={`/category/${category.protected_area}/${category.name}`}>{category.name}</NavLink></li>
-        }
-    })
+    // const HearingProtex = cat.map((category)=>{
+    //     if (category.protected_area === 'Hearing Protection'){
+    //         return <li key={category.id}><NavLink onClick={closeSideMenu} className="nav-link product-name fs-6" to={`/category/${category.protected_area}/${category.name}`}>{category.name}</NavLink></li>
+    //     }
+    // })
     const eyefaceProtex = cat.map((category)=>{
-        if (category.protected_area === 'Eye and face Protection'){
+        if ((category.protected_area === 'Eye and face Protection') || (category.protected_area === 'Hearing Protection') || (category.protected_area === 'Hearing Protection')){
             return <li key={category.id}><NavLink onClick={closeSideMenu} className="nav-link fs-6 product-name" to={`/category/${category.protected_area}/${category.name}`}>{category.name}</NavLink></li>
         }
     })
@@ -50,69 +50,69 @@ function SideMenu({closeSideMenu}) {
   return (
     <ul className={`navbar-nav p-1 me-auto row w-100 h-100`}>
         
-        <li className="nav-item active col-lg-3 dropdown" >
-            <NavLink className="nav-link product-name fs-6 dropdown-toggle text-dark" data-toggle="dropdown">
-            Head protection
+        <li className="nav-item active col-lg-2 text-center dropdown" >
+            <NavLink className="nav-link product-name fs-4 dropdown-toggle text-dark" data-toggle="dropdown">
+            Head
             </NavLink>
             <ul className="dropdown-menu">
                 {headProtex}
             </ul>
         </li>
         
-        <li className="nav-item col-lg-3 dropdown">
-            <NavLink className="nav-link fs-6 product-name text-dark dropdown-toggle" data-toggle="dropdown">
-            Body protection
+        <li className="nav-item col-lg-2 text-center dropdown">
+            <NavLink className="nav-link fs-4 product-name text-dark dropdown-toggle" data-toggle="dropdown">
+            Body
             </NavLink>
 
             <ul className="dropdown-menu">
                 {bodyProtex}
             </ul>
         </li>
-        <li className="nav-item col-lg-3 dropdown">
+        {/* <li className="nav-item col-lg-1 dropdown">
             <NavLink className="nav-link product-name fs-6 text-dark dropdown-toggle" data-toggle="dropdown">
-            Respiratory protection
+            Respiratory
             </NavLink>
             <ul className="dropdown-menu">
                 {respiratoryProtex}
             </ul>
-        </li>
-        <li className="nav-item col-lg-3 dropdown">
-            <NavLink className="nav-link fs-6 product-name text-dark dropdown-toggle" data-toggle="dropdown">
-            Foot protection
+        </li> */}
+        <li className="nav-item col-lg-2 text-center dropdown">
+            <NavLink className="nav-link fs-4  product-name text-dark dropdown-toggle" data-toggle="dropdown">
+            Foot
             </NavLink>
 
             <ul className="dropdown-menu">
                 {footProtex}
             </ul>
         </li>
-        <li className="nav-item col-lg-3 dropdown">
-            <NavLink className="nav-link fs-6 text-dark product-name dropdown-toggle" data-toggle="dropdown">
-            Hand protection
+        <li className="nav-item col-lg-2 text-center dropdown">
+            <NavLink className="nav-link fs-4 text-dark product-name dropdown-toggle" data-toggle="dropdown">
+            Hand
             </NavLink>
 
             <ul className="dropdown-menu">
                 {handProtex}
             </ul>
         </li>
-        <li className="nav-item col-lg-3 dropdown">
+        {/* <li className="nav-item col-lg-1 dropdown">
             <NavLink className="nav-link product-name fs-6 text-dark dropdown-toggle" data-toggle="dropdown">
-            Hearing Protection
+            Hearing
             </NavLink>
             <ul className="dropdown-menu">
                 {HearingProtex}
             </ul>
-        </li>
-        <li className="nav-item col-lg-3 dropdown">
-            <NavLink className="nav-link product-name fs-6 text-dark dropdown-toggle" data-toggle="dropdown">
-            Face & eye protection
+        </li> */}
+        <li className="nav-item col-lg-2 text-center dropdown">
+            <NavLink className="nav-link product-name fs-4 text-dark dropdown-toggle" data-toggle="dropdown">
+            Face & eye
             </NavLink>
             <ul className="dropdown-menu">
                 {eyefaceProtex}
             </ul>
         </li>
-        <li className="nav-item col-lg-3 dropdown">
-            <NavLink className="nav-link product-name fs-6 text-dark dropdown-toggle" data-toggle="dropdown">
-            Fire protection
+        <li className="nav-item col-lg-2 text-center dropdown">
+            <NavLink className="nav-link product-name fs-4 text-dark dropdown-toggle" data-toggle="dropdown">
+            Fire
             </NavLink>
             <ul className="dropdown-menu">
                 {eyefaceProtex}

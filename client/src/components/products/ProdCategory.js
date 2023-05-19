@@ -76,6 +76,7 @@ function ProdCategory() {
         <hr/>
         <div className='row g-4 my-2 mx-auto carosel'>
           {showCategoriesProd}
+          {loading ? "" :
           <ReactPaginate
                 breakLabel="..."
                 nextLabel="next >"
@@ -89,7 +90,7 @@ function ProdCategory() {
                 nextLinkClassName={"nextBttn"}
                 disabledClassName={"paginationDisabled"}
                 activeClassName={"paginatonActive"}
-        />
+        />}
         </div>
 
       {showSimProtectedArea}

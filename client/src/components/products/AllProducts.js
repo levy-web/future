@@ -32,10 +32,10 @@ function AllProducts() {
     <div className='row carosel my-5 h-100'>
         <div className='d-flex'>
         <h6>All products</h6>
-        {loading ? "" :<NavLink className='fs-6 ms-auto me-2'>view all{` (${products.length}) items`}</NavLink>}
         </div>
         <hr/>
         {showProducts}
+        {loading ? "" :
         <ReactPaginate
                 breakLabel="..."
                 nextLabel=">"
@@ -49,7 +49,7 @@ function AllProducts() {
                 nextLinkClassName={"nextBttn"}
                 disabledClassName={"paginationDisabled"}
                 activeClassName={"paginatonActive"}
-        />
+        />}
     </div>
   )
 }
