@@ -1,32 +1,12 @@
 import React from 'react'
 import {NavLink} from "react-router-dom"
 import img from '../y.png'
-import { logoutUser } from './redux/user/UserAction';
-import { faShoppingCart, faSearch, faUserCircle, faPhone, faEnvelope, faBars } from '@fortawesome/free-solid-svg-icons';
+import { faSearch, faPhone, faEnvelope, faBars } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { useSelector, useDispatch } from "react-redux";
 
 
 
 function Navbar({openSideMenu}) {
-  const dispatch = useDispatch()
-
-  const isLoggedIn = useSelector((state)=>state.user.isLoggedIn)
-  const admin = useSelector((state)=>state.user.isAdmin)
-  const user = useSelector((state)=>state.user.buyer)
-  const state = useSelector((state) => state.cart);
-
-
-
-  const isAdmin = admin ? "" : "d-none"
-
-  const profile = user ? <span className='ms-3'>{user.data.user.name}</span>:<span className='ms-3'>My Account</span>
-
-  const checkState = isLoggedIn ? 
-  <NavLink onClick={()=>dispatch(logoutUser())} className='p-2 text-white' to='/login'><i className="fas fa-sign-out-alt"></i></NavLink> : 
-      <NavLink className='p-2 text-white' to='/login'><i className="fas fa-user"></i></NavLink>
-
-
 
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-primary py-1 sticky-top">
@@ -59,22 +39,11 @@ function Navbar({openSideMenu}) {
 
         </NavLink>
 
-
-
-        <NavLink to={'/cart'} className='cart-icon p-2'>
-          <i className="fas fa-shopping-cart text-light"></i>
-          <span className="item-count text-light">{state.length}</span>
-        </NavLink>        
-        {checkState}
       </div>
 
       <div className='collapse navbar-collapse p-2 text-white'>
-        <FontAwesomeIcon  icon={faPhone} color='white' /> <span className='ms-1'>Call To Order +971 56 409 8879 / +971 55 881 3452 </span>
-        <span className='ms-3'><FontAwesomeIcon icon={faEnvelope} color='white' /></span> <span className='ms-1'>info@sams-solutions.com</span>
-
-      <FontAwesomeIcon className='ms-auto' icon={faUserCircle} color='white' /> 
-      {profile}
-      <NavLink to='/admin' className={`text-white text-decoration-none ms-auto ${isAdmin}`}><i className="fas fa-user-cog"></i> <span>dashboard</span></NavLink>      
+        <FontAwesomeIcon  icon={faPhone} color='white' /> <span className='ms-3'> Call To Order +254 716 085 629 </span>
+        <span className='ms-auto'><FontAwesomeIcon icon={faEnvelope} color='white' /></span> <span className='ms-3'>info@sams-solutions.com</span>
       </div>
 
       </div>

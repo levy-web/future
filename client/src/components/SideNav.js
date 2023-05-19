@@ -36,7 +36,6 @@ function SideNav() {
     })
 
 
-    const renderMenu = (firstPath === 'register') || (firstPath === 'login') ? "d-none" : ""
   return (
     <>
     <nav className="navbar navbar-expand-lg shadow p-0 navbar-light bg-white sticky-top ">
@@ -45,14 +44,14 @@ function SideNav() {
 
 
                 <div className="collapse navbar-collapse p-1" id="navbarNav">
-                    <NavLink className="collapse navbar-collapse navbar-brand border-0" to='/'>
-                        <img className='img-fluid me-auto' src={image}></img>
-                    </NavLink>
+                        <NavLink className="collapse navbar-collapse navbar-brand border-0" to='/'>
+                            <img className='img-fluid me-auto' src={image}></img>
+                        </NavLink>
 
-                    <div className={`border border-primary bg-primary rounded-pill rounded p-1 d-flex ${renderMenu}`} >
-                        <input onChange={handleInputChange} className='form-control justify-content-center ms-1 me-1 w-100 border-0' placeholder='search . .'></input>
-                        <i className=" fs-5 m-auto fas fa-search"></i> 
-                    </div>
+                        <div className={`border border-primary bg-primary rounded-pill w-100 rounded p-1 d-flex`} >
+                            <input onChange={handleInputChange} className='form-control ms-1 me-1 w-100 border-0' placeholder='search . .'></input>
+                            <i className=" fs-5 m-auto fas fa-search"></i> 
+                        </div>
                     
                     
                     
@@ -62,17 +61,6 @@ function SideNav() {
                                 <i className = "fs-4 far fa-heart"></i>
                                 </NavLink>
                             </li>
-
-                            <li className={`m-auto nav-item `}>
-                                <NavLink to={'/cart'} className='ms-3 my-2 me-3 cart-icon'>
-                                    <i className="fs-4 fas fa-shopping-cart"></i>
-                                    <span className="item-count text-dark">{state.length}</span>
-                                </NavLink>
-                            </li>
-
-                            <li className={`me-auto nav-item`}>
-                                {checkState}
-                            </li>
                         </ul>
                     </div>
 
@@ -80,7 +68,7 @@ function SideNav() {
                 {searchValue ? <div className='w-100 search-list container border my-4'><ol className='text-center'>{searchList}</ol></div> : ""}
             <div>
             <div className="collapse justify-content-center navbar-collapse" id="sidebarNav">          
-             <SideMenu renderOptions={renderMenu}/>
+             <SideMenu/>
             </div>
 
         </div>

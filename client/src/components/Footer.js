@@ -11,12 +11,12 @@ function Footer() {
 
             <div className='d-flex container w-100 my-2'>
               <i className="text-primary m-auto fas fa-phone"></i>
-              <small className='w-100 '>+971 56 409 8879</small>
+              <small className='w-100 '>+254 716 085 629</small>
             </div>
 
             <div className='d-flex container m-auto w-100 my-2'>
               <i className="text-success fab fa-whatsapp"></i>
-              <small className='w-100 '>+971 55 881 3452</small>
+              <small className='w-100 '>+254 716 085 629</small>
             </div>
 
             <div className='d-flex container m-auto w-100 my-2'>

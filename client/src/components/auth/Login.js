@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { loginUser } from "../redux/user/UserAction";
-import SideNav from "../SideNav";
+import AdminNav from '../admin/AdminNav'
+
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -15,7 +16,7 @@ const Login = () => {
   const token = useSelector((state)=>state.user.token)
   const isLoggedIn = useSelector((state)=>state.user.isLoggedIn)
   useEffect(()=>{
-    isLoggedIn ? navigate('/') : navigate('/login')
+    isLoggedIn ? navigate('/admin') : navigate('/login')
   },[isLoggedIn])
 
 
@@ -36,7 +37,7 @@ const Login = () => {
 
   return (
     <>
-      <SideNav/>    
+      <AdminNav/>   
       
       <div className="container my-3 py-3">
         <h2 className="text-center">Log In</h2>
@@ -75,14 +76,6 @@ const Login = () => {
               </div>
             </form>
           </div>
-        </div>
-        <div className="text-center my-4">
-          <p>
-            Don't have an account?{" "}
-            <Link to="/register" className="text-decoration-underline text-info">
-              Register
-            </Link>{" "}
-          </p>
         </div>
       </div>
       

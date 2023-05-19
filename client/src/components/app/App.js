@@ -61,7 +61,7 @@ function App() {
         <Route path='/admin' element={<ProtectedRoute><AdminRoutes><Admin/></AdminRoutes></ProtectedRoute>}/>
         <Route path='/login' element={<Login/>}/>
         <Route path='/register' element={<Register/>}/>
-        <Route path='/cart' element={<Cart/>}/>
+        {/* <Route path='/cart' element={<Cart/>}/> */}
         <Route path='/admin/product/:id' element={<ProtectedRoute><AdminRoutes><Prodact popFeature={togglePopupFeature} popColor={togglePopupColor}/></AdminRoutes></ProtectedRoute>}/>
       </Routes>
 

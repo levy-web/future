@@ -12,11 +12,8 @@ function ProductItem({product, category, protection}) {
             <div className = "product-img ">
                 <img src = {product.image_url} alt = "" className = "img-fluid d-block mx-auto"></img>
                 <div className = "row btns w-100 mx-auto text-center">
-                    <button onClick={
-                        ()=>{dispatch(addCart(product))
-                        toast.success(`1 ${product.name} added to the cart.`);
-                        }} type = "button" className = "py-2">
-                    <i className = "fas fa-shopping-cart"></i> Add to cart
+                    <button type = "button" className = "py-2">
+                    <i className = "fs-4 far fa-heart"></i> Add to wish list
                     </button>
                 </div>
             </div>

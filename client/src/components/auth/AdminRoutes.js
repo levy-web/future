@@ -7,7 +7,7 @@ const AdminRoutes = ({children}) => {
     
     const admin = useSelector((state)=>state.user.isAdmin)
 
-    const checkState = admin ? children : <Navigate to='/'/>
+    const checkState = admin ? children : <Navigate to='/login'/>
 
     return checkState
 }

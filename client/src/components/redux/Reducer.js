@@ -12,7 +12,7 @@ const rootReducer = combineReducers({
     features: featureSlice,
     user:userSlice,
     pagination:paginationSlice,
-    cart: cartSlice
+    // cart: cartSlice
 
 });
 
