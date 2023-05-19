@@ -9,7 +9,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 function Navbar({openSideMenu}) {
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-primary py-1 sticky-top">
+    <nav className="navbar navbar-expand-lg navbar-light up-nav py-1 sticky-top">
       
       <div className='container'>
       <button
