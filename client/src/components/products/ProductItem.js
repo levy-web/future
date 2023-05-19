@@ -20,7 +20,7 @@ function ProductItem({product, category, protection}) {
 
             <div className = "product-info p-3">
                 <span className = "product-type">{category}</span>
-                <NavLink to = {`/category/${protection}/${category}/product/${product.id}`} className = "d-block text-primary text-decoration-none py-2 product-name">{product.name}</NavLink>
+                <NavLink to = {`/category/${protection}/${category}/product/${product.id}`} className = "d-block text-primary text-decoration-none py-2 product-name">{product.name.substring(0, 25)}...</NavLink>
             </div>
             
         </div>
