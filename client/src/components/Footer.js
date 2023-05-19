@@ -1,6 +1,9 @@
 import React from 'react'
 
 function Footer() {
+  const handlePhoneClick = () => {
+    window.location.href = 'tel:+254 716 085 629';
+  };
   return (
     <div className='footer'>
       <div className='container'>
@@ -9,7 +12,7 @@ function Footer() {
           <h5>CONTACT DETAILS</h5>
             <hr className='border border-white'/>
 
-            <div className='d-flex container w-100 my-2'>
+            <div onClick={handlePhoneClick} className='d-flex container w-100 my-2'>
               <i className="text-primary m-auto fas fa-phone"></i>
               <small className='w-100 '>+254 716 085 629</small>
             </div>
