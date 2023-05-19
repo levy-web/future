@@ -42,11 +42,6 @@
         display: block;
     }
 
-    .dropdown-toggle::after {
-        float: right;
-        margin-top: 0.65rem;
-    }
-
     .product-item{
         width: 150px;
         height: 250px;
@@ -277,6 +272,11 @@
     max-height: 20vh;
     overflow-y: auto;
     scroll-behavior: true;
+}
+
+.dropdown-toggle::after {
+    float: right;
+    margin-top: 0.65rem;
 }
 
 
