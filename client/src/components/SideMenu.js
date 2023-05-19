@@ -42,7 +42,7 @@ function SideMenu({closeSideMenu}) {
     //     }
     // })
     const eyefaceProtex = cat.map((category)=>{
-        if ((category.protected_area === 'Eye and face Protection') || (category.protected_area === 'Hearing Protection') || (category.protected_area === 'Hearing Protection')){
+        if ((category.protected_area === 'Eye and face Protection') || (category.protected_area === 'Hearing Protection') || (category.protected_area === 'Respiratory Protection')){
             return <li key={category.id}><NavLink onClick={closeSideMenu} className="nav-link fs-6 product-name" to={`/category/${category.protected_area}/${category.name}`}>{category.name}</NavLink></li>
         }
     })
