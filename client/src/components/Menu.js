@@ -8,7 +8,7 @@ function Menu({sideMenu, closeSideMenu}) {
   const renderMenu = firstPath === 'admin' ? <Category/> : <SideMenu closeSideMenu={closeSideMenu}/>
 
   return (
-    <div className={sideMenu ? "side-b side-b-open my-5 py-1 rounded-bottom" : "side-b"}>
+    <div className={sideMenu ? "side-b side-b-open menu-heights rounded-bottom" : "side-b"}>
       {renderMenu}        
     </div>
   )

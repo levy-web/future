@@ -70,7 +70,6 @@ function Prod() {
 
   return (
     <>
-    <SideNav/>
     <div className='container my-3'>
         <div className='d-flex'>
         

@@ -52,7 +52,6 @@ function Product({sideMenu}) {
 
   return (
   <>
-  <SideNav/>
   <Home sideMenu={sideMenu}/>
     <div className='container my-5'>
       <div className='d-flex'>

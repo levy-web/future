@@ -51,7 +51,8 @@ function App() {
       <PersistGate persistor={persistor}>
       <Toaster position="top-center" reverseOrder={false}/>
 
-      <Navbar openSideMenu={toggleSideMenu}/> 
+      <Navbar openSideMenu={toggleSideMenu}/>
+      <SideNav openSideMenu={toggleSideMenu}/>
 
       <Routes>    
         <Route path='/' element={<Product sideMenu={sideMenu}/>}/>

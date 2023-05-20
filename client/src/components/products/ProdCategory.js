@@ -65,7 +65,6 @@ function ProdCategory() {
 
   return (
     <>
-    <SideNav/>
     <div className='container'>
         <div className='d-flex'>          
         

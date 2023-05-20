@@ -3,12 +3,12 @@ import {toast} from 'react-hot-toast'
 import image from '../solutions.png'
 import {NavLink} from "react-router-dom"
 import { logoutUser } from './redux/user/UserAction';
-import { faShoppingCart, faSearch, faUserCircle, faHeart } from '@fortawesome/free-solid-svg-icons';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import SideMenu from './SideMenu';
 import { useSelector, useDispatch } from "react-redux";
 
-function SideNav() {
+function SideNav({openSideMenu}) {
     const dispatch = useDispatch()
     const isLoggedIn = useSelector((state)=>state.user.isLoggedIn)
     const state = useSelector((state) => state.cart);
@@ -43,10 +43,18 @@ function SideNav() {
             <div className='d-flex align-items-center'>
 
 
-                <div className="collapse navbar-collapse p-1" id="navbarNav">
+                <div className="collapse navbar-collapse p-3" id="navbarNav">
                         <NavLink className="collapse navbar-collapse navbar-brand border-0" to='/'>
                             <img className='img-fluid me-auto' src={image}></img>
                         </NavLink>
+
+                        <button
+                            className="collapse navbar-collapse navbar-toggler border-0"
+                            type="button"
+                            onClick={openSideMenu}
+                        >
+                        <span className="border-0 text-dark"><FontAwesomeIcon icon={faBars} /></span>
+                        </button>
 
                         <div className={`border border-primary bg-primary rounded-pill w-100 rounded p-1 d-flex`} >
                             <input onChange={handleInputChange} className='form-control ms-1 me-1 w-100 border-0' placeholder='search . .'></input>
@@ -67,9 +75,9 @@ function SideNav() {
                 </div>
                 {searchValue ? <div className='w-100 search-list container border my-4'><ol className='text-center'>{searchList}</ol></div> : ""}
             <div>
-            <div className="collapse justify-content-center navbar-collapse" id="sidebarNav">          
+            {/* <div className="collapse justify-content-center navbar-collapse" id="sidebarNav">          
              <SideMenu/>
-            </div>
+            </div> */}
 
         </div>
 

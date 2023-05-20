@@ -15,6 +15,9 @@
         transform: translateX(-100%);
         transition: all 0.4s;
     }
+    .menu-heights{
+        padding-top: 60px;
+    }
 
     .advert{
         max-width: 100%;
@@ -37,10 +40,10 @@
         border-bottom: solid #e8e8fd;
     }
 
-    .side-b li:hover{
+    /* .side-b li:hover{
         background-color: rgba(0,0,0,0.5);
         color:#000
-    }
+    } */
 
     .backdrop{
         position: fixed;
@@ -63,10 +66,10 @@
     }
 
    
-    .dropdown:hover .dropdown-menu {
+    /* .dropdown:hover .dropdown-menu {
         width: 230px;
         left: 0;
-    }
+    } */
 
     .add-c{
         position: absolute;
@@ -142,6 +145,11 @@
 }
 @media (min-width: 990px){
 
+    .dropdown-toggle::after {
+        float: right;
+        margin-top: 0.65rem;
+    }
+
     .small-display{
         height: 150px;
         width: auto;
@@ -180,16 +188,49 @@
     }
 
     .side-b{
-        display: none;
+        position: absolute;
+        background-color: #fff;
+        color:#fff;
+        top: 0;
+        left:0;
+        z-index: 2;
+        height: 100vh;
+        max-height: 100vh;
+        overflow-y: auto;
+        scroll-behavior: true;
+        width: 380px;
+        transform: translateX(-100%);
+        transition: all 0.4s;
     }
 
-    .dropdown:hover .dropdown-menu {
+    .side-b-open{
+        transform: translateX(0%);
+    }
+
+    .side-b li{
+        padding: 0.5rem 1rem;
+        border-bottom: solid #e8e8fd;
+    }
+    .menu-heights{
+        padding-top: 125px;
+    }
+
+    /* .side-b li:hover{
+        background-color: rgba(0,0,0,0.5);
+        color:#000
+    } */
+
+    /* .side-b{
+        display: none;
+    } */
+
+    /* .dropdown:hover .dropdown-menu {
         display: block;
         border-top: solid yellow;
         margin-top: 5px;
         padding: 1rem;
         width: 250px;
-    }
+    } */
     
     .product-item{
         width: 200px;
@@ -197,6 +238,7 @@
         border: 1px solid rgb(219, 219, 219);
         
     }
+
     .backdrop{
         position: fixed;
         top: 0;
@@ -208,6 +250,7 @@
     }
     .backdrop-open{
         display: block;
+        z-index: 1;
     }
 
     .add-c{

@@ -73,20 +73,20 @@ function Home() {
     <Brand/>
 
     <div className='container'>
-    <div className='d-flex advert my-3 py-2'>
-            <div className='col-lg-4 adv-small border border-light d-flex align-items-center justify-content-center '>
-                <i className="me-2 fa-2x text-primary fas fa-truck"></i>
-                <small className='text-center'><strong>Fast Delivery</strong><br/> speedy delivery countrywide</small>
-            </div>
-            <div className='col-lg-4 adv-small border border-light d-flex align-items-center justify-content-center '>
-                <i className="me-2 fa-2x text-primary fab fa-cc-visa"></i>
-                <small className='text-center'><strong>Great Value</strong><br/> Competitive Prices</small>
-            </div>
-            <div className='col-lg-4 adv-small border border-light d-flex align-items-center justify-content-center '>
-                <i className="me-2 fa-2x text-primary far fa-money-bill-alt"></i>
-                <small className='text-center'><strong>M-Pesa On</strong><br/> Delivery</small>
-            </div>
-    </div>
+        <div className='d-flex advert my-3 py-2'>
+                <div className='col-lg-4 adv-small border border-light d-flex align-items-center justify-content-center '>
+                    <i className="me-2 fa-2x text-primary fas fa-truck"></i>
+                    <small className='text-center'><strong>Fast Delivery</strong><br/> speedy delivery countrywide</small>
+                </div>
+                <div className='col-lg-4 adv-small border border-light d-flex align-items-center justify-content-center '>
+                    <i className="me-2 fa-2x text-primary fab fa-cc-visa"></i>
+                    <small className='text-center'><strong>Great Value</strong><br/> Competitive Prices</small>
+                </div>
+                <div className='col-lg-4 adv-small border border-light d-flex align-items-center justify-content-center '>
+                    <i className="me-2 fa-2x text-primary far fa-money-bill-alt"></i>
+                    <small className='text-center'><strong>M-Pesa On</strong><br/> Delivery</small>
+                </div>
+        </div>
     </div>
     </>
   )
