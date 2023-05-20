@@ -15,6 +15,18 @@
         transition: all 0.4s;
     }
 
+    .advert{
+        max-width: 100%;
+        width: 100%;
+        overflow-x: auto;
+        scroll-behavior: true;
+
+    }
+    .adv-small{
+        margin-left: 50px;
+        width: 500px;
+    }
+
     .side-b-open{
         transform: translateX(0%);
     }
@@ -114,10 +126,24 @@
         margin-top: 0.65rem;
     }
 
+    .small-display{
+        display: none;
+    }
+
     
 
 }
 @media (min-width: 990px){
+
+    .small-display{
+        height: 150px;
+        background-color: #000;
+    }
+
+    .carrz{
+        justify-content: center;
+        height: 350px;
+    }
 
     .whatsapp-button {
         position: fixed;
@@ -312,7 +338,72 @@
     background-color: #232638;
 }
 
+.animated-text {
+    text-align: center;
+    opacity: 0;
+    /* animation: fadeAndMove 5s infinite; */
+    animation: textAnimation 5s infinite;
+    /* animation: popup 5s ease-in-out infinite; */
+}
 
+.animated-image{
+    opacity: 0;
+    animation: popup 10s ease-in-out infinite;
+    align-items: center;
+}
 
+.pop-text {
+    opacity: 0;
+    /* animation: fadeAndMove 5s infinite; */
+    /* animation: textAnimation 5s infinite; */
+    animation: popup 8s ease-in-out infinite;
+}
+  
+  @keyframes fadeAndMove {
+    0% {
+      opacity: 0;
+      transform: translateX(100px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
 
+  @keyframes textAnimation {
+    0% {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    50% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+}
 
+@keyframes popup {
+    0% {
+      transform: scale(0);
+      opacity: 0;
+    }
+    50% {
+      transform: scale(1.2);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 0;
+    }
+  }
+  
+  .pop-text:nth-child(2) {
+    animation-delay: 2s;
+  }
+  
+  .pop-text:nth-child(3) {
+    animation-delay: 4s;
+  }
