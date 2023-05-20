@@ -14,7 +14,7 @@ import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import AllProducts from './AllProducts';
 import Home from './Home';
 
-function Product() {
+function Product({sideMenu}) {
     const dispatch = useDispatch()
     const products = useSelector((state)=>state.products.products)
     const loading = useSelector((state)=>state.products.loading)
@@ -53,7 +53,7 @@ function Product() {
   return (
   <>
   <SideNav/>
-  <Home/>
+  <Home sideMenu={sideMenu}/>
     <div className='container my-5'>
       <div className='d-flex'>
         <h6>Top deals</h6>

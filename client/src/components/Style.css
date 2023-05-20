@@ -6,6 +6,7 @@
         color:#fff;
         top: 0;
         left:0;
+        z-index: 2;
         height: 100vh;
         max-height: 100vh;
         overflow-y: auto;
@@ -52,6 +53,7 @@
     }
     .backdrop-open{
         display: block;
+        z-index: 1;
     }
 
     .product-item{
@@ -130,6 +132,11 @@
         display: none;
     }
 
+    .carrz{
+        justify-content: center;
+        height: 200px;
+    }
+
     
 
 }
@@ -137,7 +144,7 @@
 
     .small-display{
         height: 150px;
-        background-color: #000;
+        width: auto;
     }
 
     .carrz{
@@ -149,6 +156,7 @@
         position: fixed;
         bottom: 50px;
         right: 100px;
+        z-index: 1;
         background-color: green;
         color: white;
         width: 80px;
@@ -241,7 +249,7 @@
     text-align: center;
     bottom: 0;
     width: 100%;
-    background-color: rgb(62, 61, 65);
+    background-color: #000080;
 }
 
 .product-item:hover{
@@ -335,7 +343,7 @@
     scroll-behavior: true;
 }
 .up-nav{
-    background-color: #232638;
+    background-color:#000080;
 }
 
 .animated-text {
@@ -406,4 +414,7 @@
   
   .pop-text:nth-child(3) {
     animation-delay: 4s;
+  }
+  .marquee{
+    z-index: 1;
   }

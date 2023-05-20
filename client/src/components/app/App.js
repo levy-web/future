@@ -54,7 +54,7 @@ function App() {
       <Navbar openSideMenu={toggleSideMenu}/> 
 
       <Routes>    
-        <Route path='/' element={<Product/>}/>
+        <Route path='/' element={<Product sideMenu={sideMenu}/>}/>
         <Route path='/category/:protectedArea/:category/product/:id' element={<Prod/>}/>
         <Route path='/category/:protectedArea/:category' element={<ProdCategory/>}/>
         <Route path='/category/:protectedArea' element={<ProductByProtectedArea/>}/>

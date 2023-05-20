@@ -1,8 +1,8 @@
 import React from 'react'
-import imageOne from '../../SAFETY.jpg'
-import imageTwo from '../../slidetwo.jpg'
+import imageOne from '../../slideone.jpg'
+// import imageTwo from '../../slidetwo.jpg'
 import imageThree from '../../slidethree.jpg'
-import imageFour from '../../FIRST.jpg'
+import imageFour from '../../slidefour.jpg'
 import Brand from './brands/Brand'
 
 function Home() {
@@ -10,7 +10,7 @@ function Home() {
     <>
     <div className='container p-2 my-1'>
         <div className='row'>
-            <div className="col-lg-6 my-3 col-12">
+            <div className="col-lg-8 my-3 col-12">
             
             <div id="carouselExampleIndicators" className="bg-light carousel slide" data-ride="carousel">
                 <ol className="carousel-indicators">
@@ -18,16 +18,16 @@ function Home() {
                     <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
                     <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
                 </ol>
-                <div className="carousel-inner carrz">
+                <div className="carousel-inner">
                     <div className="carousel-item active">
-                        <img className="d-block w-100" src={imageFour} alt="First slide"></img>
+                        <img className="d-block carrz w-100" src={imageThree} alt="First slide"></img>
                     </div>
                     <div className="carousel-item">
-                        <img className="d-block w-100" src={imageOne} alt="Second slide"></img>
+                        <img className="d-block carrz w-100" src={imageFour} alt="Second slide"></img>
                     </div>
-                    {/* <div className="carousel-item">
-                        <img className="d-block w-100" src={imageTwo} alt="Third slide"></img>
-                    </div> */}
+                    <div className="carousel-item">
+                        <img className="d-block carrz w-100" src={imageOne} alt="Third slide"></img>
+                    </div>
                 </div>
                 <a className="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                     <span className="bg-dark carousel-control-prev-icon" aria-hidden="true"></span>
@@ -41,11 +41,11 @@ function Home() {
             </div>
 
 
-            <div className="col-5">
+            <div className="col-4">
                 <div className='bg-danger row my-4 small-display'>
                     <div className='col-6'>
-                        <h4 className='animated-text py-3 px-3 text-white'> your world of safety</h4>
-                        <div className='pop-text'>
+                        <h4 className='animated-text py-3 px-3 text-white'> Your World Of Safety</h4>
+                        <div className='pop-text text-center'>
                             <h6 className='bg-primary w-25 m-auto'>shop</h6>
                             <h6 className='bg-white m-auto w-25'>now</h6>
                         </div>
@@ -55,8 +55,14 @@ function Home() {
                     </div>
 
                 </div>
-                <div className='bg-primary my-4 small-display'>
-
+                <div className='row my-4 small-display'>
+                    <div className='col-6 bg-primary text-center'><br/>
+                        <small className='text-center'><strong>Great Value</strong><br/> Competitive Prices</small><br/>
+                        <small className='text-center'><strong>M-Pesa On</strong><br/> Delivery</small>
+                    </div>
+                    <div className='col-6'>
+                        <img className="d-block ms-auto h-100 w-100" src={imageOne} alt="First slide"></img>
+                    </div>
                 </div>
             </div>
 

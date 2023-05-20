@@ -50,7 +50,7 @@ function SideMenu({closeSideMenu}) {
   return (
     <ul className={`navbar-nav p-1 me-auto row w-100 h-100`}>
         
-        <li className="nav-item active col-lg-2 text-center dropdown" >
+        <li className="nav-item active col-lg-2 dropdown" >
             <NavLink className="nav-link product-name fs-4 dropdown-toggle text-dark" data-toggle="dropdown">
             Head
             </NavLink>
@@ -59,7 +59,7 @@ function SideMenu({closeSideMenu}) {
             </ul>
         </li>
         
-        <li className="nav-item col-lg-2 text-center dropdown">
+        <li className="nav-item col-lg-2 dropdown">
             <NavLink className="nav-link fs-4 product-name text-dark dropdown-toggle" data-toggle="dropdown">
             Body
             </NavLink>
@@ -76,7 +76,7 @@ function SideMenu({closeSideMenu}) {
                 {respiratoryProtex}
             </ul>
         </li> */}
-        <li className="nav-item col-lg-2 text-center dropdown">
+        <li className="nav-item col-lg-2 dropdown">
             <NavLink className="nav-link fs-4  product-name text-dark dropdown-toggle" data-toggle="dropdown">
             Foot
             </NavLink>
@@ -85,7 +85,7 @@ function SideMenu({closeSideMenu}) {
                 {footProtex}
             </ul>
         </li>
-        <li className="nav-item col-lg-2 text-center dropdown">
+        <li className="nav-item col-lg-2 dropdown">
             <NavLink className="nav-link fs-4 text-dark product-name dropdown-toggle" data-toggle="dropdown">
             Hand
             </NavLink>
@@ -102,7 +102,7 @@ function SideMenu({closeSideMenu}) {
                 {HearingProtex}
             </ul>
         </li> */}
-        <li className="nav-item col-lg-2 text-center dropdown">
+        <li className="nav-item col-lg-2 dropdown">
             <NavLink className="nav-link product-name fs-4 text-dark dropdown-toggle" data-toggle="dropdown">
             Face & eye
             </NavLink>
@@ -110,7 +110,7 @@ function SideMenu({closeSideMenu}) {
                 {eyefaceProtex}
             </ul>
         </li>
-        <li className="nav-item col-lg-2 text-center dropdown">
+        <li className="nav-item col-lg-2 dropdown">
             <NavLink className="nav-link product-name fs-4 text-dark dropdown-toggle" data-toggle="dropdown">
             Fire
             </NavLink>
