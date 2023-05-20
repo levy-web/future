@@ -57,7 +57,7 @@ function SimilarProd({simCategory, id, protectedArea}) {
   return (
     <div className='my-5'>
       <div className='d-flex content-align-center'>
-        <h6>Similar Products</h6>
+        <h6 className='border-bottom border-primary'>Similar Products</h6>
         {loading ? "" : <NavLink to={`/category/${protectedArea}/${simCategory}`} className='fs-6 ms-auto me-2'>view all{` (${simProduct.length}) items`}</NavLink>}
       </div>
       <hr/>   

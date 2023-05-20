@@ -12,7 +12,7 @@ function Home() {
         <div className='row'>
             <div className="col-lg-8 my-3 col-12">
             
-            <div id="carouselExampleIndicators" className="bg-light carousel-fade carousel slide" data-ride="carousel">
+            <div id="carouselExampleIndicators" className="bg-light carousel-fade carousel slide"  data-interval="8000" data-ride="carousel">
                 <ol className="carousel-indicators">
                     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
                     <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>

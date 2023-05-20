@@ -55,7 +55,7 @@ function Product({sideMenu}) {
   <Home sideMenu={sideMenu}/>
     <div className='container my-5'>
       <div className='d-flex'>
-        <h6>Top deals</h6>
+        <h6 className='border-bottom border-primary'>Top deals</h6>
       </div>
       <hr/>
 
