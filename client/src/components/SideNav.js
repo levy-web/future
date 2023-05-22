@@ -69,7 +69,9 @@ function SideNav({openSideMenu}) {
                     
                         <ul className="collapse navbar-collapse navbar-nav p-1 my-2 text-center">
                             <li className={`ms-auto nav-item active `}>
-                                <NavLink className='ms-3 my-2 me-3 text-dark'>
+                                <NavLink
+                                    to='/wishlist'
+                                    className='ms-3 my-2 me-3 text-dark'>
                                     <i className = "fs-4 far fa-heart"></i>
                                 </NavLink>
                             </li>

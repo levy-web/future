@@ -28,6 +28,7 @@ import AdminRoutes from '../auth/AdminRoutes';
 import Cart from '../Cart';
 import {Toaster} from 'react-hot-toast';
 import WhatsAppButton from '../Whatsapp';
+import WishList from '../products/WishList';
 
 function App() {
   const  [sideMenu , setSideMenu] = useState(false)
@@ -64,7 +65,7 @@ function App() {
         <Route path='/login' element={<Login/>}/>
         <Route path='/register' element={<Register/>}/>
 
-        {/* <Route path='/cart' element={<Cart/>}/> */}
+        <Route path='/wishlist' element={<WishList/>}/>
         <Route path='/admin/product/:id' element={<ProtectedRoute><AdminRoutes><Prodact popFeature={togglePopupFeature} popColor={togglePopupColor}/></AdminRoutes></ProtectedRoute>}/>
       </Routes>
       <WhatsAppButton/>

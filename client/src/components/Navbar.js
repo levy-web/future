@@ -26,7 +26,9 @@ function Navbar({openSideMenu}) {
 
       <div className="navbar-toggler border-0 p-3">
 
-      <NavLink className='ms-3 my-2 me-3 text-dark'>
+      <NavLink 
+        to='/wishlist'
+        className='ms-3 my-2 me-3 text-dark'>
           <i className = "text-white fs-4 far fa-heart"></i>
       </NavLink>
 

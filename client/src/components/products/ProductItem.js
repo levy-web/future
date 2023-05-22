@@ -1,7 +1,7 @@
 import React from 'react'
 import {toast} from 'react-hot-toast'
 import { useSelector, useDispatch } from "react-redux";
-import { addCart } from '../redux/cart/CartAction'
+import { addWish } from '../redux/wishlist/WishListAction';
 import { NavLink } from 'react-router-dom'
 
 function ProductItem({product, category, protection}) {
@@ -12,7 +12,10 @@ function ProductItem({product, category, protection}) {
             <div className = "product-img ">
                 <img src = {product.image_url} alt = "" className = "img-fluid d-block mx-auto"></img>
                 <div className = "row btns w-100 mx-auto text-center">
-                    <button type = "button" className = "py-2">
+                    <button 
+                        onClick={()=>dispatch(addWish(product))}
+                        type = "button" 
+                        className = "py-2">
                     <i className = "fs-4 far fa-heart"></i> Add to wish list
                     </button>
                 </div>

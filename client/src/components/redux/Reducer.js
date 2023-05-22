@@ -5,6 +5,7 @@ import featureSlice from "./features/FeatureSlice";
 import paginationSlice from "./pagination/Slice";
 import productSlice from "./product/ProductSlice";
 import userSlice from './user/UserSlice';
+import wishSlice from "./wishlist/WishListSlice";
 
 const rootReducer = combineReducers({
     categories: categoriesSlice,
@@ -12,6 +13,7 @@ const rootReducer = combineReducers({
     features: featureSlice,
     user:userSlice,
     pagination:paginationSlice,
+    wish:wishSlice
     // cart: cartSlice
 
 });

@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react'
 import {useParams, NavLink} from 'react-router-dom'
 import { fetchCategories } from '../redux/categories/CategoryAction';
 import { useSelector, useDispatch } from 'react-redux';
+import { addWish } from '../redux/wishlist/WishListAction';
 import Footer from '../Footer'
 import SideNav from '../SideNav'
 import SimilarProd from './SimilarProd'
@@ -37,7 +38,9 @@ function Prod() {
         <>
                     <div className = "product-img col-sm-12 col-lg-6">
                 <img src = {product.image_url} alt = "" className = "img-fluid d-block mx-auto"></img>
-                <NavLink className = "heart-icon text-decoration-none text-danger border-0">
+                <NavLink
+                    onClick={()=>dispatch(addWish(product))} 
+                    className = "heart-icon text-decoration-none text-danger border-0">
                     <i className = "far fa-heart"></i>
                 </NavLink>
 
