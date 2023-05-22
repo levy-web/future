@@ -6,7 +6,6 @@ import Footer from '../Footer'
 
 const WishList = () => {
   const state = useSelector((state) => state.wish);
-  console.log(state)
   const dispatch = useDispatch();
   
 

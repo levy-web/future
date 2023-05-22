@@ -29,7 +29,7 @@ function Prod() {
     }, [id])
 
     const productColor = productColors.map((color)=>{
-        return <div className='prod-image col-3 me-auto my-2'><img onClick={()=>setDisplayColor(color.image_url)} src = {color.image_url} alt = "" className = "h-100 w-100"></img></div>
+        return <div key={color.id} className='prod-image col-3 me-auto my-2'><img onClick={()=>setDisplayColor(color.image_url)} src = {color.image_url} alt = "" className = "h-100 w-100"></img></div>
     })
 
     const productFeatures = features.map((feature)=>{
