@@ -11,7 +11,7 @@ function Brand() {
     const brands = [brand1, brand2, brand3, brand4, brand5]
 
     const displayBrands = brands.map(
-        (item, index)=><img key={item.index} className="mx-5" src={item} alt="First slide"></img>)
+        (item, index)=><img key={index} className="mx-5" src={item} alt="First slide"></img>)
   return (
     <div className='row my-1 mx-1'>
         <Marquee
