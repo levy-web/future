@@ -13,7 +13,10 @@ function ProductItem({product, category, protection}) {
                 <img src = {product.image_url} alt = "" className = "img-fluid d-block mx-auto"></img>
                 <div className = "row btns w-100 mx-auto text-center">
                     <button 
-                        onClick={()=>dispatch(addWish(product))}
+                        onClick={()=>{
+                            dispatch(addWish(product))
+                            toast.success(`${product.name} added to wish list`)
+                        }}
                         type = "button" 
                         className = "py-2">
                     <i className = "fs-4 far fa-heart"></i> Add to wish list

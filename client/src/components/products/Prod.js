@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react'
+import {toast} from 'react-hot-toast'
 import {useParams, NavLink} from 'react-router-dom'
 import { fetchCategories } from '../redux/categories/CategoryAction';
 import { useSelector, useDispatch } from 'react-redux';
@@ -39,7 +40,10 @@ function Prod() {
                     <div className = "product-img col-sm-12 col-lg-6">
                 <img src = {product.image_url} alt = "" className = "img-fluid d-block mx-auto"></img>
                 <NavLink
-                    onClick={()=>dispatch(addWish(product))} 
+                    onClick={()=>{
+                        dispatch(addWish(product))
+                        toast.success(`${product.name} added to wish list`)
+                    }} 
                     className = "heart-icon text-decoration-none text-danger border-0">
                     <i className = "far fa-heart"></i>
                 </NavLink>
