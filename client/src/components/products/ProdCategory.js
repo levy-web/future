@@ -65,12 +65,12 @@ function ProdCategory() {
 
   return (
     <>
-    <div className='container'>
-        <div className='d-flex'>          
+    <div className='container my-3'>
+        <div className='d-flex jsutify-content-center align-items-center'>          
         
-        <button className='m-1 bg-white border-0'><NavLink to={`/category/${protectedArea}`} className='text-decoration-none'>{` ${protectedArea}`}</NavLink></button>
-        <button className='m-1 bg-white border-0'><NavLink className='text-decoration-none text-dark'>{`${category}`}</NavLink></button>
-        {loading ? "" : <p className='ms-auto'>{` (${products.length}) items`}</p>}
+          <button className='m-1 bg-white border-0'><NavLink to={`/category/${protectedArea}`} className='text-decoration-none'>{` ${protectedArea}`}</NavLink></button>
+          <button className='m-1 bg-white border-0'><NavLink className='text-decoration-none text-dark'>{`${category}`}</NavLink></button>
+          {loading ? "" : <p className='ms-auto mt-4'>{` (${products.length}) items`}</p>}
         </div>
         <hr/>
         <div className='row g-4 my-2 mx-auto carosel'>

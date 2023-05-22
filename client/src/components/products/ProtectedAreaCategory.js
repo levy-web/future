@@ -36,7 +36,7 @@ function ProtectedAreaCategory({simCategory, protectedArea}) {
     }) 
   return (
     <div className='my-3'>
-        <div className='d-flex'>
+        <div className='d-flex border-bottom border-primary'>
         <h6>Similar Products</h6>
         <NavLink to={`/category/${protectedArea}`} className='fs-6 ms-auto me-2'>view all{` (${simProtectedProd.length}) items`}</NavLink>
       </div>

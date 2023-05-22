@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
 @media (max-width: 990px){
     .side-b{
-        position: absolute;
+        position: fixed;
         background-color: #fff;
         color:#fff;
         top: 0;
@@ -188,7 +188,7 @@
     }
 
     .side-b{
-        position: absolute;
+        position: fixed;
         background-color: #fff;
         color:#fff;
         top: 0;

@@ -13,6 +13,7 @@ function Brand() {
     const displayBrands = brands.map(
         (item, index)=><img key={index} className="mx-5" src={item} alt="First slide"></img>)
   return (
+    <div className='container'>
     <div className='row my-1 mx-1'>
         <Marquee
               style={{ overflow: "hidden"}}
@@ -23,6 +24,7 @@ function Brand() {
             {displayBrands}
         </Marquee>
         
+    </div>
     </div>
   )
 }

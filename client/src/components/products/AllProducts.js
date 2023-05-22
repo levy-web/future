@@ -30,8 +30,8 @@ function AllProducts() {
 
   return (
     <div className='row carosel my-5 h-100'>
-        <div className='d-flex'>
-        <h6 className='border-bottom border-primary'>All products</h6>
+        <div className='d-flex border-bottom my-3 p-1 border-primary'>
+          <h5 className='text-bold'>All products</h5>
         </div>
         <hr/>
         {showProducts}

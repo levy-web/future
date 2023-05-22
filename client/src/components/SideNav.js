@@ -12,7 +12,7 @@ function SideNav({openSideMenu}) {
     const dispatch = useDispatch()
     const isLoggedIn = useSelector((state)=>state.user.isLoggedIn)
     const state = useSelector((state) => state.cart);
-    const [searchValue, setSearchValue] = useState(null)
+    const [searchValue, setSearchValue] = useState('')
     const products = useSelector((state)=>state.products.products)
 
     
@@ -31,7 +31,7 @@ function SideNav({openSideMenu}) {
 
     const searchList = products.map((item)=>{
         if((item.name.toLowerCase()).includes(searchValue)) {
-            return <li><NavLink to={`/category/${item.category.protected_area}/${item.category.name}/product/${item.id}`} className='text-decoration-none list-style-none'>{item.name}</NavLink></li>
+            return <li><NavLink onClick={()=>setSearchValue('')} to={`/category/${item.category.protected_area}/${item.category.name}/product/${item.id}`} className='text-decoration-none list-style-none'>{item.name}</NavLink></li>
         }
     })
 
@@ -61,7 +61,7 @@ function SideNav({openSideMenu}) {
                         
 
                         <div className={`border border-primary bg-primary rounded-pill w-100 rounded p-1 d-flex`} >
-                            <input onChange={handleInputChange} className='form-control ms-1 me-1 w-100 border-0' placeholder='search . .'></input>
+                            <input value={searchValue} onChange={handleInputChange} className='form-control ms-1 me-1 w-100 border-0' placeholder='search . .'></input>
                             <i className=" fs-5 m-auto fas fa-search"></i> 
                         </div>
                     
