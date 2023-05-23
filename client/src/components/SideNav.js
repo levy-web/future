@@ -53,9 +53,9 @@ function SideNav({openSideMenu}) {
                             type="button"
                             onClick={openSideMenu}
                         >
-                        <div className='justify-content-center align-items-center d-flex'>
+                        <div className='align-items-center d-flex'>
                         <span className="border-0 text-dark"><FontAwesomeIcon icon={faBars} /></span>
-                        <h6 className='p-2 my-1'>categories</h6>
+                        <h6 className='p-2 m-auto'>categories</h6>
                         </div>
                         </button>
                         
