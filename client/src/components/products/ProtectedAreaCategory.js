@@ -36,9 +36,9 @@ function ProtectedAreaCategory({simCategory, protectedArea}) {
     }) 
   return (
     <div className='my-3'>
-        <div className='d-flex border-bottom border-primary'>
-        <h6>Similar Products</h6>
-        <NavLink to={`/category/${protectedArea}`} className='fs-6 ms-auto me-2'>view all{` (${simProtectedProd.length}) items`}</NavLink>
+        <div className='d-flex header-div rounded'>
+        <h6 className='mx-2 text-white'>Similar Products</h6>
+        <NavLink to={`/category/${protectedArea}`} className='fs-6 ms-auto text-white text-decoration-none me-2'>view all{` (${simProtectedProd.length}) items`}</NavLink>
       </div>
       <hr/>   
       

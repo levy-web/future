@@ -461,3 +461,12 @@
   .marquee{
     z-index: 1;
   }
+
+  .carosel{
+    z-index: 1;
+  }
+
+  .header-div{
+    background-color: #2b2eff;
+    align-items: center;
+  }
