@@ -29,7 +29,7 @@ function AllProducts() {
 
 
   return (
-    <div className='row carosel my-5 h-100'>
+    <div className='row mx-1 carosel my-5 h-100'>
         <div className='header-div rounded my-3 border-primary'>
           <h6 className='text-white mx-2'>All products</h6>
         </div>
