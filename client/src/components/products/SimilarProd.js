@@ -56,8 +56,8 @@ function SimilarProd({simCategory, id, protectedArea}) {
 
   return (
     <div className='my-5'>
-      <div className='header-div rounded my-3 d-flex content-align-center'>
-        <h6 className='text-white mx-2'>Similar Products</h6>
+      <div className='header-div rounded my-3 d-flex'>
+        <h6 className='text-white m-auto mx-2'>Similar Products</h6>
         {loading ? "" : <NavLink to={`/category/${protectedArea}/${simCategory}`} className='fs-6 ms-auto text-decoration-none me-2 text-white'>view all{` (${simProduct.length}) items`}</NavLink>}
       </div>
       <hr/>   
