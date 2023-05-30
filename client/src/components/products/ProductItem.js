@@ -14,9 +14,6 @@ function ProductItem({product, category, protection}) {
                 <div className = "row btns w-100 mx-auto text-center">
                     <button 
                         onClick={()=>{
-                            console.log(product)
-                            console.log(category)
-                            console.log(protection)
                             dispatch(addWish({
                                 product:product,
                                 category:category,
