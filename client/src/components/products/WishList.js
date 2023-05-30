@@ -77,7 +77,7 @@ const WishList = () => {
                   <div className="card-body">
                     {state.map((item) => {
                       return (
-                        <div key={item.id}>
+                        <div key={item.product.id}>
                           <div className="row d-flex align-items-center">
                             <div className="col-lg-3 col-md-12">
                               <div
@@ -85,8 +85,8 @@ const WishList = () => {
                                 data-mdb-ripple-color="light"
                               >
                                 <img
-                                  src={item.image_url}
-                                  alt={item.name}
+                                  src={item.product.image_url}
+                                  alt={item.product.name}
                                   width={100}
                                   height={75}
                                 />
@@ -95,7 +95,7 @@ const WishList = () => {
 
                             <div className="col-lg-5 col-md-6">
                               <p>
-                                <strong><NavLink to = {`/category/${item.category.protected_area}/${item.category.name}/product/${item.id}`} className = "d-block text-primary text-decoration-none py-2 product-name">{item.name}</NavLink></strong>
+                                <strong><NavLink to = {`/category/${item.protection}/${item.category}/product/${item.product.id}`} className = "d-block text-primary text-decoration-none py-2 product-name">{item.product.name}</NavLink></strong>
                               </p>
                             </div>
 

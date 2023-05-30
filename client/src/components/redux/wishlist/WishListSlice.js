@@ -7,7 +7,7 @@ const wishSlice = (state=wishList, action) =>{
     switch(action.type){
         case ADD_WISH:
             // Check if product already in cart
-            const exist = state.find((x) => x.id === product.id)
+            const exist = state.find((x) => x.product.id === product.product.id)
             if(exist){
                 // Increase the quantity
                 return [...state]
@@ -17,12 +17,12 @@ const wishSlice = (state=wishList, action) =>{
             }
             break;
         case REMOVE_WISH:
-            const exist2 = state.find((x) => x.id === product.id)
+            const exist2 = state.find((x) => x.product.id === product.product.id)
             if(exist2.qty === 1){
-                return state.filter((x)=>x.id!==exist2.id)
+                return state.filter((x)=>x.product.id!==exist2.product.id)
             }
             else{
-                return state.map((x)=> x.id===product.id?{...x, qty:x.qty-1}:x)
+                return state.map((x)=> x.product.id===product.product.id?{...x, qty:x.qty-1}:x)
             }
             break;
 

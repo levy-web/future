@@ -14,7 +14,14 @@ function ProductItem({product, category, protection}) {
                 <div className = "row btns w-100 mx-auto text-center">
                     <button 
                         onClick={()=>{
-                            dispatch(addWish(product))
+                            console.log(product)
+                            console.log(category)
+                            console.log(protection)
+                            dispatch(addWish({
+                                product:product,
+                                category:category,
+                                protection:protection
+                            }))
                             toast.success(`${product.name} added to wish list`)
                         }}
                         type = "button" 
