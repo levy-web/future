@@ -8,6 +8,9 @@
 
 puts ('started seeding')
 
+admin = User.create( name: "leo", email: "leo@gmail.com", password: "222222")
+Admin.create(user_id: admin.id)
+
 Category.create(protected_area:"Body Protection", name: "Coveralls")
 Category.create(protected_area:"Body Protection", name: "Pant & Shirts")
 
