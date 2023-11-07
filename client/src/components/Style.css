@@ -13,7 +13,7 @@
         scroll-behavior: true;
         width: 280px;
         transform: translateX(-100%);
-        transition: all 0.4s;
+        transition: all 0s;
     }
     .menu-heights{
         padding-top: 60px;
@@ -37,7 +37,6 @@
 
     .side-b li{
         padding: 0.5rem 1rem;
-        border-bottom: solid #e8e8fd;
     }
 
     /* .side-b li:hover{
@@ -198,9 +197,9 @@
         max-height: 100vh;
         overflow-y: auto;
         scroll-behavior: true;
-        width: 380px;
-        transform: translateX(-100%);
-        transition: all 0.4s;
+        width: 500px;
+        transform: translateX(-150%);
+        transition: all 0s;
     }
 
     .side-b-open{
@@ -209,7 +208,7 @@
 
     .side-b li{
         padding: 0.5rem 1rem;
-        border-bottom: solid #e8e8fd;
+        
     }
     .menu-heights{
         padding-top: 125px;
@@ -341,8 +340,13 @@
     transition: all 0.3s ease-in-out;
 }
 .product-name:hover{
-    color: #fcb941!important;
+    color: #000080!important;
+    background-color: #e3e3e6;
+    padding: 0.5rem;
+    border-radius: 10px;
+
 }
+
 .product-price{
     color: #fcb941;
 }

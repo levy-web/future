@@ -52,7 +52,7 @@ function SideMenu({closeSideMenu}) {
         
         <li className="nav-item active dropdown" >
             <NavLink 
-                className="nav-link product-name fs-4 navbar-toggler dropdown-toggle text-dark" 
+                className="nav-link product-name fs-4 dropdown-toggle text-dark" 
                 data-toggle="collapse"
                 data-target="#headToggle"
                 aria-controls="navbarNav"
@@ -68,7 +68,7 @@ function SideMenu({closeSideMenu}) {
         
         <li className="nav-item  dropdown">
             <NavLink
-                className="nav-link product-name fs-4 navbar-toggler dropdown-toggle text-dark" 
+                className="nav-link product-name fs-4 dropdown-toggle text-dark" 
                 data-toggle="collapse"
                 data-target="#bodyToggle"
                 aria-controls="navbarNav"
@@ -84,7 +84,7 @@ function SideMenu({closeSideMenu}) {
         </li>
         <li className="nav-item dropdown">
         <NavLink
-                className="nav-link product-name fs-4 navbar-toggler dropdown-toggle text-dark" 
+                className="nav-link product-name fs-4 dropdown-toggle text-dark" 
                 data-toggle="collapse"
                 data-target="#respiratoryToggle"
                 aria-controls="navbarNav"
@@ -99,7 +99,7 @@ function SideMenu({closeSideMenu}) {
         </li>
         <li className="nav-item dropdown">
         <NavLink
-                className="nav-link product-name fs-4 navbar-toggler dropdown-toggle text-dark" 
+                className="nav-link product-name fs-4 dropdown-toggle text-dark" 
                 data-toggle="collapse"
                 data-target="#footToggle"
                 aria-controls="navbarNav"
@@ -115,7 +115,7 @@ function SideMenu({closeSideMenu}) {
         </li>
         <li className="nav-item dropdown">
         <NavLink
-                className="nav-link product-name fs-4 navbar-toggler dropdown-toggle text-dark" 
+                className="nav-link product-name fs-4 dropdown-toggle text-dark" 
                 data-toggle="collapse"
                 data-target="#handToggle"
                 aria-controls="navbarNav"
@@ -131,7 +131,7 @@ function SideMenu({closeSideMenu}) {
         </li>
         <li className="nav-item dropdown">
         <NavLink
-                className="nav-link product-name fs-4 navbar-toggler dropdown-toggle text-dark" 
+                className="nav-link product-name fs-4 dropdown-toggle text-dark" 
                 data-toggle="collapse"
                 data-target="#hearingToggle"
                 aria-controls="navbarNav"
@@ -146,7 +146,7 @@ function SideMenu({closeSideMenu}) {
         </li>
         <li className="nav-item dropdown">
         <NavLink
-                className="nav-link product-name fs-4 navbar-toggler dropdown-toggle text-dark" 
+                className="nav-link product-name fs-4 dropdown-toggle text-dark" 
                 data-toggle="collapse"
                 data-target="#faceneyeToggle"
                 aria-controls="navbarNav"
@@ -161,7 +161,7 @@ function SideMenu({closeSideMenu}) {
         </li>
         <li className="nav-item dropdown">
         <NavLink
-                className="nav-link product-name fs-4 navbar-toggler dropdown-toggle text-dark" 
+                className="nav-link product-name fs-4 dropdown-toggle text-dark" 
                 data-toggle="collapse"
                 data-target="#fireToggle"
                 aria-controls="navbarNav"

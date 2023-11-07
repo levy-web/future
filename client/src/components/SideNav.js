@@ -49,7 +49,7 @@ function SideNav({openSideMenu}) {
                         </NavLink>
 
                         <button
-                            className="collapse navbar-collapse navbar-toggler border-0"
+                            className="collapse navbar-collapse bg-white mx-4 border-0"
                             type="button"
                             onClick={openSideMenu}
                         >
