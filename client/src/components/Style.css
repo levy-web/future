@@ -289,7 +289,7 @@
 }
 
 .footer {
-    position: relative;
+    position: absolute;
     text-align: center;
     bottom: 0;
     width: 100%;
@@ -341,9 +341,6 @@
 }
 .product-name:hover{
     color: #000080!important;
-    background-color: #e3e3e6;
-    padding: 0.5rem;
-    border-radius: 10px;
 
 }
 
