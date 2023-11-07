@@ -197,7 +197,7 @@
         max-height: 100vh;
         overflow-y: auto;
         scroll-behavior: true;
-        width: 500px;
+        width: 380px;
         transform: translateX(-150%);
         transition: all 0s;
     }
