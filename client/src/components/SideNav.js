@@ -62,7 +62,7 @@ function SideNav({openSideMenu}) {
 
                         <div className={`border border-primary bg-primary rounded-pill w-100 rounded p-1 d-flex`} >
                             <input value={searchValue} onChange={handleInputChange} className='form-control ms-1 me-1 w-100 border-0' placeholder='search . .'></input>
-                            <i className=" fs-5 m-auto fas fa-search"></i> 
+                            <i className=" fs-5 m-auto text-white fas fa-search"></i> 
                         </div>
                     
                     
